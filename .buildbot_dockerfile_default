@@ -1,0 +1,11 @@
+FROM debian:latest
+WORKDIR /ci
+RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
+    --mount=target=/var/cache/apt,type=cache,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
+    apt update && apt install -y pipx lua5.3 git
+ARG CI_UID
+RUN useradd -m -u ${CI_UID} ci && chown ${CI_UID}:${CI_UID} .
+RUN chown ${CI_UID}:${CI_UID} .
+COPY --chown=${CI_UID}:${CI_UID} . .
+CMD sh -x .buildbot.sh
