@@ -24,9 +24,14 @@ git clone https://github.com/ykjit/yklua
 cd yklua
 YK_BUILD_TYPE=release make -j $(nproc)
 mv src/lua src/yklua
+cd ..
 
-# Build yklua without JIT support. This will be the baseline.
-make clean
+# Build plain old Lua as a baseline.
+LUA_V=5.4.6
+curl https://lua.org/ftp/lua-${LUA_V}.tar.gz -o lua-${LUA_V}.tar.gz
+tar zxvf lua-${LUA_V}.tar.gz
+mv lua-${LUA_V} lua
+cd lua
 make -j $(nproc)
 cd ..
 
