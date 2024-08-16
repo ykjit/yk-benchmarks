@@ -1,0 +1,20 @@
+FROM debian:latest
+WORKDIR /bm
+RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
+    --mount=target=/var/cache/apt,type=cache,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
+    apt update && apt install -y pipx git ninja-build libtinfo-dev \
+      libzip-dev mold gdb clang-15 curl cmake pwgen && \
+    update-alternatives --install /usr/bin/cc cc /usr/bin/clang-15 999 && \
+    update-alternatives --set cc /usr/bin/clang-15 && \
+    update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-15 999 && \
+    update-alternatives --set c++ /usr/bin/clang++-15 && \
+    update-alternatives --install /usr/bin/ld ld /usr/bin/mold 999 && \
+    update-alternatives --set ld /usr/bin/mold && \
+    ln -sf /usr/bin/clang-15 /usr/bin/clang && \
+    ln -sf /usr/bin/clang++-15 /usr/bin/clang++
+ARG BM_UID
+RUN useradd -m -u ${BM_UID} ci && chown ${BM_UID}:${BM_UID} .
+RUN chown ${BM_UID}:${BM_UID} .
+COPY --chown=${BM_UID}:${BM_UID} . .
+CMD sh -x .benchmark_inner.sh
