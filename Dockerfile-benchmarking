@@ -4,7 +4,7 @@ RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     --mount=target=/var/cache/apt,type=cache,sharing=locked \
     rm -f /etc/apt/apt.conf.d/docker-clean && \
     apt update && apt install -y pipx git ninja-build libtinfo-dev \
-      libzip-dev mold gdb clang-15 curl cmake pwgen && \
+      libzip-dev mold gdb clang-15 curl cmake && \
     update-alternatives --install /usr/bin/cc cc /usr/bin/clang-15 999 && \
     update-alternatives --set cc /usr/bin/clang-15 && \
     update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-15 999 && \
