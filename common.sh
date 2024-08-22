@@ -36,4 +36,5 @@ setup() {
     cd ..
 
     pipx install rebench
+    pipx install toml-cli
 }
