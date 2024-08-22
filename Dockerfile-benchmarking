@@ -17,4 +17,4 @@ ARG BM_UID
 RUN useradd -m -u ${BM_UID} ci && chown ${BM_UID}:${BM_UID} .
 RUN chown ${BM_UID}:${BM_UID} .
 COPY --chown=${BM_UID}:${BM_UID} . .
-CMD sh -x .benchmark_inner.sh
+CMD ["sh", "-x", ".benchmark_inner.sh"]
