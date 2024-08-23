@@ -1,4 +1,4 @@
-use chrono::{Local, NaiveDateTime};
+use chrono::{DateTime, Local, NaiveDateTime};
 use plotters::prelude::*;
 use reporter::{
     parser::parse,
@@ -35,6 +35,7 @@ fn process_file(
     abs_lines: &mut HashMap<String, Line>,
     norm_line: &mut Line,
     line_colours: &HashMap<&str, RGBColor>,
+    geo_data: &mut HashMap<DateTime<Local>, Vec<f64>>,
 ) {
     // Parse the results file filtering out the benchmark of interest.
     let rf = parse(entry.path(), bm_name, bm_arg).unwrap();
@@ -98,6 +99,9 @@ fn process_file(
                 .unwrap(),
         ),
     ));
+
+    // Record what we need to compute a geometric mean speedup over all benchmarks.
+    geo_data.entry(xval).or_default().push(yval);
 }
 
 fn write_html_header(html: &mut std::fs::File) -> Result<(), std::io::Error> {
@@ -123,6 +127,32 @@ fn usage() -> ! {
     std::process::exit(1)
 }
 
+fn geomean(vs: &[f64]) -> f64 {
+    let prod = vs.iter().fold(1.0, |p, v| p * v);
+    prod.powf(1.0 / vs.len() as f64)
+}
+
+fn compute_geomean_line(geo_data: &HashMap<DateTime<Local>, Vec<f64>>) -> Line {
+    let mut line = Line::new(MAGENTA);
+    for (date, yvals) in geo_data {
+        line.push(Point::new(
+            *date,
+            geomean(yvals),
+            (
+                *yvals
+                    .iter()
+                    .min_by(|a, b| a.partial_cmp(b).unwrap())
+                    .unwrap(),
+                *yvals
+                    .iter()
+                    .max_by(|a, b| a.partial_cmp(b).unwrap())
+                    .unwrap(),
+            ),
+        ));
+    }
+    line
+}
+
 fn main() {
     let mut args = std::env::args().skip(1);
     let res_dir = args.next().unwrap_or_else(|| usage());
@@ -138,8 +168,22 @@ fn main() {
     let mut html = std::fs::File::create(html_fn).unwrap();
     write_html_header(&mut html).unwrap();
 
+    // Reserve space on page for the geomean plots (generated last).
+    writeln!(html, "<h2>Summary</h2>").unwrap();
+
+    let mut geoabs_output_path = out_dir.clone();
+    geoabs_output_path.push("geo_abs.svg");
+    write!(
+        html,
+        "<img align='center' src='{}' />",
+        geoabs_output_path.file_name().unwrap().to_str().unwrap()
+    )
+    .unwrap();
+
     // Process one benchmark at a time so that we don't hold a lot of data in memory at once.
     let line_colours = HashMap::from(LINE_COLOURS);
+    // maps: vm_name -> (date -> Vec<arith_mean>)
+    let mut geo_data: HashMap<DateTime<Local>, Vec<f64>> = HashMap::new();
     for (bm_name, bm_arg) in BENCHES_TO_PLOT {
         let mut abs_lines = HashMap::new();
         let mut norm_line = Line::new(line_colours["Norm"]);
@@ -157,6 +201,7 @@ fn main() {
                 &mut abs_lines,
                 &mut norm_line,
                 &line_colours,
+                &mut geo_data,
             );
         }
 
@@ -198,5 +243,27 @@ fn main() {
         )
         .unwrap();
     }
+
+    // Plot the geomean summary.
+    let geo_norm_line = compute_geomean_line(&geo_data);
+    let config = PlotConfig::new(
+        "Benchmark performance over time, normalised to regular Lua (over all benchmarks)",
+        "Date",
+        "Geometric mean speedup with error (min/max)",
+        HashMap::from([("Norm".into(), geo_norm_line)]),
+        geoabs_output_path,
+    );
+    plot(&config);
+
     write_html_footer(&mut html).unwrap();
+}
+
+#[cfg(test)]
+mod test {
+    use super::geomean;
+
+    #[test]
+    fn geomeans() {
+        assert_eq!(geomean(&[1.0, 2.0, 3.0, 4.0]), 2.2133638394006434);
+    }
 }
