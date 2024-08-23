@@ -9,6 +9,25 @@ usage() {
     echo "usage: run.sh <results-dir>"
 }
 
+# Determine how to format time on current platform and take a reading of the
+# system clock now.
+#
+# We use this reading to generate all paths that contain date/time elements.
+case $(uname | tr '[:upper:]' '[:lower:]') in
+    linux)
+        FMT_EPOCH="date -d"
+        TIMESTAMP=@$(date +%s) # linux requires an @
+        ;;
+    openbsd)
+        FMT_EPOCH="date -r"
+        TIMESTAMP=$(date +%s)
+        ;;
+    *)
+        echo "unsupported OS"
+        exit 1
+        ;;
+esac
+
 if [ $# -ne 1 ]; then
     usage
     exit 1
@@ -21,20 +40,15 @@ fi
 
 RES_DIR=$1; shift
 
-# Read the system clock now.
-#
-# We use this reading to generate all paths that contain date/time elements.
-TIMESTAMP=$(date +%s) # seconds since EPOCH.
-
 # Create a place for the results file to live if necessary.
 #
 # We are going to put results files in YYYY-MM sub-directories so that we don't
 # get one huge directory of results files.
-RES_SUBDIR="${RES_DIR}/$(date -j -f %s ${TIMESTAMP} +%Y%m)"
+RES_SUBDIR="${RES_DIR}/$(${FMT_EPOCH} ${TIMESTAMP} +%Y%m)"
 mkdir -p ${RES_SUBDIR}
 
 # Run benchmarks inside docker.
-YMDHMS=$(date -j -f %s ${TIMESTAMP} +%Y%m%d_%H%M%S)
+YMDHMS=$(${FMT_EPOCH} ${TIMESTAMP} +%Y%m%d_%H%M%S)
 IMAGE_TAG="bm-${YMDHMS}"
 CONT_NAME=$(pwgen -s 16 1)
 BM_UID=$(id -u)
