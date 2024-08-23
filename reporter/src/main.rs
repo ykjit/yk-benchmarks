@@ -66,16 +66,7 @@ fn process_file(
         let line = abs_lines
             .entry(vm.to_string())
             .or_insert(Line::new(line_colours[vm.as_str()]));
-        let y_err = (
-            *exec_times
-                .iter()
-                .min_by(|a, b| a.partial_cmp(b).unwrap())
-                .unwrap(),
-            *exec_times
-                .iter()
-                .max_by(|a, b| a.partial_cmp(b).unwrap())
-                .unwrap(),
-        );
+        let y_err = (f64_min(exec_times), f64_max(exec_times));
         line.push(Point::new(xval, yval, y_err));
     }
     // Compute Y values for the normalised plot.
@@ -88,16 +79,7 @@ fn process_file(
     norm_line.push(Point::new(
         xval,
         yval,
-        (
-            *norm_extimes
-                .iter()
-                .min_by(|a, b| a.partial_cmp(b).unwrap())
-                .unwrap(),
-            *norm_extimes
-                .iter()
-                .max_by(|a, b| a.partial_cmp(b).unwrap())
-                .unwrap(),
-        ),
+        (f64_min(norm_extimes), f64_max(norm_extimes)),
     ));
 
     // Record what we need to compute a geometric mean speedup over all benchmarks.
@@ -132,22 +114,27 @@ fn geomean(vs: &[f64]) -> f64 {
     prod.powf(1.0 / vs.len() as f64)
 }
 
+/// Compute the minimum value of 64-bit floats.
+///
+/// Panics if the comparison is invalid.
+fn f64_min(vs: &[f64]) -> f64 {
+    *vs.iter().min_by(|a, b| a.partial_cmp(b).unwrap()).unwrap()
+}
+
+/// Compute the maximum value of 64-bit floats.
+///
+/// Panics if the comparison is invalid.
+fn f64_max(vs: &[f64]) -> f64 {
+    *vs.iter().max_by(|a, b| a.partial_cmp(b).unwrap()).unwrap()
+}
+
 fn compute_geomean_line(geo_data: &HashMap<DateTime<Local>, Vec<f64>>) -> Line {
     let mut line = Line::new(MAGENTA);
     for (date, yvals) in geo_data {
         line.push(Point::new(
             *date,
             geomean(yvals),
-            (
-                *yvals
-                    .iter()
-                    .min_by(|a, b| a.partial_cmp(b).unwrap())
-                    .unwrap(),
-                *yvals
-                    .iter()
-                    .max_by(|a, b| a.partial_cmp(b).unwrap())
-                    .unwrap(),
-            ),
+            (f64_min(yvals), f64_max(yvals)),
         ));
     }
     line
