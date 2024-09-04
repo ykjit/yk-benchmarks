@@ -4,7 +4,7 @@ use reporter::{
     parser::parse,
     plot::{plot, Line, PlotConfig, Point},
 };
-use std::{collections::HashMap, io::Write, path::PathBuf};
+use std::{collections::HashMap, ffi::OsStr, io::Write, path::PathBuf};
 use walkdir::{DirEntry, WalkDir};
 
 /// Benchmarks to plot.
@@ -179,6 +179,10 @@ fn main() {
         for entry in walker {
             let entry = entry.unwrap();
             if !entry.file_type().is_file() {
+                continue;
+            }
+            // Skip any filenames not ending with ".data".
+            if entry.path().extension().unwrap_or_else(|| OsStr::new("")) != OsStr::new("data") {
                 continue;
             }
             process_file(
