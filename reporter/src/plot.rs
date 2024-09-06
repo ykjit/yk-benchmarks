@@ -147,12 +147,12 @@ pub fn plot(config: &PlotConfig) {
 
     for (vm, line) in &config.lines {
         let colour = line.colour;
+        // Sort the points so that the line doesn't zig-zag back and forth across the X-axis.
+        let mut sorted_points = line.points.iter().map(|p| (p.x, p.y)).collect::<Vec<_>>();
+        sorted_points.sort_by(|p1, p2| p1.0.partial_cmp(&p2.0).unwrap());
         // Draw line.
         chart
-            .draw_series(LineSeries::new(
-                line.points.iter().map(|p| (p.x, p.y)),
-                colour,
-            ))
+            .draw_series(LineSeries::new(sorted_points, colour))
             .unwrap()
             .label(vm)
             .legend(move |(x, y)| PathElement::new(vec![(x, y), (x + 20, y)], colour));
