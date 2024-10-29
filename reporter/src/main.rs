@@ -73,7 +73,7 @@ fn process_file(
     let norm_extimes = &exec_times["Lua"]
         .iter()
         .zip(&exec_times["YkLua"])
-        .map(|(lua, yklua)| lua / yklua)
+        .map(|(lua, yklua)| yklua / lua)
         .collect::<Vec<_>>();
     let yval = norm_extimes.iter().sum::<f64>() / (norm_extimes.len() as f64);
     norm_line.push(Point::new(
