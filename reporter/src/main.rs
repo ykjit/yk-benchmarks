@@ -159,7 +159,7 @@ fn main() {
     writeln!(html, "<h2>Summary</h2>").unwrap();
 
     let mut geoabs_output_path = out_dir.clone();
-    geoabs_output_path.push("geo_abs.svg");
+    geoabs_output_path.push("geo_abs.png");
     write!(
         html,
         "<img align='center' src='{}' />",
@@ -200,7 +200,7 @@ fn main() {
 
         // Plot aboslute times.
         let mut output_path = out_dir.clone();
-        output_path.push(format!("{bm_name}_{bm_arg}_vs_yklua.svg"));
+        output_path.push(format!("{bm_name}_{bm_arg}_vs_yklua.png"));
         let config = PlotConfig::new(
             "Benchmark performance over time",
             "Date",
@@ -218,7 +218,7 @@ fn main() {
 
         // Plot data normalised to yklua.
         let mut output_path = out_dir.clone();
-        output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.svg"));
+        output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.png"));
         let config = PlotConfig::new(
             "Benchmark performance over time, normalised to regular Lua",
             "Date",
