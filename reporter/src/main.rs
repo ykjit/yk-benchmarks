@@ -8,7 +8,8 @@ use std::{collections::HashMap, ffi::OsStr, io::Write, path::PathBuf};
 use walkdir::{DirEntry, WalkDir};
 
 /// Benchmarks to plot.
-const BENCHES_TO_PLOT: [(&str, &str); 14] = [
+const BENCHES_TO_PLOT: [(&str, &str); 15] = [
+    // The awfy suite
     ("DeltaBlue", "12000"),
     ("Richards", "100"),
     ("Json", "100"),
@@ -23,6 +24,8 @@ const BENCHES_TO_PLOT: [(&str, &str); 14] = [
     ("Sieve", "3000"),
     ("Storage", "1000"),
     ("Towers", "600"),
+    // The yk suite
+    ("BigLoop", "1000000000"),
 ];
 
 /// Colours of the lines on the plots.
@@ -39,6 +42,10 @@ fn process_file(
 ) {
     // Parse the results file filtering out the benchmark of interest.
     let rf = parse(entry.path(), bm_name, bm_arg).unwrap();
+    if rf.is_empty() {
+        // This benchmark wasn't run at this time.
+        return;
+    }
     // Collect execution times on a per-vm basis.
     let mut exec_times: HashMap<String, Vec<f64>> = HashMap::new();
     for row_idx in 0..rf.len() {
