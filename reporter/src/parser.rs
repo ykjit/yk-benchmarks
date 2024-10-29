@@ -27,6 +27,10 @@ impl ResultsFile {
     pub fn col_idx(&self, col: &str) -> usize {
         self.col_map[col]
     }
+
+    pub fn is_empty(&self) -> bool {
+        self.rows.is_empty()
+    }
 }
 
 fn split_by_tab(line: &str) -> Vec<String> {
@@ -66,9 +70,6 @@ pub fn parse(res_file: &Path, bm_name: &str, bm_arg: &str) -> Result<ResultsFile
                 rows.push(split_by_tab(&line));
             }
         }
-    }
-    if rows.is_empty() {
-        panic!("parsed zero rows from results file! Mis-spelled becnhmark name?");
     }
     Ok(ResultsFile {
         col_map: col_map.unwrap(),

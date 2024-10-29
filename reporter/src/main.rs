@@ -8,7 +8,8 @@ use std::{collections::HashMap, ffi::OsStr, io::Write, path::PathBuf};
 use walkdir::{DirEntry, WalkDir};
 
 /// Benchmarks to plot.
-const BENCHES_TO_PLOT: [(&str, &str); 14] = [
+const BENCHES_TO_PLOT: [(&str, &str); 15] = [
+    // The awfy suite
     ("DeltaBlue", "12000"),
     ("Richards", "100"),
     ("Json", "100"),
@@ -23,6 +24,8 @@ const BENCHES_TO_PLOT: [(&str, &str); 14] = [
     ("Sieve", "3000"),
     ("Storage", "1000"),
     ("Towers", "600"),
+    // The yk suite
+    ("BigLoop", "1000000000"),
 ];
 
 /// Colours of the lines on the plots.
@@ -39,6 +42,10 @@ fn process_file(
 ) {
     // Parse the results file filtering out the benchmark of interest.
     let rf = parse(entry.path(), bm_name, bm_arg).unwrap();
+    if rf.is_empty() {
+        // This benchmark wasn't run at this time.
+        return;
+    }
     // Collect execution times on a per-vm basis.
     let mut exec_times: HashMap<String, Vec<f64>> = HashMap::new();
     for row_idx in 0..rf.len() {
@@ -73,7 +80,7 @@ fn process_file(
     let norm_extimes = &exec_times["Lua"]
         .iter()
         .zip(&exec_times["YkLua"])
-        .map(|(lua, yklua)| lua / yklua)
+        .map(|(lua, yklua)| yklua / lua)
         .collect::<Vec<_>>();
     let yval = norm_extimes.iter().sum::<f64>() / (norm_extimes.len() as f64);
     norm_line.push(Point::new(
@@ -159,7 +166,7 @@ fn main() {
     writeln!(html, "<h2>Summary</h2>").unwrap();
 
     let mut geoabs_output_path = out_dir.clone();
-    geoabs_output_path.push("geo_abs.svg");
+    geoabs_output_path.push("geo_abs.png");
     write!(
         html,
         "<img align='center' src='{}' />",
@@ -200,7 +207,7 @@ fn main() {
 
         // Plot aboslute times.
         let mut output_path = out_dir.clone();
-        output_path.push(format!("{bm_name}_{bm_arg}_vs_yklua.svg"));
+        output_path.push(format!("{bm_name}_{bm_arg}_vs_yklua.png"));
         let config = PlotConfig::new(
             "Benchmark performance over time",
             "Date",
@@ -218,7 +225,7 @@ fn main() {
 
         // Plot data normalised to yklua.
         let mut output_path = out_dir.clone();
-        output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.svg"));
+        output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.png"));
         let config = PlotConfig::new(
             "Benchmark performance over time, normalised to regular Lua",
             "Date",

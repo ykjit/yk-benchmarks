@@ -119,7 +119,7 @@ fn find_plot_extents(lines: &HashMap<String, Line>) -> (Range<DateTime<Local>>, 
 pub fn plot(config: &PlotConfig) {
     let (x_extent, y_extent) = find_plot_extents(&config.lines);
 
-    let drawing = SVGBackend::new(&config.output_path, (850, 600)).into_drawing_area();
+    let drawing = BitMapBackend::new(&config.output_path, (850, 600)).into_drawing_area();
     drawing.fill(&WHITE).unwrap();
 
     let mut chart = ChartBuilder::on(&drawing)
