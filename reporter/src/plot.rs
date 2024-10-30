@@ -116,7 +116,11 @@ fn find_plot_extents(lines: &HashMap<String, Line>) -> (Range<DateTime<Local>>, 
 }
 
 /// Plot some data into a SVG file.
-pub fn plot(config: &PlotConfig) {
+///
+/// If we are plotting more than one line, then they are assumed to contain the same x-values.
+///
+/// Returns the last (rightmost) X value.
+pub fn plot(config: &PlotConfig) -> DateTime<Local> {
     let (x_extent, y_extent) = find_plot_extents(&config.lines);
 
     let drawing = BitMapBackend::new(&config.output_path, (850, 600)).into_drawing_area();
@@ -145,11 +149,18 @@ pub fn plot(config: &PlotConfig) {
         .draw()
         .unwrap();
 
+    let mut last_x = None;
     for (vm, line) in &config.lines {
         let colour = line.colour;
         // Sort the points so that the line doesn't zig-zag back and forth across the X-axis.
         let mut sorted_points = line.points.iter().map(|p| (p.x, p.y)).collect::<Vec<_>>();
         sorted_points.sort_by(|p1, p2| p1.0.partial_cmp(&p2.0).unwrap());
+
+        // Cache the rightmost X value.
+        if last_x.is_none() {
+            last_x = Some(sorted_points.last().unwrap().0);
+        }
+
         // Draw line.
         chart
             .draw_series(LineSeries::new(sorted_points, colour))
@@ -175,4 +186,6 @@ pub fn plot(config: &PlotConfig) {
         .unwrap();
 
     drawing.present().unwrap();
+
+    last_x.unwrap()
 }

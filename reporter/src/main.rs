@@ -215,7 +215,12 @@ fn main() {
             abs_lines,
             output_path,
         );
-        plot(&config);
+
+        let last_x = plot(&config);
+
+        // Inidcate when the last data point was collected.
+        write!(html, "<p>Last X value is {}</p>", last_x).unwrap();
+
         write!(
             html,
             "<img align='center' src='{}' />",
