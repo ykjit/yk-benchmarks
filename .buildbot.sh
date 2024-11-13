@@ -7,7 +7,15 @@ set -eu
 setup
 
 # Do a "quick" rebench run as a smoke-test.
-~/.local/bin/rebench --quick --no-denoise -c rebench.conf
+#
+# We can't use --quick here due to:
+# https://github.com/xdefago/stats-ci/issues/3
+#
+# Workaround: collect 2 samples per benchmark.
+sed -e 's/invocations: [0-9]\+/invocations: 2/g' \
+   -e 's/iterations: [0-9]\+/iterations: 1/g' \
+   rebench.conf > rebench_ci.conf
+~/.local/bin/rebench --no-denoise -c rebench_ci.conf
 
 # Do some minimal checks on the reporter.
 cd reporter
