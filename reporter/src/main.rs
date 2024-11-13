@@ -96,7 +96,7 @@ fn process_file(
         (*ci.left().unwrap(), *ci.right().unwrap()),
     ));
 
-    // Record what we need to compute a geometric mean speedup over all benchmarks.
+    // Record what we need to compute a normalised geometric mean over all benchmarks.
     geo_data.entry(xval).or_default().push(yval);
 }
 
@@ -230,11 +230,14 @@ fn main() {
         // Plot data normalised to yklua.
         let mut output_path = out_dir.clone();
         output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.png"));
-        let speedup_ylabel = format!("Speedup with error ({}% CI)", CONFIDENCE_LEVEL * 100.0);
+        let norm_ylabel = format!(
+            "Performance relative to Lua with error ({}% CI)",
+            CONFIDENCE_LEVEL * 100.0
+        );
         let config = PlotConfig::new(
-            "Benchmark performance over time, normalised to regular Lua",
+            "Performance relative to Lua",
             "Date",
-            &speedup_ylabel,
+            &norm_ylabel,
             HashMap::from([("Norm".into(), norm_line)]),
             output_path,
         );
@@ -249,14 +252,14 @@ fn main() {
 
     // Plot the geomean summary.
     let geo_norm_line = compute_geomean_line(&geo_data);
-    let geospeedup_ylabel = format!(
-        "Geometric mean speedup with error ({}% CI)",
+    let geonorm_ylabel = format!(
+        "Performannce relative to Lua with error ({}% CI), lower is better",
         CONFIDENCE_LEVEL * 100.0
     );
     let config = PlotConfig::new(
-        "Benchmark performance over time, normalised to regular Lua (over all benchmarks)",
+        "Performance relative to Lua over all benchmarks",
         "Date",
-        &geospeedup_ylabel,
+        &geonorm_ylabel,
         HashMap::from([("Norm".into(), geo_norm_line)]),
         geoabs_output_path,
     );
