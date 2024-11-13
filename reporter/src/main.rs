@@ -4,8 +4,12 @@ use reporter::{
     parser::parse,
     plot::{plot, Line, PlotConfig, Point},
 };
+use stats_ci::Confidence;
 use std::{collections::HashMap, ffi::OsStr, io::Write, path::PathBuf};
 use walkdir::{DirEntry, WalkDir};
+
+/// The confidence level used for computing Y-value confidence intervals.
+static CONFIDENCE_LEVEL: f64 = 0.95;
 
 /// Benchmarks to plot.
 const BENCHES_TO_PLOT: [(&str, &str); 15] = [
@@ -68,12 +72,14 @@ fn process_file(
         .and_local_timezone(Local)
         .unwrap();
     // Compute points for the absolute times plot.
+    let confidence: Confidence = Confidence::new(CONFIDENCE_LEVEL);
     for (vm, exec_times) in &exec_times {
         let yval = exec_times.iter().sum::<f64>() / (exec_times.len() as f64);
         let line = abs_lines
             .entry(vm.to_string())
             .or_insert(Line::new(line_colours[vm.as_str()]));
-        let y_err = (f64_min(exec_times), f64_max(exec_times));
+        let ci = stats_ci::mean::Arithmetic::ci(confidence, exec_times).unwrap();
+        let y_err = (*ci.left().unwrap(), *ci.right().unwrap());
         line.push(Point::new(xval, yval, y_err));
     }
     // Compute Y values for the normalised plot.
@@ -83,13 +89,14 @@ fn process_file(
         .map(|(lua, yklua)| yklua / lua)
         .collect::<Vec<_>>();
     let yval = norm_extimes.iter().sum::<f64>() / (norm_extimes.len() as f64);
+    let ci = stats_ci::mean::Arithmetic::ci(confidence, norm_extimes).unwrap();
     norm_line.push(Point::new(
         xval,
         yval,
-        (f64_min(norm_extimes), f64_max(norm_extimes)),
+        (*ci.left().unwrap(), *ci.right().unwrap()),
     ));
 
-    // Record what we need to compute a geometric mean speedup over all benchmarks.
+    // Record what we need to compute a normalised geometric mean over all benchmarks.
     geo_data.entry(xval).or_default().push(yval);
 }
 
@@ -121,27 +128,15 @@ fn geomean(vs: &[f64]) -> f64 {
     prod.powf(1.0 / vs.len() as f64)
 }
 
-/// Compute the minimum value of 64-bit floats.
-///
-/// Panics if the comparison is invalid.
-fn f64_min(vs: &[f64]) -> f64 {
-    *vs.iter().min_by(|a, b| a.partial_cmp(b).unwrap()).unwrap()
-}
-
-/// Compute the maximum value of 64-bit floats.
-///
-/// Panics if the comparison is invalid.
-fn f64_max(vs: &[f64]) -> f64 {
-    *vs.iter().max_by(|a, b| a.partial_cmp(b).unwrap()).unwrap()
-}
-
 fn compute_geomean_line(geo_data: &HashMap<DateTime<Local>, Vec<f64>>) -> Line {
     let mut line = Line::new(MAGENTA);
+    let confidence: Confidence = Confidence::new(CONFIDENCE_LEVEL);
     for (date, yvals) in geo_data {
+        let ci = stats_ci::mean::Geometric::ci(confidence, yvals).unwrap();
         line.push(Point::new(
             *date,
             geomean(yvals),
-            (f64_min(yvals), f64_max(yvals)),
+            (*ci.left().unwrap(), *ci.right().unwrap()),
         ));
     }
     line
@@ -206,16 +201,25 @@ fn main() {
         write!(html, "<h2>{bm_name}({bm_arg})</h2>").unwrap();
 
         // Plot aboslute times.
+        let wallclock_ylabel = format!(
+            "Wallclock time (ms) with error ({}% CI)",
+            CONFIDENCE_LEVEL * 100.0
+        );
         let mut output_path = out_dir.clone();
         output_path.push(format!("{bm_name}_{bm_arg}_vs_yklua.png"));
         let config = PlotConfig::new(
             "Benchmark performance over time",
             "Date",
-            "Wallclock time (ms) with error (min/max)",
+            &wallclock_ylabel,
             abs_lines,
             output_path,
         );
-        plot(&config);
+
+        let last_x = plot(&config);
+
+        // Inidcate when the last data point was collected.
+        write!(html, "<p>Last X value is {}</p>", last_x).unwrap();
+
         write!(
             html,
             "<img align='center' src='{}' />",
@@ -226,10 +230,14 @@ fn main() {
         // Plot data normalised to yklua.
         let mut output_path = out_dir.clone();
         output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.png"));
+        let norm_ylabel = format!(
+            "Performance relative to Lua with error ({}% CI)",
+            CONFIDENCE_LEVEL * 100.0
+        );
         let config = PlotConfig::new(
-            "Benchmark performance over time, normalised to regular Lua",
+            "Performance relative to Lua",
             "Date",
-            "Speedup with error (min/max)",
+            &norm_ylabel,
             HashMap::from([("Norm".into(), norm_line)]),
             output_path,
         );
@@ -244,10 +252,14 @@ fn main() {
 
     // Plot the geomean summary.
     let geo_norm_line = compute_geomean_line(&geo_data);
+    let geonorm_ylabel = format!(
+        "Performannce relative to Lua with error ({}% CI), lower is better",
+        CONFIDENCE_LEVEL * 100.0
+    );
     let config = PlotConfig::new(
-        "Benchmark performance over time, normalised to regular Lua (over all benchmarks)",
+        "Performance relative to Lua over all benchmarks",
         "Date",
-        "Geometric mean speedup with error (min/max)",
+        &geonorm_ylabel,
         HashMap::from([("Norm".into(), geo_norm_line)]),
         geoabs_output_path,
     );
