@@ -32,7 +32,11 @@ setup() {
     tar zxvf lua-${LUA_V}.tar.gz
     mv lua-${LUA_V} lua
     cd lua
-    make -j $(nproc)
+    # We build with the same ykllvm with the JIT turned off for now.
+    #
+    # Later we may want to benchmark against other systems, for example GCC,
+    # which is the default compiler used in the Lua build system.
+    make -j $(nproc) CC=$(pwd)/../yk/target/release/ykllvm/build/bin/clang
     cd ..
 
     pipx install rebench
