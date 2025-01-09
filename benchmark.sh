@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Run a benchmarking session inside a docker container and file away the
+# Run a benchmarking session inside a temporary directory and file away the
 # results file.
 
 set -eu
@@ -47,21 +47,34 @@ RES_DIR=$1; shift
 RES_SUBDIR="${RES_DIR}/$(${FMT_EPOCH} ${TIMESTAMP} +%Y%m)"
 mkdir -p ${RES_SUBDIR}
 
-# Run benchmarks inside docker.
+# Set up a fresh time-stamped directory.
 YMDHMS=$(${FMT_EPOCH} ${TIMESTAMP} +%Y%m%d_%H%M%S)
-IMAGE_TAG="bm-${YMDHMS}"
-CONT_NAME=$(pwgen -s 16 1)
-BM_UID=$(id -u)
-docker build --build-arg BM_UID=${BM_UID} -t ${IMAGE_TAG} --file Dockerfile-benchmarking .
-docker run --cap-add CAP_PERFMON -u ${BM_UID} --name ${CONT_NAME} ${IMAGE_TAG}
+RUN_DIR="${PWD}/runs/${YMDHMS}"
+mkdir -p ${RUN_DIR}
+cleanup() {
+    rm -rf ${RUN_DIR}
+}
+trap 'cleanup' EXIT
 
-# Stash extra info file.
-docker container cp ${CONT_NAME}:/bm/extra.toml \
-    ${RES_SUBDIR}/${YMDHMS}-extra.toml
+. ./common.sh
+cd ${RUN_DIR}
+setup
+ln -s ../../rebench.conf .
+ln -s ../../suites .
 
-# File away the results file in the output directory.
-docker container cp ${CONT_NAME}:/bm/benchmark.data \
-    ${RES_SUBDIR}/${YMDHMS}.data
+# Collect some extra info and put in a TOML file alongside the results file.
+EXTRA_TOML=extra.toml
+TOML_BIN=venv/bin/toml
+touch ${EXTRA_TOML}
+${TOML_BIN} add_section --toml-path ${EXTRA_TOML} versions
+${TOML_BIN} set --toml-path ${EXTRA_TOML} versions.yk-benchmarks "$(git rev-parse HEAD)"
+${TOML_BIN} set --toml-path ${EXTRA_TOML} versions.yk "$(cd yk && git rev-parse HEAD)"
+${TOML_BIN} set --toml-path ${EXTRA_TOML} versions.ykllvm "$(cd yk/ykllvm && git rev-parse HEAD)"
+${TOML_BIN} set --toml-path ${EXTRA_TOML} versions.yklua "$(cd yklua && git rev-parse HEAD)"
 
-# Remove the container.
-docker container rm ${CONT_NAME}
+# Run benchmarks.
+venv/bin/rebench -q --no-denoise -c rebench.conf
+
+# File away the results file (and extra info file) in the output directory.
+cp ${EXTRA_TOML} ../../${RES_SUBDIR}/${YMDHMS}-extra.toml
+cp benchmark.data ../../${RES_SUBDIR}/${YMDHMS}.data

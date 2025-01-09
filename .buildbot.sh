@@ -15,7 +15,7 @@ setup
 sed -e 's/invocations: [0-9]\+/invocations: 2/g' \
    -e 's/iterations: [0-9]\+/iterations: 1/g' \
    rebench.conf > rebench_ci.conf
-~/.local/bin/rebench --no-denoise -c rebench_ci.conf
+venv/bin/rebench --no-denoise -c rebench_ci.conf
 
 # Do some minimal checks on the reporter.
 cd reporter
