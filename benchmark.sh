@@ -40,6 +40,12 @@ fi
 
 RES_DIR=$1; shift
 
+# To simplify path handling, require the results dir to be absolute.
+if [ "$(realpath "${RES_DIR}")" != "${RES_DIR}" ]; then
+    echo "Please use an absolute path for the results directory"
+    exit 1
+fi
+
 # Create a place for the results file to live if necessary.
 #
 # We are going to put results files in YYYY-MM sub-directories so that we don't
@@ -76,5 +82,5 @@ ${TOML_BIN} set --toml-path ${EXTRA_TOML} versions.yklua "$(cd yklua && git rev-
 venv/bin/rebench --no-denoise -c rebench.conf
 
 # File away the results file (and extra info file) in the output directory.
-cp ${EXTRA_TOML} ../../${RES_SUBDIR}/${YMDHMS}-extra.toml
-cp benchmark.data ../../${RES_SUBDIR}/${YMDHMS}.data
+cp ${EXTRA_TOML} ${RES_SUBDIR}/${YMDHMS}-extra.toml
+cp benchmark.data ${RES_SUBDIR}/${YMDHMS}.data
