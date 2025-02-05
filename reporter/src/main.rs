@@ -46,8 +46,8 @@ fn process_file(
         // This benchmark wasn't run at this time.
         return;
     }
-    // Collect execution times on a per-vm basis.
-    let mut exec_times: HashMap<String, Vec<f64>> = HashMap::new();
+    // Collect in-process iteration times on a per-vm basis.
+    let mut data: HashMap<String, Vec<f64>> = HashMap::new();
     for row_idx in 0..rf.len() {
         let row = rf.row(row_idx);
         debug_assert!(row[rf.col_idx("benchmark")] == bm_name);
@@ -56,8 +56,7 @@ fn process_file(
 
         debug_assert!(row[rf.col_idx("unit")] == "ms");
         let time = row[rf.col_idx("value")].parse::<f64>().unwrap().round();
-        exec_times
-            .entry(vm_name.to_string())
+        data.entry(vm_name.to_string())
             .or_default()
             .push(time as f64);
     }
@@ -69,8 +68,8 @@ fn process_file(
         .unwrap();
     // Compute points for the absolute times plot.
     let mut means = HashMap::new();
-    for (vm, exec_times) in &exec_times {
-        let mean = exec_times.iter().sum::<f64>() / (exec_times.len() as f64);
+    for (vm, iter_times) in &data {
+        let mean = iter_times.iter().sum::<f64>() / (iter_times.len() as f64);
         means.insert(vm.to_owned(), mean);
         let line = abs_lines
             .entry(vm.to_string())
