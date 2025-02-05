@@ -68,24 +68,21 @@ fn process_file(
         .and_local_timezone(Local)
         .unwrap();
     // Compute points for the absolute times plot.
+    let mut means = HashMap::new();
     for (vm, exec_times) in &exec_times {
-        let yval = exec_times.iter().sum::<f64>() / (exec_times.len() as f64);
+        let mean = exec_times.iter().sum::<f64>() / (exec_times.len() as f64);
+        means.insert(vm.to_owned(), mean);
         let line = abs_lines
             .entry(vm.to_string())
             .or_insert(Line::new(line_colours[vm.as_str()]));
-        line.push(Point::new(xval, yval));
+        line.push(Point::new(xval, mean));
     }
     // Compute Y values for the normalised plot.
-    let norm_extimes = &exec_times["Lua"]
-        .iter()
-        .zip(&exec_times["YkLua"])
-        .map(|(lua, yklua)| yklua / lua)
-        .collect::<Vec<_>>();
-    let yval = norm_extimes.iter().sum::<f64>() / (norm_extimes.len() as f64);
-    norm_line.push(Point::new(xval, yval));
+    let ratio = means["YkLua"] / means["Lua"];
+    norm_line.push(Point::new(xval, ratio));
 
     // Record what we need to compute a normalised geometric mean over all benchmarks.
-    geo_data.entry(xval).or_default().push(yval);
+    geo_data.entry(xval).or_default().push(ratio);
 }
 
 fn write_html_header(html: &mut std::fs::File) -> Result<(), std::io::Error> {
@@ -209,7 +206,7 @@ fn main() {
         let mut output_path = out_dir.clone();
         output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.png"));
         let config = PlotConfig::new(
-            "Performance relative to Lua",
+            "Performance relative to Lua (y < 1 means we are faster)",
             "Date",
             "Performance relative to Lua",
             HashMap::from([("Norm".into(), norm_line)]),
@@ -227,7 +224,7 @@ fn main() {
     // Plot the geomean summary.
     let geo_norm_line = compute_geomean_line(&geo_data);
     let config = PlotConfig::new(
-        "Performance relative to Lua over all benchmarks",
+        "Performance relative to Lua over all benchmarks (y < 1 means we are mostly faster)",
         "Date",
         "Performance relative to Lua",
         HashMap::from([("Norm".into(), geo_norm_line)]),
