@@ -10,13 +10,11 @@ pub struct Point {
     x: DateTime<Local>,
     /// The Y-value.
     y: f64,
-    /// The error bar for the Y-value.
-    y_err: (f64, f64),
 }
 
 impl Point {
-    pub fn new(x: DateTime<Local>, y: f64, y_err: (f64, f64)) -> Self {
-        Self { x, y, y_err }
+    pub fn new(x: DateTime<Local>, y: f64) -> Self {
+        Self { x, y }
     }
 }
 
@@ -92,12 +90,12 @@ fn find_plot_extents(lines: &HashMap<String, Line>) -> (Range<DateTime<Local>>, 
                 end_x = x;
             }
         }
-        for yerr in line.points.iter().map(|p| p.y_err) {
-            if yerr.0 <= start_y {
-                start_y = yerr.0;
+        for y in line.points.iter().map(|p| p.y) {
+            if y <= start_y {
+                start_y = y;
             }
-            if yerr.1 >= end_y {
-                end_y = yerr.1;
+            if y >= end_y {
+                end_y = y;
             }
         }
     }
@@ -163,18 +161,10 @@ pub fn plot(config: &PlotConfig) -> DateTime<Local> {
 
         // Draw line.
         chart
-            .draw_series(LineSeries::new(sorted_points, colour))
+            .draw_series(LineSeries::new(sorted_points, colour).point_size(2))
             .unwrap()
             .label(vm)
             .legend(move |(x, y)| PathElement::new(vec![(x, y), (x + 20, y)], colour));
-        // Draw error bars.
-        chart
-            .draw_series(
-                line.points
-                    .iter()
-                    .map(|p| ErrorBar::new_vertical(p.x, p.y_err.0, p.y, p.y_err.1, colour, 6)),
-            )
-            .unwrap();
     }
 
     // Draw on the legend.

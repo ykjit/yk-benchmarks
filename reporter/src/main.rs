@@ -4,12 +4,8 @@ use reporter::{
     parser::parse,
     plot::{plot, Line, PlotConfig, Point},
 };
-use stats_ci::Confidence;
 use std::{collections::HashMap, ffi::OsStr, io::Write, path::PathBuf};
 use walkdir::{DirEntry, WalkDir};
-
-/// The confidence level used for computing Y-value confidence intervals.
-static CONFIDENCE_LEVEL: f64 = 0.95;
 
 /// Benchmarks to plot.
 const BENCHES_TO_PLOT: [(&str, &str); 15] = [
@@ -72,15 +68,12 @@ fn process_file(
         .and_local_timezone(Local)
         .unwrap();
     // Compute points for the absolute times plot.
-    let confidence: Confidence = Confidence::new(CONFIDENCE_LEVEL);
     for (vm, exec_times) in &exec_times {
         let yval = exec_times.iter().sum::<f64>() / (exec_times.len() as f64);
         let line = abs_lines
             .entry(vm.to_string())
             .or_insert(Line::new(line_colours[vm.as_str()]));
-        let ci = stats_ci::mean::Arithmetic::ci(confidence, exec_times).unwrap();
-        let y_err = (*ci.left().unwrap(), *ci.right().unwrap());
-        line.push(Point::new(xval, yval, y_err));
+        line.push(Point::new(xval, yval));
     }
     // Compute Y values for the normalised plot.
     let norm_extimes = &exec_times["Lua"]
@@ -89,12 +82,7 @@ fn process_file(
         .map(|(lua, yklua)| yklua / lua)
         .collect::<Vec<_>>();
     let yval = norm_extimes.iter().sum::<f64>() / (norm_extimes.len() as f64);
-    let ci = stats_ci::mean::Arithmetic::ci(confidence, norm_extimes).unwrap();
-    norm_line.push(Point::new(
-        xval,
-        yval,
-        (*ci.left().unwrap(), *ci.right().unwrap()),
-    ));
+    norm_line.push(Point::new(xval, yval));
 
     // Record what we need to compute a normalised geometric mean over all benchmarks.
     geo_data.entry(xval).or_default().push(yval);
@@ -130,14 +118,8 @@ fn geomean(vs: &[f64]) -> f64 {
 
 fn compute_geomean_line(geo_data: &HashMap<DateTime<Local>, Vec<f64>>) -> Line {
     let mut line = Line::new(MAGENTA);
-    let confidence: Confidence = Confidence::new(CONFIDENCE_LEVEL);
     for (date, yvals) in geo_data {
-        let ci = stats_ci::mean::Geometric::ci(confidence, yvals).unwrap();
-        line.push(Point::new(
-            *date,
-            geomean(yvals),
-            (*ci.left().unwrap(), *ci.right().unwrap()),
-        ));
+        line.push(Point::new(*date, geomean(yvals)));
     }
     line
 }
@@ -201,16 +183,12 @@ fn main() {
         write!(html, "<h2>{bm_name}({bm_arg})</h2>").unwrap();
 
         // Plot aboslute times.
-        let wallclock_ylabel = format!(
-            "Wallclock time (ms) with error ({}% CI)",
-            CONFIDENCE_LEVEL * 100.0
-        );
         let mut output_path = out_dir.clone();
         output_path.push(format!("{bm_name}_{bm_arg}_vs_yklua.png"));
         let config = PlotConfig::new(
             "Benchmark performance over time",
             "Date",
-            &wallclock_ylabel,
+            "Wallclock time (ms)",
             abs_lines,
             output_path,
         );
@@ -230,14 +208,10 @@ fn main() {
         // Plot data normalised to yklua.
         let mut output_path = out_dir.clone();
         output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.png"));
-        let norm_ylabel = format!(
-            "Performance relative to Lua with error ({}% CI)",
-            CONFIDENCE_LEVEL * 100.0
-        );
         let config = PlotConfig::new(
             "Performance relative to Lua",
             "Date",
-            &norm_ylabel,
+            "Performance relative to Lua",
             HashMap::from([("Norm".into(), norm_line)]),
             output_path,
         );
@@ -252,14 +226,10 @@ fn main() {
 
     // Plot the geomean summary.
     let geo_norm_line = compute_geomean_line(&geo_data);
-    let geonorm_ylabel = format!(
-        "Performannce relative to Lua with error ({}% CI), lower is better",
-        CONFIDENCE_LEVEL * 100.0
-    );
     let config = PlotConfig::new(
         "Performance relative to Lua over all benchmarks",
         "Date",
-        &geonorm_ylabel,
+        "Performance relative to Lua",
         HashMap::from([("Norm".into(), geo_norm_line)]),
         geoabs_output_path,
     );
