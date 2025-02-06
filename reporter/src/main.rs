@@ -66,6 +66,29 @@ fn process_file(
         .unwrap()
         .and_local_timezone(Local)
         .unwrap();
+
+    // Check if we got complete data at this time. If not push a point with a None Y-value so that
+    // we can mark this on the plot.
+    for vm in &["Lua", "YkLua"] {
+        if let Some(iters) = &data.get(&vm.to_string()) {
+            if iters.len() != 50 {
+                let line = abs_lines
+                    .entry(vm.to_string())
+                    .or_insert(Line::new(line_colours[vm]));
+                line.push(Point::new(xval, None));
+                norm_line.push(Point::new(xval, None));
+                return;
+            }
+        } else {
+            let line = abs_lines
+                .entry(vm.to_string())
+                .or_insert(Line::new(line_colours[vm]));
+            line.push(Point::new(xval, None));
+            norm_line.push(Point::new(xval, None));
+            return;
+        }
+    }
+
     // Compute points for the absolute times plot.
     let mut means = HashMap::new();
     for (vm, iter_times) in &data {
@@ -74,11 +97,11 @@ fn process_file(
         let line = abs_lines
             .entry(vm.to_string())
             .or_insert(Line::new(line_colours[vm.as_str()]));
-        line.push(Point::new(xval, mean));
+        line.push(Point::new(xval, Some(mean)));
     }
     // Compute Y values for the normalised plot.
     let ratio = means["YkLua"] / means["Lua"];
-    norm_line.push(Point::new(xval, ratio));
+    norm_line.push(Point::new(xval, Some(ratio)));
 
     // Record what we need to compute a normalised geometric mean over all benchmarks.
     geo_data.entry(xval).or_default().push(ratio);
@@ -115,7 +138,7 @@ fn geomean(vs: &[f64]) -> f64 {
 fn compute_geomean_line(geo_data: &HashMap<DateTime<Local>, Vec<f64>>) -> Line {
     let mut line = Line::new(MAGENTA);
     for (date, yvals) in geo_data {
-        line.push(Point::new(*date, geomean(yvals)));
+        line.push(Point::new(*date, Some(geomean(yvals))));
     }
     line
 }
@@ -192,14 +215,17 @@ fn main() {
         let last_x = plot(&config);
 
         // Inidcate when the last data point was collected.
-        write!(html, "<p>Last X value is {}</p>", last_x).unwrap();
-
-        write!(
-            html,
-            "<img align='center' src='{}' />",
-            config.output_filename().to_str().unwrap()
-        )
-        .unwrap();
+        if let Ok(last_x) = last_x {
+            write!(html, "<p>Last X value is {}</p>", last_x).unwrap();
+            write!(
+                html,
+                "<img align='center' src='{}' />",
+                config.output_filename().to_str().unwrap()
+            )
+            .unwrap();
+        } else {
+            write!(html, "[no data]").unwrap();
+        }
 
         // Plot data normalised to yklua.
         let mut output_path = out_dir.clone();
@@ -211,13 +237,16 @@ fn main() {
             HashMap::from([("Norm".into(), norm_line)]),
             output_path,
         );
-        plot(&config);
-        write!(
-            html,
-            "<img align='center' src='{}' />",
-            config.output_filename().to_str().unwrap()
-        )
-        .unwrap();
+        if let Ok(_) = plot(&config) {
+            write!(
+                html,
+                "<img align='center' src='{}' />",
+                config.output_filename().to_str().unwrap()
+            )
+            .unwrap();
+        } else {
+            write!(html, "[no data]").unwrap();
+        }
     }
 
     // Plot the geomean summary.
@@ -229,7 +258,9 @@ fn main() {
         HashMap::from([("Norm".into(), geo_norm_line)]),
         geoabs_output_path,
     );
-    plot(&config);
+    // FIXME: Ideally we'd not have emitted the <img> tag earlier if this plot fails due to absent
+    // data.
+    plot(&config).ok();
 
     write_html_footer(&mut html).unwrap();
 }
