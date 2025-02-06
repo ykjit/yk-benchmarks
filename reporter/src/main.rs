@@ -4,12 +4,8 @@ use reporter::{
     parser::parse,
     plot::{plot, Line, PlotConfig, Point},
 };
-use stats_ci::Confidence;
 use std::{collections::HashMap, ffi::OsStr, io::Write, path::PathBuf};
 use walkdir::{DirEntry, WalkDir};
-
-/// The confidence level used for computing Y-value confidence intervals.
-static CONFIDENCE_LEVEL: f64 = 0.95;
 
 /// Benchmarks to plot.
 const BENCHES_TO_PLOT: [(&str, &str); 15] = [
@@ -50,8 +46,8 @@ fn process_file(
         // This benchmark wasn't run at this time.
         return;
     }
-    // Collect execution times on a per-vm basis.
-    let mut exec_times: HashMap<String, Vec<f64>> = HashMap::new();
+    // Collect in-process iteration times on a per-vm basis.
+    let mut data: HashMap<String, Vec<f64>> = HashMap::new();
     for row_idx in 0..rf.len() {
         let row = rf.row(row_idx);
         debug_assert!(row[rf.col_idx("benchmark")] == bm_name);
@@ -60,8 +56,7 @@ fn process_file(
 
         debug_assert!(row[rf.col_idx("unit")] == "ms");
         let time = row[rf.col_idx("value")].parse::<f64>().unwrap().round();
-        exec_times
-            .entry(vm_name.to_string())
+        data.entry(vm_name.to_string())
             .or_default()
             .push(time as f64);
     }
@@ -71,33 +66,45 @@ fn process_file(
         .unwrap()
         .and_local_timezone(Local)
         .unwrap();
+
+    // Check if we got complete data at this time. If not push a point with a None Y-value so that
+    // we can mark this on the plot.
+    for vm in &["Lua", "YkLua"] {
+        if let Some(iters) = &data.get(&vm.to_string()) {
+            if iters.len() != 50 {
+                let line = abs_lines
+                    .entry(vm.to_string())
+                    .or_insert(Line::new(line_colours[vm]));
+                line.push(Point::new(xval, None));
+                norm_line.push(Point::new(xval, None));
+                return;
+            }
+        } else {
+            let line = abs_lines
+                .entry(vm.to_string())
+                .or_insert(Line::new(line_colours[vm]));
+            line.push(Point::new(xval, None));
+            norm_line.push(Point::new(xval, None));
+            return;
+        }
+    }
+
     // Compute points for the absolute times plot.
-    let confidence: Confidence = Confidence::new(CONFIDENCE_LEVEL);
-    for (vm, exec_times) in &exec_times {
-        let yval = exec_times.iter().sum::<f64>() / (exec_times.len() as f64);
+    let mut means = HashMap::new();
+    for (vm, iter_times) in &data {
+        let mean = iter_times.iter().sum::<f64>() / (iter_times.len() as f64);
+        means.insert(vm.to_owned(), mean);
         let line = abs_lines
             .entry(vm.to_string())
             .or_insert(Line::new(line_colours[vm.as_str()]));
-        let ci = stats_ci::mean::Arithmetic::ci(confidence, exec_times).unwrap();
-        let y_err = (*ci.left().unwrap(), *ci.right().unwrap());
-        line.push(Point::new(xval, yval, y_err));
+        line.push(Point::new(xval, Some(mean)));
     }
     // Compute Y values for the normalised plot.
-    let norm_extimes = &exec_times["Lua"]
-        .iter()
-        .zip(&exec_times["YkLua"])
-        .map(|(lua, yklua)| yklua / lua)
-        .collect::<Vec<_>>();
-    let yval = norm_extimes.iter().sum::<f64>() / (norm_extimes.len() as f64);
-    let ci = stats_ci::mean::Arithmetic::ci(confidence, norm_extimes).unwrap();
-    norm_line.push(Point::new(
-        xval,
-        yval,
-        (*ci.left().unwrap(), *ci.right().unwrap()),
-    ));
+    let ratio = means["YkLua"] / means["Lua"];
+    norm_line.push(Point::new(xval, Some(ratio)));
 
     // Record what we need to compute a normalised geometric mean over all benchmarks.
-    geo_data.entry(xval).or_default().push(yval);
+    geo_data.entry(xval).or_default().push(ratio);
 }
 
 fn write_html_header(html: &mut std::fs::File) -> Result<(), std::io::Error> {
@@ -130,14 +137,8 @@ fn geomean(vs: &[f64]) -> f64 {
 
 fn compute_geomean_line(geo_data: &HashMap<DateTime<Local>, Vec<f64>>) -> Line {
     let mut line = Line::new(MAGENTA);
-    let confidence: Confidence = Confidence::new(CONFIDENCE_LEVEL);
     for (date, yvals) in geo_data {
-        let ci = stats_ci::mean::Geometric::ci(confidence, yvals).unwrap();
-        line.push(Point::new(
-            *date,
-            geomean(yvals),
-            (*ci.left().unwrap(), *ci.right().unwrap()),
-        ));
+        line.push(Point::new(*date, Some(geomean(yvals))));
     }
     line
 }
@@ -201,16 +202,12 @@ fn main() {
         write!(html, "<h2>{bm_name}({bm_arg})</h2>").unwrap();
 
         // Plot aboslute times.
-        let wallclock_ylabel = format!(
-            "Wallclock time (ms) with error ({}% CI)",
-            CONFIDENCE_LEVEL * 100.0
-        );
         let mut output_path = out_dir.clone();
         output_path.push(format!("{bm_name}_{bm_arg}_vs_yklua.png"));
         let config = PlotConfig::new(
             "Benchmark performance over time",
             "Date",
-            &wallclock_ylabel,
+            "Wallclock time (ms)",
             abs_lines,
             output_path,
         );
@@ -218,52 +215,52 @@ fn main() {
         let last_x = plot(&config);
 
         // Inidcate when the last data point was collected.
-        write!(html, "<p>Last X value is {}</p>", last_x).unwrap();
-
-        write!(
-            html,
-            "<img align='center' src='{}' />",
-            config.output_filename().to_str().unwrap()
-        )
-        .unwrap();
+        if let Ok(last_x) = last_x {
+            write!(html, "<p>Last X value is {}</p>", last_x).unwrap();
+            write!(
+                html,
+                "<img align='center' src='{}' />",
+                config.output_filename().to_str().unwrap()
+            )
+            .unwrap();
+        } else {
+            write!(html, "[no data]").unwrap();
+        }
 
         // Plot data normalised to yklua.
         let mut output_path = out_dir.clone();
         output_path.push(format!("{bm_name}_{bm_arg}_norm_yklua.png"));
-        let norm_ylabel = format!(
-            "Performance relative to Lua with error ({}% CI)",
-            CONFIDENCE_LEVEL * 100.0
-        );
         let config = PlotConfig::new(
-            "Performance relative to Lua",
+            "Performance relative to Lua (y < 1 means we are faster)",
             "Date",
-            &norm_ylabel,
+            "Performance relative to Lua",
             HashMap::from([("Norm".into(), norm_line)]),
             output_path,
         );
-        plot(&config);
-        write!(
-            html,
-            "<img align='center' src='{}' />",
-            config.output_filename().to_str().unwrap()
-        )
-        .unwrap();
+        if let Ok(_) = plot(&config) {
+            write!(
+                html,
+                "<img align='center' src='{}' />",
+                config.output_filename().to_str().unwrap()
+            )
+            .unwrap();
+        } else {
+            write!(html, "[no data]").unwrap();
+        }
     }
 
     // Plot the geomean summary.
     let geo_norm_line = compute_geomean_line(&geo_data);
-    let geonorm_ylabel = format!(
-        "Performannce relative to Lua with error ({}% CI), lower is better",
-        CONFIDENCE_LEVEL * 100.0
-    );
     let config = PlotConfig::new(
-        "Performance relative to Lua over all benchmarks",
+        "Performance relative to Lua over all benchmarks (y < 1 means we are mostly faster)",
         "Date",
-        &geonorm_ylabel,
+        "Performance relative to Lua",
         HashMap::from([("Norm".into(), geo_norm_line)]),
         geoabs_output_path,
     );
-    plot(&config);
+    // FIXME: Ideally we'd not have emitted the <img> tag earlier if this plot fails due to absent
+    // data.
+    plot(&config).ok();
 
     write_html_footer(&mut html).unwrap();
 }
