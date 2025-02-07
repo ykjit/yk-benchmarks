@@ -210,6 +210,7 @@ fn main() {
             "Wallclock time (ms)",
             abs_lines,
             output_path,
+            true,
         );
 
         let last_x = plot(&config);
@@ -236,6 +237,7 @@ fn main() {
             "Performance relative to Lua",
             HashMap::from([("Norm".into(), norm_line)]),
             output_path,
+            true,
         );
         if let Ok(_) = plot(&config) {
             write!(
@@ -257,6 +259,7 @@ fn main() {
         "Performance relative to Lua",
         HashMap::from([("Norm".into(), geo_norm_line)]),
         geoabs_output_path,
+        false,
     );
     // FIXME: Ideally we'd not have emitted the <img> tag earlier if this plot fails due to absent
     // data.
