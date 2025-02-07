@@ -53,6 +53,8 @@ pub struct PlotConfig {
     lines: HashMap<String, Line>,
     /// The path to write the plot into.
     output_path: PathBuf,
+    /// Whether to plot crash points.
+    show_crashed: bool,
 }
 
 impl PlotConfig {
@@ -62,6 +64,7 @@ impl PlotConfig {
         y_axis_label: &str,
         lines: HashMap<String, Line>,
         output_path: PathBuf,
+        show_crashed: bool,
     ) -> Self {
         Self {
             title: title.into(),
@@ -69,6 +72,7 @@ impl PlotConfig {
             y_axis_label: y_axis_label.into(),
             lines,
             output_path,
+            show_crashed,
         }
     }
 
@@ -182,21 +186,23 @@ pub fn plot(config: &PlotConfig) -> Result<DateTime<Local>, ()> {
                 .label(vm)
                 .legend(move |(x, y)| PathElement::new(vec![(x, y), (x + 20, y)], colour));
 
-            // Draw a cross at y=0 where benchmarks crashed.
-            let crash_points = sorted_points
-                .iter()
-                .filter(|(_, y)| y.is_none())
-                .map(|(x, _)| (x.clone(), 0.0));
-            let crash_series =
-                PointSeries::of_element(crash_points, 2, colour, &|c, s, st| Cross::new(c, s, st));
-            chart
-                .draw_series(crash_series)
-                .unwrap()
-                .label(vm)
-                .legend(move |(x, y)| PathElement::new(vec![(x, y), (x + 20, y)], colour));
+            if config.show_crashed {
+                // Draw a cross at y=0 where benchmarks crashed.
+                let crash_points = sorted_points
+                    .iter()
+                    .filter(|(_, y)| y.is_none())
+                    .map(|(x, _)| (x.clone(), 0.0));
+                let crash_series = PointSeries::of_element(crash_points, 2, colour, &|c, s, st| {
+                    Cross::new(c, s, st)
+                });
+                chart
+                    .draw_series(crash_series)
+                    .unwrap()
+                    .label(&format!("{vm} crashed"))
+                    .legend(move |(x, y)| Cross::new((x + 5, y), 2, colour));
+            }
         }
 
-        // Draw on the legend.
         chart
             .configure_series_labels()
             .border_style(BLACK)

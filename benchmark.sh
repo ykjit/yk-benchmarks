@@ -79,7 +79,11 @@ ${TOML_BIN} set --toml-path ${EXTRA_TOML} versions.ykllvm "$(cd yk/ykllvm && git
 ${TOML_BIN} set --toml-path ${EXTRA_TOML} versions.yklua "$(cd yklua && git rev-parse HEAD)"
 
 # Run benchmarks.
+#
+# Rebench exits non-zero if a benchmark fails, but we are ok with that.
+set +e
 venv/bin/rebench --no-denoise -c rebench.conf
+set -e
 
 # File away the results file (and extra info file) in the output directory.
 cp ${EXTRA_TOML} ${RES_SUBDIR}/${YMDHMS}-extra.toml
