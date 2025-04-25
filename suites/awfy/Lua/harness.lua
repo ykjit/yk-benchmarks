@@ -26,7 +26,7 @@
     socket.gettime() wraps the POSIX gettimeofday() with a microsecond resolution
 ]]
 local ok, socket = pcall(require, 'socket')
-local gettime = ok and socket.gettime or os.clock
+local gettime = os.gettime
 
 local run = {} do
 

@@ -56,6 +56,7 @@ mkdir -p ${RES_SUBDIR}
 # Set up a fresh time-stamped directory.
 YMDHMS=$(${FMT_EPOCH} ${TIMESTAMP} +%Y%m%d_%H%M%S)
 RUN_DIR="${PWD}/runs/${YMDHMS}"
+PATCHES_DIR="${PWD}/patches"
 mkdir -p ${RUN_DIR}
 cleanup() {
     rm -rf ${RUN_DIR}
@@ -64,7 +65,7 @@ trap 'cleanup' EXIT
 
 . ./common.sh
 cd ${RUN_DIR}
-setup
+setup $PATCHES_DIR
 ln -s ../../rebench.conf .
 ln -s ../../suites .
 
