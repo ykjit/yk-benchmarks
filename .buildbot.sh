@@ -4,7 +4,7 @@ set -eu
 
 # Build everything
 . ./common.sh
-setup
+setup $(pwd)/patches
 
 # Do a "quick" rebench run as a smoke-test.
 #

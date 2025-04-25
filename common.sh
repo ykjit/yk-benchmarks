@@ -27,6 +27,7 @@ setup() {
     # Build yklua with JIT support.
     git clone https://github.com/ykjit/yklua
     cd yklua
+    patch -p0 < $1/clua_gettime
     YK_BUILD_TYPE=release make -j $(nproc)
     mv src/lua src/yklua
     cd ..
@@ -37,6 +38,7 @@ setup() {
     tar zxvf lua-${LUA_V}.tar.gz
     mv lua-${LUA_V} lua
     cd lua
+    patch -p0 < $1/clua_gettime
     make -j $(nproc)
     cd ..
 
