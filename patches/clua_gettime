@@ -1,3 +1,5 @@
+diff --git src/loslib.c src/loslib.c
+index ad5a927..c19672d 100644
 --- src/loslib.c
 +++ src/loslib.c
 @@ -189,6 +189,20 @@ static int os_clock (lua_State *L) {
@@ -6,10 +8,10 @@
  
 +#include <sys/time.h>
 +#include "llimits.h"
-+static int os_gettime (lua_State *L) {
-+  struct timeval tv;
-+  if (gettimeofday(&tv, NULL) == 0) {
-+    double seconds = tv.tv_sec + tv.tv_usec / 1e6;
++static int os_monotonic (lua_State *L) {
++  struct timespec ts;
++  if (clock_gettime(CLOCK_MONOTONIC, &ts) == 0) {
++    double seconds = ts.tv_sec + ts.tv_nsec / 1e9;
 +    lua_pushnumber(L, cast_num(seconds));
 +    return 1;
 +  } else {
@@ -25,7 +27,7 @@
    {"execute",   os_execute},
    {"exit",      os_exit},
    {"getenv",    os_getenv},
-+  {"gettime",   os_gettime},
++  {"monotonic", os_monotonic},
    {"remove",    os_remove},
    {"rename",    os_rename},
    {"setlocale", os_setlocale},

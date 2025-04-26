@@ -25,8 +25,7 @@
     os.clock() wraps the C clock() / CLOCKS_PER_SEC
     socket.gettime() wraps the POSIX gettimeofday() with a microsecond resolution
 ]]
-local ok, socket = pcall(require, 'socket')
-local gettime = os.gettime
+local gettime = os.monotonic
 
 local run = {} do
 
