@@ -1,0 +1,25 @@
+diff --git a/tests/luagrammar.lua b/tests/luagrammar.lua
+index 2bcdafc..5289486 100644
+--- a/tests/luagrammar.lua
++++ b/tests/luagrammar.lua
+@@ -1,13 +1,6 @@
+ -- Based on Patrick Donnelly LPeg recipe:
+ -- http://lua-users.org/wiki/LpegRecipes
+ 
+-local success, lpeg = pcall(require, arg[1])
+-assert(success, "could not load"..tostring(arg[1]))
+-
+-lpeg.setmaxstack(10000)
+-
+-local src = io.open(arg[2],"r"):read"*all"
+-
+ local locale = lpeg.locale();
+ 
+ local P, S, V = lpeg.P, lpeg.S, lpeg.V;
+@@ -218,4 +211,4 @@ local len = #src
+ -- end))
+ 
+ assert(END == len+1, "premature end of parse. END:"..END.." len:"..len)
+-print("Success", END)
+\ No newline at end of file
++print("Success", END)

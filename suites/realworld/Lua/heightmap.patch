@@ -1,0 +1,37 @@
+diff --git a/heightmap.lua b/heightmap.lua
+index 1e7ae42..1db2f92 100644
+--- a/heightmap.lua
++++ b/heightmap.lua
+@@ -3,7 +3,7 @@
+ 
+ local max, random = math.max, math.random
+ 
+-module(...)
++local heightmap = {}
+ 
+ -- Find power of two sufficient for size
+ local function pot(size)
+@@ -88,14 +88,14 @@ end
+ -- d is depth (from size to 1 by powers of two)
+ -- h is mean height at map[x][y] (from square/diamond of radius d)
+ -- returns h' which is used to set map[x][y]
+-function defaultf(map, x, y, d, h)
++function heightmap.defaultf(map, x, y, d, h)
+     return h + (random()-0.5)*d
+ end
+ 
+ -- Create a heightmap using the specified height function (or default)
+ -- map[x][y] where x from 0 to map.w and y from 0 to map.h
+-function create(width, height, f)
+-    f = f and f or defaultf
++function heightmap.create(width, height, f)
++    f = f and f or heightmap.defaultf
+     -- make heightmap
+     local map = diamondsquare(pot(max(width, height)), f)
+     -- clip heightmap to desired size
+@@ -104,3 +104,5 @@ function create(width, height, f)
+     map.w, map.h = width, height
+     return map
+ end
++
++return heightmap
