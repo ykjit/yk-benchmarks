@@ -6,6 +6,11 @@ set -eu
 . ./common.sh
 setup $(pwd)/patches
 
+# Setup some extra benchmarks
+cd suites/realworld/Lua
+sh setup.sh
+cd ../../../
+
 # Do a "quick" rebench run as a smoke-test.
 #
 # We can't use --quick here due to:
