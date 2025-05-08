@@ -18,8 +18,13 @@ setup() {
     export PATH=${PWD}/.cargo/bin/:${PATH}
 
     # Set up yk.
-    git clone --recurse-submodules https://github.com/ykjit/yk
+    git clone https://github.com/ykjit/yk
     cd yk
+    # Clone ykllvm, maybe from a git cache.
+    # set YKLLVM_CLONE_EXTRA_ARGS to something like "--reference <path>" to use a cache.
+    git submodule update ${YKLLVM_CLONE_EXTRA_ARGS:-} --init --recursive ykllvm
+    # Clone the other submodules without caching.
+    git submodule update --init --recursive
     cargo build --release -p ykcapi -vv
     export PATH=$(pwd)/bin:${PATH}
     cd ..
