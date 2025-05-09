@@ -63,6 +63,11 @@ cleanup() {
 }
 trap 'cleanup' EXIT
 
+# Setup extra benchmarks.
+cd suites/realworld/Lua
+sh setup.sh
+cd ../../../
+
 . ./common.sh
 cd ${RUN_DIR}
 setup $PATCHES_DIR
