@@ -8,7 +8,7 @@ use std::{collections::HashMap, ffi::OsStr, io::Write, path::PathBuf};
 use walkdir::{DirEntry, WalkDir};
 
 /// Benchmarks to plot.
-const BENCHES_TO_PLOT: [(&str, &str); 15] = [
+const BENCHES_TO_PLOT: [(&str, &str); 18] = [
     // The awfy suite
     ("DeltaBlue", "12000"),
     ("Richards", "100"),
@@ -26,6 +26,10 @@ const BENCHES_TO_PLOT: [(&str, &str); 15] = [
     ("Towers", "600"),
     // The yk suite
     ("BigLoop", "1000000000"),
+    // The realworld suite
+    ("LuLPeg", ""),
+    ("HashIds", "6000"),
+    ("Heightmap", "2000"),
 ];
 
 /// Colours of the lines on the plots.
