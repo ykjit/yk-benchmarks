@@ -11,9 +11,6 @@ f = function(map, x, y, d, h)
     return 2 * heightmap.defaultf(map, x, y, d, h)
 end
 
--- Create a large heightmap
-map = heightmap.create(4000, 4000, f)
-
 function hm:inner_benchmark_loop (mapsize)
     -- Create a large heightmap
     map = heightmap.create(mapsize, mapsize, f)
