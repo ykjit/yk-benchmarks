@@ -63,16 +63,14 @@ cleanup() {
 }
 trap 'cleanup' EXIT
 
-# Setup extra benchmarks.
-cd suites/realworld/Lua
-sh setup.sh
-cd ../../../
-
 . ./common.sh
 cd ${RUN_DIR}
 setup $PATCHES_DIR
 ln -s ../../rebench.conf .
 ln -s ../../suites .
+
+# Setup extra benchmarks.
+sh ../../setup.sh ${RUN_DIR}/lua/src/lua
 
 # Collect some extra info and put in a TOML file alongside the results file.
 EXTRA_TOML=extra.toml
