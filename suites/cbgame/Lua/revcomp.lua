@@ -85,7 +85,7 @@ setmetatable(revcomp, {__index = require'benchmark'})
 function revcomp:inner_benchmark_loop (n)
     -- main routine
     local t, n = {}, 1
-    for line in io.lines("fasta100000.txt") do
+    for line in io.lines("fasta1000000.txt") do
       local c = sub(line, 1, 1)
       if c == ">" then writerev(t, n); io.write(line, "\n"); n = 1
       elseif c ~= ";" then t[n] = line; n = n + 1 end

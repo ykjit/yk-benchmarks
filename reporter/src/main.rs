@@ -32,11 +32,11 @@ const BENCHES_TO_PLOT: [(&str, &str); 24] = [
     ("Heightmap", "2000"),
     // The cbgame suite
     ("fannkuchredux", "10"),
-    ("spectralnorm", "300"),
-    ("fasta", "2000"),
+    ("spectralnorm", "1000"),
+    ("fasta", "500000"),
     ("knucleotide", ""),
     ("revcomp", ""),
-    ("binarytrees", "13"),
+    ("binarytrees", "15"),
 ];
 
 /// Colours of the lines on the plots.

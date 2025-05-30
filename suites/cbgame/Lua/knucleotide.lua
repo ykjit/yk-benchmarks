@@ -40,7 +40,7 @@ end
 
 local function readseq()
   local sub = string.sub
-  local input = io.lines("fasta100000.txt")
+  local input = io.lines("fasta500000.txt")
   for line in input do
     if sub(line, 1, 1) == ">" and sub(line, 2, 6) == "THREE" then break end
   end
