@@ -7,9 +7,7 @@ set -eu
 setup $(pwd)/patches
 
 # Setup some extra benchmarks
-cd suites/realworld/Lua
-sh setup.sh
-cd ../../../
+sh setup.sh lua/src/lua
 
 # Do a "quick" rebench run as a smoke-test.
 #
