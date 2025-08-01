@@ -4,8 +4,15 @@ use reporter::{
     parser::parse,
     plot::{plot, Line, PlotConfig, Point},
 };
-use std::{collections::HashMap, ffi::OsStr, io::Write, path::PathBuf};
+use std::{
+    collections::HashMap,
+    ffi::OsStr,
+    io::Write,
+    path::{Path, PathBuf},
+};
 use walkdir::{DirEntry, WalkDir};
+
+const MAX_COMMITS: usize = 10;
 
 /// Benchmarks to plot.
 const BENCHES_TO_PLOT: [(&str, &str); 24] = [
@@ -42,6 +49,16 @@ const BENCHES_TO_PLOT: [(&str, &str); 24] = [
 /// Colours of the lines on the plots.
 const LINE_COLOURS: [(&str, RGBColor); 3] = [("Lua", BLUE), ("YkLua", RED), ("Norm", MAGENTA)];
 
+fn parse_date_from_filename(p: &Path, suffix: &str) -> DateTime<Local> {
+    // Get the X value by parsing the date in the filename.
+    let filename = p.file_name().unwrap().to_str().unwrap();
+    let matcher = format!("%Y%m%d_%H%M%S{suffix}");
+    NaiveDateTime::parse_from_str(filename, &matcher)
+        .unwrap()
+        .and_local_timezone(Local)
+        .unwrap()
+}
+
 fn process_file(
     entry: &DirEntry,
     bm_name: &str,
@@ -71,12 +88,7 @@ fn process_file(
             .or_default()
             .push(time as f64);
     }
-    // Get the X value by parsing the date in the filename.
-    let filename = entry.path().file_name().unwrap().to_str().unwrap();
-    let xval = NaiveDateTime::parse_from_str(filename, "%Y%m%d_%H%M%S.data")
-        .unwrap()
-        .and_local_timezone(Local)
-        .unwrap();
+    let xval = parse_date_from_filename(entry.path(), ".data");
 
     // Check if we got complete data at this time. If not push a point with a None Y-value so that
     // we can mark this on the plot.
@@ -122,6 +134,7 @@ fn write_html_header(html: &mut std::fs::File) -> Result<(), std::io::Error> {
     use std::io::Write;
     writeln!(html, "<html><head>")?;
     writeln!(html, "<title>Yk Benchmarking Results</title>")?;
+    writeln!(html, "<style>li {{ font-family: monospace; }}</style>")?;
     writeln!(html, "<h1>Yk Benchmarking Results</h1>")?;
     writeln!(
         html,
@@ -154,6 +167,68 @@ fn compute_geomean_line(geo_data: &HashMap<DateTime<Local>, Vec<f64>>) -> Line {
     line
 }
 
+fn write_git_hashes(
+    html: &mut std::fs::File,
+    res_dir: &str,
+    last_n_geos: HashMap<DateTime<Local>, Option<f64>>,
+) {
+    let walker = WalkDir::new(&res_dir).into_iter();
+    let mut commits = Vec::new();
+    for entry in walker {
+        let entry = entry.unwrap();
+        if !entry.file_type().is_file() {
+            continue;
+        }
+
+        if !entry
+            .path()
+            .file_name()
+            .unwrap()
+            .to_str()
+            .unwrap()
+            .ends_with("-extra.toml")
+        {
+            continue;
+        }
+        let date = parse_date_from_filename(entry.path(), "-extra.toml");
+        let extra = std::fs::read_to_string(entry.path()).unwrap();
+        let mut yk_v = None;
+        // FIXME: I don't know why serde doesn't like these toml files. Manually parse the files
+        // then...
+        for line in extra.lines() {
+            if line.starts_with("yk = ") {
+                let mut elems = line.split("=").skip(1);
+                let v = elems.next().unwrap().trim();
+                assert!(v.starts_with('"'));
+                assert!(v.ends_with('"'));
+                yk_v = Some(v[1..v.len() - 1].to_owned());
+            }
+        }
+        commits.push((date, yk_v.expect("couldn't find yk version!")));
+    }
+    commits.sort_by_key(|(d, _)| *d);
+    // Note: There may be fewer commits available thatn MAX_COMMITS.
+    let commits = &commits[commits.len() - last_n_geos.len()..];
+
+    write!(html, "<h2>Last {MAX_COMMITS} measured commits</h2>").unwrap();
+    write!(html, "<a id='lastcommits' />").unwrap();
+    write!(html, "<ol>").unwrap();
+    for (d, h) in commits {
+        let short = &h[..8];
+        let url = format!("https://github.com/ykjit/yk/commit/{h}");
+        let geo = match last_n_geos[d] {
+            Some(x) => format!("{x}"),
+            None => format!("no data"),
+        };
+        write!(
+            html,
+            "<li>{d} <a href='{url}'>{short}</a> ({geo:.5})</li>\n"
+        )
+        .unwrap();
+    }
+    write!(html, "</ol>\n").unwrap();
+}
+
 fn main() {
     let mut args = std::env::args().skip(1);
     let res_dir = args.next().unwrap_or_else(|| usage());
@@ -178,6 +253,11 @@ fn main() {
         html,
         "<img align='center' src='{}' />",
         geoabs_output_path.file_name().unwrap().to_str().unwrap()
+    )
+    .unwrap();
+    write!(
+        html,
+        "<br /><a href='#lastcommits'>View recent commit hashes</a>"
     )
     .unwrap();
 
@@ -264,6 +344,15 @@ fn main() {
 
     // Plot the geomean summary.
     let geo_norm_line = compute_geomean_line(&geo_data);
+    let mut geo_points = geo_norm_line.points().to_owned();
+    geo_points.sort_by_key(|p| p.x);
+    let num_commits = MAX_COMMITS.min(geo_points.len());
+    let geo_points_start = geo_points.len() - num_commits;
+    let last_n_geos: Vec<(DateTime<Local>, Option<f64>)> = geo_points[geo_points_start..]
+        .iter()
+        .map(|p| (p.x, p.y))
+        .collect();
+    let last_n_geos = HashMap::from_iter(last_n_geos);
     let config = PlotConfig::new(
         "Performance relative to Lua over all benchmarks (y < 1 means we are mostly faster)",
         "Date",
@@ -275,6 +364,8 @@ fn main() {
     // FIXME: Ideally we'd not have emitted the <img> tag earlier if this plot fails due to absent
     // data.
     plot(&config).ok();
+
+    write_git_hashes(&mut html, &res_dir, last_n_geos);
 
     write_html_footer(&mut html).unwrap();
 }

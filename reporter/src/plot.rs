@@ -6,13 +6,14 @@ use plotters::prelude::*;
 use plotters::style::{FontDesc, FontFamily};
 use std::{collections::HashMap, ops::Range, path::PathBuf};
 
+#[derive(Clone)]
 pub struct Point {
     /// The X-value.
-    x: DateTime<Local>,
+    pub x: DateTime<Local>,
     /// The Y-value.
     ///
     /// None means that at least one benchmark crashed at this time.
-    y: Option<f64>,
+    pub y: Option<f64>,
 }
 
 impl Point {
@@ -38,6 +39,10 @@ impl Line {
     /// Add a point to the line.
     pub fn push(&mut self, point: Point) {
         self.points.push(point);
+    }
+
+    pub fn points(&self) -> &Vec<Point> {
+        &self.points
     }
 }
 
