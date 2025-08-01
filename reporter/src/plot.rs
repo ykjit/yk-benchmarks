@@ -142,7 +142,7 @@ fn find_plot_extents(
 /// Returns the last (rightmost) X value (if known).
 pub fn plot(config: &PlotConfig) -> Result<DateTime<Local>, ()> {
     if let Ok((x_extent, y_extent)) = find_plot_extents(&config.lines) {
-        let drawing = BitMapBackend::new(&config.output_path, (850, 600)).into_drawing_area();
+        let drawing = BitMapBackend::new(&config.output_path, (1200, 600)).into_drawing_area();
         drawing.fill(&WHITE).unwrap();
 
         let mut chart = ChartBuilder::on(&drawing)
