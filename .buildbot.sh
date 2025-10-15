@@ -31,3 +31,15 @@ mkdir -p ${RES_SUBDIR}
 mv ../benchmark.data ${RES_SUBDIR}/$(date +%Y%m%d_%H%M%S).data
 cargo run results html
 ls html/index.html # checks the file exists
+cd ..
+
+# Check the haste config file works.
+git clone https://github.com/ykjit/haste
+cd haste
+cargo build --release
+cd ..
+mv haste.toml haste.toml.orig
+sed -e 's/proc_execs = [0-9]\+/proc_execs = 1/g' \
+   -e 's/inproc_iters = [0-9]\+/inproc_iters = 1/g' \
+   haste.toml.orig > haste.toml
+./haste/target/release/haste b

@@ -1,0 +1,103 @@
+proc_execs = 3
+inproc_iters = 10
+
+# Lua implementations you want to benchmark with.
+[executors]
+lua = "../../../lua/src/lua"
+yklua = "../../../yklua/src/yklua"
+
+# --- The "are we fast yet" suite ---
+
+[suites.awfy]
+dir = "suites/awfy/Lua"
+harness = "harness.lua"
+
+[suites.awfy.benchmarks.deltablue]
+extra_args = ["12000"]
+
+[suites.awfy.benchmarks.richards]
+extra_args = ["100"]
+
+[suites.awfy.benchmarks.json]
+extra_args = ["100"]
+
+[suites.awfy.benchmarks.cd]
+extra_args = ["250"]
+
+[suites.awfy.benchmarks.havlak]
+extra_args = ["1500"]
+
+[suites.awfy.benchmarks.bounce]
+extra_args = ["1500"]
+
+[suites.awfy.benchmarks.list]
+extra_args = ["1500"]
+
+[suites.awfy.benchmarks.mandelbrot]
+extra_args = ["500"]
+
+[suites.awfy.benchmarks.nbody]
+extra_args = ["250000"]
+
+[suites.awfy.benchmarks.permute]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.queens]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.sieve]
+extra_args = ["3000"]
+
+[suites.awfy.benchmarks.storage]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.towers]
+extra_args = ["600"]
+
+# --- The Yk suite ---
+
+[suites.yk]
+dir = "suites/yk/Lua"
+harness = "../../awfy/Lua/harness.lua"
+env = { "LUA_PATH" = "?.lua;../../awfy/Lua/?.lua" }
+
+[suites.yk.benchmarks.bigloop]
+extra_args = ["1000000000"]
+
+# --- The "real world" suite ---
+
+[suites.realworld]
+dir = "suites/realworld/Lua"
+harness = "../../awfy/Lua/harness.lua"
+env = { "LUA_PATH" = "?.lua;../../awfy/Lua/?.lua" }
+
+[suites.realworld.benchmarks.LuLPeg] # has fixed input
+
+[suites.realworld.benchmarks.HashIds]
+extra_args = ["6000"]
+
+[suites.realworld.benchmarks.Heightmap]
+extra_args = ["2000"]
+
+# --- The Computer Language Benchmarks Game suite ---
+
+[suites.cbgame]
+dir = "suites/cbgame/Lua"
+harness = "../../awfy/Lua/harness.lua"
+env = { "LUA_PATH" = "?.lua;../../awfy/Lua/?.lua" }
+
+[suites.cbgame.benchmarks.fannkuchredux]
+extra_args = ["10"] # typically 12 (too slow)
+
+[suites.cbgame.benchmarks.spectralnorm]
+extra_args = ["1000"] # typically 100 (too fast)
+
+[suites.cbgame.benchmarks.fasta]
+extra_args = ["500000"] # typically 1000 (too fast)
+
+[suites.cbgame.benchmarks.knucleotide] # uses fasta500000.txt as input
+
+[suites.cbgame.benchmarks.revcomp] # uses fasta1000000.txt as input
+
+[suites.cbgame.benchmarks.binarytrees]
+extra_args = ["15"] # typically 21 (too slow)
