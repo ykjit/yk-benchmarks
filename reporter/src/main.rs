@@ -15,7 +15,7 @@ use walkdir::{DirEntry, WalkDir};
 const MAX_COMMITS: usize = 10;
 
 /// Benchmarks to plot.
-const BENCHES_TO_PLOT: [(&str, &str); 24] = [
+const BENCHES_TO_PLOT: [(&str, &str); 22] = [
     // The awfy suite
     ("DeltaBlue", "12000"),
     ("Richards", "100"),
@@ -40,9 +40,7 @@ const BENCHES_TO_PLOT: [(&str, &str); 24] = [
     // The cbgame suite
     ("fannkuchredux", "10"),
     ("spectralnorm", "1000"),
-    ("fasta", "500000"),
     ("knucleotide", ""),
-    ("revcomp", ""),
     ("binarytrees", "15"),
 ];
 
