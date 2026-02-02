@@ -7,6 +7,7 @@ use reporter::{
 use std::{
     collections::HashMap,
     ffi::OsStr,
+    fs,
     io::Write,
     path::{Path, PathBuf},
 };
@@ -165,6 +166,28 @@ fn compute_geomean_line(geo_data: &HashMap<DateTime<Local>, Vec<f64>>) -> Line {
     line
 }
 
+fn prepare_data_download(res_dir: &str, out_dir: &PathBuf) {
+    // Create a data directory in the output
+    let mut data_dir = out_dir.clone();
+    data_dir.push("benchmark-data");
+    if !data_dir.exists() {
+        fs::create_dir(&data_dir).unwrap();
+    }
+
+    // Copy all .data files
+    for entry in WalkDir::new(&res_dir)
+        .into_iter()
+        .map(|e| e.unwrap())
+        .filter(|e: &walkdir::DirEntry| {
+            e.file_type().is_file() && e.path().extension().unwrap().to_str().unwrap() == "data"
+        })
+    {
+        let src_path = entry.path();
+        let dst_path = data_dir.join(src_path.file_name().unwrap());
+        fs::copy(src_path, &dst_path).unwrap();
+    }
+}
+
 fn write_git_hashes(
     html: &mut std::fs::File,
     res_dir: &str,
@@ -218,9 +241,12 @@ fn write_git_hashes(
             Some(x) => format!("{x}"),
             None => format!("no data"),
         };
+        // Format date to match filename format: YYYYMMDD_HHMMSS
+        let date_str = d.format("%Y%m%d_%H%M%S").to_string();
+        let data_file = format!("benchmark-data/{date_str}.data");
         write!(
             html,
-            "<li>{d} <a href='{url}'>{short}</a> ({geo:.5})</li>\n"
+            "<li>{d} <a href='{url}'>{short}</a> ({geo:.5}) <a href='{data_file}'>results</a></li>\n"
         )
         .unwrap();
     }
@@ -364,6 +390,9 @@ fn main() {
     plot(&config).ok();
 
     write_git_hashes(&mut html, &res_dir, last_n_geos);
+
+    // Prepare raw data files for download
+    prepare_data_download(&res_dir, &out_dir);
 
     write_html_footer(&mut html).unwrap();
 }
