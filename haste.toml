@@ -10,7 +10,7 @@ yklua = "../../../yklua/src/yklua"
 
 [suites.awfy]
 dir = "suites/awfy/Lua"
-harness = "harness.lua"
+harness = "../../../haste_harness.sh"
 
 [suites.awfy.benchmarks.deltablue]
 extra_args = ["12000"]
@@ -58,7 +58,7 @@ extra_args = ["600"]
 
 [suites.yk]
 dir = "suites/yk/Lua"
-harness = "../../awfy/Lua/harness.lua"
+harness = "../../../haste_harness.sh"
 env = { "LUA_PATH" = "?.lua;../../awfy/Lua/?.lua" }
 
 [suites.yk.benchmarks.bigloop]
@@ -68,7 +68,7 @@ extra_args = ["1000000000"]
 
 [suites.realworld]
 dir = "suites/realworld/Lua"
-harness = "../../awfy/Lua/harness.lua"
+harness = "../../../haste_harness.sh"
 env = { "LUA_PATH" = "?.lua;../../awfy/Lua/?.lua" }
 
 [suites.realworld.benchmarks.LuLPeg] # has fixed input
@@ -83,7 +83,7 @@ extra_args = ["2000"]
 
 [suites.cbgame]
 dir = "suites/cbgame/Lua"
-harness = "../../awfy/Lua/harness.lua"
+harness = "../../../haste_harness.sh"
 env = { "LUA_PATH" = "?.lua;../../awfy/Lua/?.lua" }
 
 [suites.cbgame.benchmarks.fannkuchredux]
