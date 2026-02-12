@@ -3,13 +3,9 @@
 This is a repository of benchmarks for evaluating the performance of the [yk
 meta-tracer](https://github.com/ykjit/yk/).
 
-## Suites
+## Benchmarks
 
-At present the following benchmark suites are here:
-
-| **Suite**                                                    | **Languages** |
-|--------------------------------------------------------------|---------------|
-| [are-we-fast-yet](https://github.com/smarr/are-we-fast-yet/) | Lua           |
+The benchmarks are grouped into suites. See the `suites/` directory.
 
 ## Setup
 
