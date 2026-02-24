@@ -17,11 +17,13 @@ inproc_iters=$1; shift
 # Pass an "x" if not given. harness.lua will ignore it anyway.
 param=${1:-x};
 
+set +e
 output=$("$executor" ../../awfy/Lua/harness.lua "$bmark" "$inproc_iters" "$param" 2>&1)
 s=$?
+set -e
 
 # shellcheck disable=SC2181
-if [ $? -ne 0 ]; then
+if [ $s -ne 0 ]; then
     echo "$output"
     echo "error: failed to run inner harness"
     exit $s
