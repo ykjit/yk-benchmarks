@@ -13,7 +13,29 @@ function pg:inner_benchmark_loop (inner_loops)
     -- iteration does the same work, each iteration parses a copy of the
     -- original input.
     src = init_src
-    dofile("LuLPeg/tests/luagrammar.lua") -- run the lua parser
+    
+    -- luagrammar.lua was designed to run standalone with command-line arguments:
+    --   arg[1] = lpeg module to require
+    --   arg[2] = source file to parse
+    --
+    -- When called via dofile() from the harness, arg contains the harness arguments:
+    --   arg[0] = ../../awfy/Lua/harness.lua
+    --   arg[1] = lulpeg        <-- WRONG: loads benchmark object, not LuLPeg library
+    --   arg[2] = 1             <-- WRONG: inner iterations, not file path
+    --
+    -- When run correctly (standalone or with fixed arg):
+    --   arg[0] = LuLPeg/tests/luagrammar.lua
+    --   arg[1] = LuLPeg/lulpeg      <-- CORRECT: loads LuLPeg library
+    --   arg[2] = LuLPeg/lulpeg.lua  <-- CORRECT: file to parse
+    --
+    -- Fix: temporarily set arg to the values luagrammar.lua expects.
+    local saved_arg = arg
+    arg = { [0] = "LuLPeg/tests/luagrammar.lua", "LuLPeg/lulpeg", "LuLPeg/lulpeg.lua" }
+    
+    dofile("LuLPeg/tests/luagrammar.lua")
+    
+    arg = saved_arg
+    
     assert(END == 89661)
     return true
 end
