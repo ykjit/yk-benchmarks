@@ -37,13 +37,16 @@ setup() {
     cd ..
 
     # Build plain old Lua as a baseline.
+    #
+    # yk uses LTO to collect IR, so to be fair, our baseline should be an LTO
+    # build too.
     LUA_V=5.4.6
     curl https://lua.org/ftp/lua-${LUA_V}.tar.gz -o lua-${LUA_V}.tar.gz
     tar zxvf lua-${LUA_V}.tar.gz
     mv lua-${LUA_V} lua
     cd lua
     patch -p0 < $1/clua_gettime
-    make -j $(nproc)
+    make -j $(nproc) MYCFLAGS="-flto"
     cd ..
 
     python3 -m venv venv
