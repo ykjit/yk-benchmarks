@@ -1,0 +1,67 @@
+proc_execs = 3
+inproc_iters = 10
+
+[executors]
+ykmp = "/path/to/ykmicropython/ports/unix/build-standard/micropython"
+
+# --- The "are we fast yet" suite ---
+
+[suites.awfy]
+dir = "suites/awfy/Python"
+harness = "../../../haste_harness_python.sh"
+
+# upstream micropython:
+# MemoryError: memory allocation failed, allocating 96 bytes
+# [suites.awfy.benchmarks.DeltaBlue]
+# extra_args = ["12000"]
+
+[suites.awfy.benchmarks.Richards]
+extra_args = ["100"]
+
+[suites.awfy.benchmarks.Json]
+extra_args = ["100"]
+
+[suites.awfy.benchmarks.CD]
+extra_args = ["250"]
+
+# upstream micropython:
+# MemoryError: memory allocation failed, allocating 20480 bytes
+# [suites.awfy.benchmarks.Havlak]
+# extra_args = ["1500"]
+
+[suites.awfy.benchmarks.Bounce]
+extra_args = ["1500"]
+
+[suites.awfy.benchmarks.List]
+extra_args = ["1500"]
+
+[suites.awfy.benchmarks.Mandelbrot]
+extra_args = ["500"]
+
+[suites.awfy.benchmarks.NBody]
+extra_args = ["250000"]
+
+[suites.awfy.benchmarks.Permute]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.Queens]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.Sieve]
+extra_args = ["3000"]
+
+[suites.awfy.benchmarks.Storage]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.Towers]
+extra_args = ["600"]
+
+# --- The Yk suite ---
+
+[suites.yk]
+dir = "suites/yk/Python"
+harness = "../../../haste_harness_python.sh"
+env = { "MICROPYPATH" = "../../yk/Python", "PYTHONPATH" = "../../yk/Python" }
+
+[suites.yk.benchmarks.BigLoop]
+extra_args = ["1000000000"]

@@ -1,0 +1,39 @@
+#!/bin/sh
+
+set -eu
+
+if [ "$#" -lt 4 ]; then
+    printf "usage: $0 <output-file> "
+    printf "<executor> <benchmark> <inproc_iters> [param]\n"
+    exit 1
+fi
+
+outf=$1; shift
+executor=$1; shift
+bmark=$1; shift
+inproc_iters=$1; shift
+
+# The parameter argument is optional.
+# Pass an "x" if not given. harness.lua will ignore it anyway.
+param=${1:-x};
+
+set +e
+output=$("$executor" ../../awfy/Python/harness.py "$bmark" "$inproc_iters" "$param" 2>&1)
+s=$?
+set -e
+
+# shellcheck disable=SC2181
+if [ $s -ne 0 ]; then
+    echo "$output"
+    echo "error: failed to run inner harness"
+    exit $s
+fi
+
+# Scrape the reading for the entire process execution from the output, check it
+# has a "us" (microseconds) suffix, strip it, convert to miliseconds, and write
+# it to where haste asked.
+usecs=$(echo "$output" | awk -F ': *' '$1 == "Total Runtime" { print $2 }')
+echo "$usecs" | grep 'us'
+usecs=${usecs%us}
+msecs=$(echo "$usecs" / 1000 | bc -l) # -l enables floating point division
+printf "PEXEC_WALLCLOCK_MS=%f" "$msecs" > "$outf"
