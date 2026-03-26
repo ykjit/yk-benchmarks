@@ -15,14 +15,23 @@ harness = "../../../haste_harness_python.sh"
 # [suites.awfy.benchmarks.DeltaBlue]
 # extra_args = ["12000"]
 
-[suites.awfy.benchmarks.Richards]
-extra_args = ["100"]
+# jit crashes:
+# thread '<unnamed>' (4052679) panicked at ykrt/src/compile/j2/aot_to_hir.rs:1806:13:
+# assertion failed: val.is_none()
+#
+# We need to implement return values from early return:
+#   // We currently don't support passing values back during early returns.
+#   assert!(val.is_none());
+#[suites.awfy.benchmarks.Richards]
+#extra_args = ["100"]
 
-[suites.awfy.benchmarks.Json]
-extra_args = ["100"]
+# jit crashes the same as Richards.
+#[suites.awfy.benchmarks.Json]
+#extra_args = ["100"]
 
-[suites.awfy.benchmarks.CD]
-extra_args = ["250"]
+# jit crashes the same as Richards.
+#[suites.awfy.benchmarks.CD]
+#extra_args = ["250"]
 
 # upstream micropython:
 # MemoryError: memory allocation failed, allocating 20480 bytes
@@ -32,8 +41,9 @@ extra_args = ["250"]
 [suites.awfy.benchmarks.Bounce]
 extra_args = ["1500"]
 
-[suites.awfy.benchmarks.List]
-extra_args = ["1500"]
+# jit crashes the same as Richards.
+#[suites.awfy.benchmarks.List]
+#extra_args = ["1500"]
 
 [suites.awfy.benchmarks.Mandelbrot]
 extra_args = ["500"]
@@ -41,8 +51,9 @@ extra_args = ["500"]
 [suites.awfy.benchmarks.NBody]
 extra_args = ["250000"]
 
-[suites.awfy.benchmarks.Permute]
-extra_args = ["1000"]
+# jit crashes the same as Richards.
+#[suites.awfy.benchmarks.Permute]
+#extra_args = ["1000"]
 
 [suites.awfy.benchmarks.Queens]
 extra_args = ["1000"]
@@ -50,8 +61,9 @@ extra_args = ["1000"]
 [suites.awfy.benchmarks.Sieve]
 extra_args = ["3000"]
 
-[suites.awfy.benchmarks.Storage]
-extra_args = ["1000"]
+# jit crashes the same as Richards.
+#[suites.awfy.benchmarks.Storage]
+#extra_args = ["1000"]
 
 [suites.awfy.benchmarks.Towers]
 extra_args = ["600"]
