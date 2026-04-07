@@ -1,0 +1,18 @@
+--- hashids.lua	Tue Apr  7 15:40:44 2026
++++ hashids.lua	Tue Apr  7 15:37:59 2026
+@@ -1,6 +1,5 @@
+ local ceil   = math.ceil
+ local floor  = math.floor
+-local pow    = math.pow
+ local substr = string.sub
+ local upcase = string.upper
+ local format = string.format
+@@ -46,7 +45,7 @@
+ 
+     for i=0, ilen do
+         local cpos = (alphabet:find(gcap(input, i), 1, true) - 1);
+-        number = number + cpos * pow(alen, (ilen - i - 1))
++        number = number + cpos * (alen ^ (ilen - i - 1))
+     end
+ 
+     return number;

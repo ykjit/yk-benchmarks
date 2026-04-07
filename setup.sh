@@ -3,6 +3,7 @@ cd suites/realworld/Lua
 
 cd hashids
 cp src/init.lua hashids.lua
+patch -p0 < ../hashids.patch
 cd ..
 
 cd heightmap
