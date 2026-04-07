@@ -40,7 +40,7 @@ setup() {
     #
     # yk uses LTO to collect IR, so to be fair, our baseline should be an LTO
     # build too.
-    LUA_V=5.4.6
+    LUA_V=5.5.0
     curl https://lua.org/ftp/lua-${LUA_V}.tar.gz -o lua-${LUA_V}.tar.gz
     tar zxvf lua-${LUA_V}.tar.gz
     mv lua-${LUA_V} lua
