@@ -37,31 +37,21 @@ extra_args = ["1000"]
 [suites.awfy.benchmarks.Sieve]
 extra_args = ["3000"]
 
+[suites.awfy.benchmarks.CD]
+extra_args = ["250"]
 
-# --- Benchmark Failure Explanations ---
-# The benchmarks below currently fail due to compatibility gaps between 
-# the minimal "CSOM" VM and the "Are We Fast Yet" (AWFY) suite.
+[suites.awfy.benchmarks.DeltaBlue]
+extra_args = ["12000"]
 
-# Fails with: error: failed to run inner harness
-# [suites.awfy.benchmarks.CD]
-# extra_args = ["2"]
+[suites.awfy.benchmarks.Havlak]
+extra_args = ["1500"]
 
-# Fails with ERROR: Method forEach: not found in class Vector
-# [suites.awfy.benchmarks.DeltaBlue]
-# extra_args = ["12"]
+[suites.awfy.benchmarks.Json]
+extra_args = ["100"]
 
-# Fails with ERROR: Method ifNotNil:ifNil: not found in class Nil
-# [suites.awfy.benchmarks.Havlak]
-# extra_args = ["1"]
-
-# Fails with: ERROR: Lexer failed to read file. Run out of file reading buffer space.This is CSOM.
-# [suites.awfy.benchmarks.Json]
-# extra_args = ["1"]
-
-# Fails with: ERROR: Benchmark failed with incorrect result
-# [suites.awfy.benchmarks.Mandelbrot]
-# extra_args = ["5"]
-
+[suites.awfy.benchmarks.Mandelbrot]
+extra_args = ["500"]
 
 [suites.awfy.benchmarks.NBody]
 extra_args = ["250000"]
+

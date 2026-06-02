@@ -16,12 +16,12 @@ inproc_iters=$1; shift
 # The parameter argument is optional.
 param=${1:-x}
 
-# Classpath: SOM_LIB (the SOM implementation's Smalltalk core library, set by
-# the user) plus the awfy SOM benchmark dir and each of its subdirs.
+# Classpath: awfy SOM benchmark dirs first, then SOM_LIB (the SOM
+# implementation's Smalltalk core library).
 SOM_DIR=../../awfy/SOM
 SUBDIRS="$SOM_DIR:$SOM_DIR/Core:$SOM_DIR/CD:$SOM_DIR/DeltaBlue:$SOM_DIR/Havlak:$SOM_DIR/Json:$SOM_DIR/NBody:$SOM_DIR/Richards"
 if [ -n "${SOM_LIB:-}" ]; then
-    CP="$SOM_LIB:$SUBDIRS"
+    CP="$SUBDIRS:$SOM_LIB"
 else
     CP="$SUBDIRS"
 fi
