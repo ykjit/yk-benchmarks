@@ -1,0 +1,53 @@
+proc_execs = 3
+inproc_iters = 10
+
+[executors]
+ruby = "/path/to/ruby"
+
+# --- The "are we fast yet" suite ---
+
+[suites.awfy]
+dir = "suites/awfy/Ruby"
+harness = "../../../haste_harness_ruby.sh"
+
+[suites.awfy.benchmarks.Richards]
+extra_args = ["100"]
+
+[suites.awfy.benchmarks.Json]
+extra_args = ["100"]
+
+[suites.awfy.benchmarks.CD]
+extra_args = ["250"]
+
+[suites.awfy.benchmarks.Havlak]
+extra_args = ["1500"]
+
+[suites.awfy.benchmarks.Bounce]
+extra_args = ["1500"]
+
+[suites.awfy.benchmarks.List]
+extra_args = ["1500"]
+
+[suites.awfy.benchmarks.Mandelbrot]
+extra_args = ["500"]
+
+[suites.awfy.benchmarks.NBody]
+extra_args = ["250000"]
+
+[suites.awfy.benchmarks.Permute]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.Queens]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.Sieve]
+extra_args = ["3000"]
+
+[suites.awfy.benchmarks.Storage]
+extra_args = ["1000"]
+
+[suites.awfy.benchmarks.Towers]
+extra_args = ["600"]
+
+[suites.awfy.benchmarks.DeltaBlue]
+extra_args = ["12000"]
