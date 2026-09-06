@@ -795,7 +795,9 @@ class Simulator
 
   def simulate(time)
     frame = Vector.new
-    (0...@aircraft.size).step(2) do |i|
+    # Integer#step, not Range#step (0...n).step: mruby's core has no
+    # Range#step, only Integer#step (see mrblib/numeric.rb).
+    0.step(@aircraft.size - 1, 2) do |i|
       frame.append(Aircraft.new(@aircraft.at(i),
                                 Vector3D.new(time,
                                              Math.cos(time) * 2.0 + i * 3.0, 10.0)))
