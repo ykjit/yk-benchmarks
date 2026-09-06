@@ -20,6 +20,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+# mruby has no require_relative or Process.clock_gettime, so we stub it here.
+#
+# require_relative is a no-op: this file, the benchmark file, and som.rb
+# (when the benchmark needs it) are already loaded up front via mruby's `-r`
+# flag (see haste_harness_mruby.sh), so any require_relative calls left over
+# from the CRuby originals have nothing left to do - they just need to not
+# raise NoMethodError.
+def require_relative(_p); true; end
+
+# mruby has no Process class at all, so it's defined here. 
+# The stub ignores the clock/unit args and always returns float seconds.
+class Process; end unless defined?(Process)
+def Process.clock_gettime(_c, _u = :float_second); Time.now.to_f; end
+
 class Benchmark
   def inner_benchmark_loop(inner_iterations)
     inner_iterations.times do
