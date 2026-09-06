@@ -1,11 +1,11 @@
 #!/bin/sh
 # mruby has no require/require_relative, so unlike haste_harness_ruby.sh
-# this can't just run harness.rb. Instead it loads the pieces harness.rb
-# would have require_relative'd (benchmark.rb - which also stubs
-# require_relative/Process.clock_gettime for mruby, som.rb if the benchmark
-# needs it, and the benchmark file itself) via mruby's `-r`, then runs
-# mruby_awfy_runner.rb (a require-free stand-in for harness.rb/run.rb) as
-# the programfile.
+# this can't just run harness.rb and let it require_relative the rest.
+# Instead it loads the pieces harness.rb would have require_relative'd
+# (benchmark.rb - which also stubs require_relative/Process.clock_gettime
+# for mruby, som.rb if the benchmark needs it, and the benchmark file
+# itself) via mruby's `-r`, then runs harness.rb (a require-free stand-in
+# for what harness.rb/run.rb do on CRuby) as the programfile.
 set -eu
 
 if [ "$#" -lt 4 ]; then
@@ -23,7 +23,7 @@ inproc_iters=$1; shift
 param=${1:-1};
 
 repo_dir="$(cd "$(dirname "$0")" && pwd)"
-runner="$repo_dir/suites/awfy/MRuby/mruby_awfy_runner.rb"
+runner="$repo_dir/suites/awfy/MRuby/harness.rb"
 
 # Mirrors run.rb's load_benchmark_suite: try the plain downcased name first
 # (e.g. DeltaBlue -> deltablue.rb), and only hyphenate camelCase boundaries
