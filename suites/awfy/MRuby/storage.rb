@@ -31,7 +31,7 @@ class Storage < Benchmark
   end
 
   def benchmark
-    random = Random.new
+    random = SomRandom.new # see som.rb: SomRandom, not mruby's built-in Random
     @count = 0
     build_tree_depth(7, random)
     @count

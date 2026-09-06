@@ -413,7 +413,7 @@ class HavlakLoopFinder
     end
 
     (0...size).each do |i|
-      @non_back_preds.append(Set.new)
+      @non_back_preds.append(SomSet.new) # see som.rb: SomSet, not mruby's built-in Set
       @back_preds.append(Vector.new)
       @nodes[i] = UnionFindNode.new
     end

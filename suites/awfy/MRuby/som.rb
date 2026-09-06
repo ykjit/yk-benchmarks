@@ -234,7 +234,11 @@ class Vector
   end
 end
 
-class Set
+# Named SomSet, not Set: mruby's built-in Set (mruby-set gem) is backed by
+# an MRB_TT_SET C struct with no ivar table, so reopening the real `Set`
+# here to add @items would fail with "ArgumentError: cannot set instance
+# variable" on mruby (plain CRuby's Set is pure-Ruby, so it never hit this).
+class SomSet
   def initialize(size = INITIAL_SIZE)
     @items = Vector.new(size)
   end
@@ -270,7 +274,7 @@ class Set
   end
 end
 
-class IdentitySet < Set
+class IdentitySet < SomSet
   def contains(obj)
     has_some { |it| it.equal? obj }
   end
@@ -473,7 +477,10 @@ class IdentityDictionary < Dictionary
   end
 end
 
-class Random
+# Named SomRandom, not Random: mruby's built-in Random is also a C-struct-
+# backed type (no ivar table) - same "cannot set instance variable" failure
+# as Set above if we reopened it instead.
+class SomRandom
   def initialize
     @seed = 74_755
   end

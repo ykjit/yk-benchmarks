@@ -27,7 +27,7 @@ require_relative 'som'
 
 class Bounce < Benchmark
   def benchmark
-    random = Random.new
+    random = SomRandom.new # see som.rb: SomRandom, not mruby's built-in Random
     ball_count = 100
     bounces    = 0
     balls      = Array.new(ball_count) { Ball.new(random) }
