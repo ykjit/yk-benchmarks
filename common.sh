@@ -41,8 +41,14 @@ setup() {
     # yk uses LTO to collect IR, so to be fair, our baseline should be an LTO
     # build too.
     LUA_V=5.5.0
-    curl https://lua.org/ftp/lua-${LUA_V}.tar.gz -o lua-${LUA_V}.tar.gz
-    tar zxvf lua-${LUA_V}.tar.gz
+    if [ ! -d "$HOME/.cache/yk-benchmarks/" ]; then
+        mkdir -p "$HOME/.cache/yk-benchmarks/"
+    fi
+    luap="$HOME/.cache/yk-benchmarks/lua-${LUA_V}.tar.gz"
+    if [ ! -f "$luap" ]; then
+        curl https://lua.org/ftp/lua-${LUA_V}.tar.gz -o "$luap"
+    fi
+    tar zxvf "$luap"
     mv lua-${LUA_V} lua
     cd lua
     patch -p0 < $1/clua_gettime
