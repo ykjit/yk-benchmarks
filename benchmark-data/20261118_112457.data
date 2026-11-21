@@ -1,0 +1,2293 @@
+#!venv/bin/rebench --no-denoise -c rebench.conf
+# Execution Start: 2026-11-18T11:27:08.240487+00:00
+# Environment: {"userName":"ykbench","manualRun":true,"hostName":"bencher14","osType":"Linux","memory":540429930496,"denoise":{},"cpu":"AMD EPYC 7F52 16-Core Processor","clockSpeed":2855975000,"software":[{"name":"kernel","version":"#1 SMP PREEMPT_DYNAMIC Debian 6.12.57-1 (2025-11-05)"},{"name":"kernel-release","version":"6.12.57+deb13-amd64"},{"name":"architecture","version":"x86_64"}]}
+# Source: {"repoURL":"https://github.com/ykjit/yk-benchmarks","branchOrTag":"main","commitId":"92fe73566bcdf95133ab952cd5d6cf2a366c270a","commitMsg":"Merge pull request #51 from ltratt/cache_lua_download\n\nLua downloads are repeatedly failing so try caching it.\n","authorName":"Laurence Tratt","committerName":"GitHub","authorEmail":"laurie@tratt.net","committerEmail":"noreply@github.com"}
+invocation	iteration	value	unit	criterion	benchmark	executor	suite	extraArgs	cores	inputSize	varValue	tag	machine	runId
+# benchmark: 0={"name":"BigLoop","command":"BigLoop","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"yk","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/yk/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000000000}
+# run_id: 0={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  ../../awfy/Lua/harness.lua BigLoop 10  1000000000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/yk/Lua","cores":"default","extraArgs":"1000000000","benchmark_id":0}
+1	1	1120.681000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	2	1113.105000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	3	1119.791000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	4	1120.606000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	5	1119.462000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	6	1114.417000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	7	1119.970000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	8	1116.558000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	9	1122.147000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+1	10	1121.655000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	1	1131.558000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	2	1119.637000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	3	1116.905000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	4	1118.791000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	5	1114.999000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	6	1110.314000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	7	1114.094000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	8	1109.674000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	9	1111.440000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+2	10	1113.501000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	1	1118.151000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	2	1114.419000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	3	1118.015000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	4	1117.847000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	5	1119.396000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	6	1113.875000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	7	1113.938000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	8	1113.319000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	9	1112.972000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+3	10	1112.117000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	1	1120.760000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	2	1115.472000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	3	1112.683000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	4	1113.225000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	5	1115.796000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	6	1118.335000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	7	1116.105000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	8	1117.699000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	9	1119.527000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+4	10	1114.074000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	1	1126.941000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	2	1118.942000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	3	1121.371000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	4	1120.127000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	5	1124.953000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	6	1120.437000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	7	1116.692000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	8	1125.240000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	9	1120.679000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+5	10	1117.087000	ms	total	BigLoop	YkLua	yk	1000000000	default					0
+# benchmark: 1={"name":"Havlak","command":"Havlak","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 1={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Havlak 10  1500","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1500","benchmark_id":1}
+1	1	6372.208000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	2	7810.805000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	3	6408.906000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	4	7622.050000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	5	6393.575000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	6	6797.026000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	7	6906.376000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	8	7785.168000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	9	6374.814000	ms	total	Havlak	Lua	awfy	1500	default					1
+1	10	7007.886000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	1	6396.205000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	2	6841.634000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	3	6598.249000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	4	6491.361000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	5	7335.454000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	6	6262.648000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	7	6780.830000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	8	7654.800000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	9	7748.395000	ms	total	Havlak	Lua	awfy	1500	default					1
+2	10	7341.535000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	1	6422.612000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	2	7668.868000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	3	6951.743000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	4	8120.136000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	5	6453.433000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	6	6440.151000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	7	6819.094000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	8	7168.869000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	9	7604.845000	ms	total	Havlak	Lua	awfy	1500	default					1
+3	10	7025.447000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	1	6336.758000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	2	6822.728000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	3	7193.651000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	4	7117.190000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	5	6724.555000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	6	7146.599000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	7	6278.306000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	8	6440.629000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	9	7422.818000	ms	total	Havlak	Lua	awfy	1500	default					1
+4	10	7336.540000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	1	6379.002000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	2	7005.682000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	3	7598.219000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	4	7829.751000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	5	8652.749000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	6	9312.496000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	7	8448.841000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	8	8585.000000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	9	8372.429000	ms	total	Havlak	Lua	awfy	1500	default					1
+5	10	8882.469000	ms	total	Havlak	Lua	awfy	1500	default					1
+# benchmark: 2={"name":"Towers","command":"Towers","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":600}
+# run_id: 2={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Towers 10  600","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"600","benchmark_id":2}
+1	1	1094.630000	ms	total	Towers	Lua	awfy	600	default					2
+1	2	1094.107000	ms	total	Towers	Lua	awfy	600	default					2
+1	3	1082.018000	ms	total	Towers	Lua	awfy	600	default					2
+1	4	1090.227000	ms	total	Towers	Lua	awfy	600	default					2
+1	5	1088.981000	ms	total	Towers	Lua	awfy	600	default					2
+1	6	1090.880000	ms	total	Towers	Lua	awfy	600	default					2
+1	7	1087.681000	ms	total	Towers	Lua	awfy	600	default					2
+1	8	1094.263000	ms	total	Towers	Lua	awfy	600	default					2
+1	9	1089.249000	ms	total	Towers	Lua	awfy	600	default					2
+1	10	1091.984000	ms	total	Towers	Lua	awfy	600	default					2
+2	1	1079.150000	ms	total	Towers	Lua	awfy	600	default					2
+2	2	1079.350000	ms	total	Towers	Lua	awfy	600	default					2
+2	3	1078.319000	ms	total	Towers	Lua	awfy	600	default					2
+2	4	1079.688000	ms	total	Towers	Lua	awfy	600	default					2
+2	5	1081.419000	ms	total	Towers	Lua	awfy	600	default					2
+2	6	1078.869000	ms	total	Towers	Lua	awfy	600	default					2
+2	7	1084.177000	ms	total	Towers	Lua	awfy	600	default					2
+2	8	1084.739000	ms	total	Towers	Lua	awfy	600	default					2
+2	9	1076.661000	ms	total	Towers	Lua	awfy	600	default					2
+2	10	1080.733000	ms	total	Towers	Lua	awfy	600	default					2
+3	1	1095.390000	ms	total	Towers	Lua	awfy	600	default					2
+3	2	1090.886000	ms	total	Towers	Lua	awfy	600	default					2
+3	3	1090.829000	ms	total	Towers	Lua	awfy	600	default					2
+3	4	1092.200000	ms	total	Towers	Lua	awfy	600	default					2
+3	5	1092.284000	ms	total	Towers	Lua	awfy	600	default					2
+3	6	1091.387000	ms	total	Towers	Lua	awfy	600	default					2
+3	7	1096.075000	ms	total	Towers	Lua	awfy	600	default					2
+3	8	1091.805000	ms	total	Towers	Lua	awfy	600	default					2
+3	9	1095.398000	ms	total	Towers	Lua	awfy	600	default					2
+3	10	1093.385000	ms	total	Towers	Lua	awfy	600	default					2
+4	1	1146.154000	ms	total	Towers	Lua	awfy	600	default					2
+4	2	1143.691000	ms	total	Towers	Lua	awfy	600	default					2
+4	3	1147.015000	ms	total	Towers	Lua	awfy	600	default					2
+4	4	1147.691000	ms	total	Towers	Lua	awfy	600	default					2
+4	5	1146.615000	ms	total	Towers	Lua	awfy	600	default					2
+4	6	1153.534000	ms	total	Towers	Lua	awfy	600	default					2
+4	7	1149.320000	ms	total	Towers	Lua	awfy	600	default					2
+4	8	1147.943000	ms	total	Towers	Lua	awfy	600	default					2
+4	9	1150.136000	ms	total	Towers	Lua	awfy	600	default					2
+4	10	1154.050000	ms	total	Towers	Lua	awfy	600	default					2
+5	1	1096.901000	ms	total	Towers	Lua	awfy	600	default					2
+5	2	1093.527000	ms	total	Towers	Lua	awfy	600	default					2
+5	3	1090.355000	ms	total	Towers	Lua	awfy	600	default					2
+5	4	1090.884000	ms	total	Towers	Lua	awfy	600	default					2
+5	5	1084.967000	ms	total	Towers	Lua	awfy	600	default					2
+5	6	1088.564000	ms	total	Towers	Lua	awfy	600	default					2
+5	7	1086.418000	ms	total	Towers	Lua	awfy	600	default					2
+5	8	1094.508000	ms	total	Towers	Lua	awfy	600	default					2
+5	9	1095.328000	ms	total	Towers	Lua	awfy	600	default					2
+5	10	1089.386000	ms	total	Towers	Lua	awfy	600	default					2
+# benchmark: 3={"name":"Storage","command":"Storage","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 3={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Storage 10  1000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1000","benchmark_id":3}
+1	1	2004.346000	ms	total	Storage	Lua	awfy	1000	default					3
+1	2	2065.440000	ms	total	Storage	Lua	awfy	1000	default					3
+1	3	2084.896000	ms	total	Storage	Lua	awfy	1000	default					3
+1	4	2084.280000	ms	total	Storage	Lua	awfy	1000	default					3
+1	5	2082.338000	ms	total	Storage	Lua	awfy	1000	default					3
+1	6	2085.948000	ms	total	Storage	Lua	awfy	1000	default					3
+1	7	2082.952000	ms	total	Storage	Lua	awfy	1000	default					3
+1	8	2087.931000	ms	total	Storage	Lua	awfy	1000	default					3
+1	9	2077.287000	ms	total	Storage	Lua	awfy	1000	default					3
+1	10	2087.946000	ms	total	Storage	Lua	awfy	1000	default					3
+2	1	1945.539000	ms	total	Storage	Lua	awfy	1000	default					3
+2	2	2006.024000	ms	total	Storage	Lua	awfy	1000	default					3
+2	3	2034.612000	ms	total	Storage	Lua	awfy	1000	default					3
+2	4	2047.456000	ms	total	Storage	Lua	awfy	1000	default					3
+2	5	2022.037000	ms	total	Storage	Lua	awfy	1000	default					3
+2	6	2015.779000	ms	total	Storage	Lua	awfy	1000	default					3
+2	7	2012.022000	ms	total	Storage	Lua	awfy	1000	default					3
+2	8	2017.650000	ms	total	Storage	Lua	awfy	1000	default					3
+2	9	2016.648000	ms	total	Storage	Lua	awfy	1000	default					3
+2	10	2023.734000	ms	total	Storage	Lua	awfy	1000	default					3
+3	1	1982.675000	ms	total	Storage	Lua	awfy	1000	default					3
+3	2	2035.590000	ms	total	Storage	Lua	awfy	1000	default					3
+3	3	2053.217000	ms	total	Storage	Lua	awfy	1000	default					3
+3	4	2053.773000	ms	total	Storage	Lua	awfy	1000	default					3
+3	5	2042.567000	ms	total	Storage	Lua	awfy	1000	default					3
+3	6	2046.593000	ms	total	Storage	Lua	awfy	1000	default					3
+3	7	2055.605000	ms	total	Storage	Lua	awfy	1000	default					3
+3	8	2053.549000	ms	total	Storage	Lua	awfy	1000	default					3
+3	9	2056.836000	ms	total	Storage	Lua	awfy	1000	default					3
+3	10	2061.496000	ms	total	Storage	Lua	awfy	1000	default					3
+4	1	1986.978000	ms	total	Storage	Lua	awfy	1000	default					3
+4	2	2047.246000	ms	total	Storage	Lua	awfy	1000	default					3
+4	3	2060.721000	ms	total	Storage	Lua	awfy	1000	default					3
+4	4	2056.483000	ms	total	Storage	Lua	awfy	1000	default					3
+4	5	2040.421000	ms	total	Storage	Lua	awfy	1000	default					3
+4	6	2047.652000	ms	total	Storage	Lua	awfy	1000	default					3
+4	7	2060.970000	ms	total	Storage	Lua	awfy	1000	default					3
+4	8	2056.670000	ms	total	Storage	Lua	awfy	1000	default					3
+4	9	2051.374000	ms	total	Storage	Lua	awfy	1000	default					3
+4	10	2053.524000	ms	total	Storage	Lua	awfy	1000	default					3
+5	1	2002.976000	ms	total	Storage	Lua	awfy	1000	default					3
+5	2	2053.804000	ms	total	Storage	Lua	awfy	1000	default					3
+5	3	2056.088000	ms	total	Storage	Lua	awfy	1000	default					3
+5	4	2060.033000	ms	total	Storage	Lua	awfy	1000	default					3
+5	5	2057.651000	ms	total	Storage	Lua	awfy	1000	default					3
+5	6	2061.426000	ms	total	Storage	Lua	awfy	1000	default					3
+5	7	2059.727000	ms	total	Storage	Lua	awfy	1000	default					3
+5	8	2063.011000	ms	total	Storage	Lua	awfy	1000	default					3
+5	9	2051.683000	ms	total	Storage	Lua	awfy	1000	default					3
+5	10	2059.586000	ms	total	Storage	Lua	awfy	1000	default					3
+# benchmark: 4={"name":"Queens","command":"Queens","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 4={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Queens 10  1000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1000","benchmark_id":4}
+1	1	303.867000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	2	294.668000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	3	292.044000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	4	291.414000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	5	293.240000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	6	292.224000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	7	290.485000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	8	290.741000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	9	291.392000	ms	total	Queens	YkLua	awfy	1000	default					4
+1	10	293.015000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	1	301.080000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	2	288.706000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	3	289.877000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	4	288.593000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	5	288.715000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	6	288.064000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	7	290.286000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	8	287.773000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	9	290.471000	ms	total	Queens	YkLua	awfy	1000	default					4
+2	10	287.956000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	1	306.811000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	2	296.225000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	3	296.643000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	4	298.020000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	5	296.774000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	6	295.590000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	7	295.805000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	8	295.556000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	9	297.332000	ms	total	Queens	YkLua	awfy	1000	default					4
+3	10	295.375000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	1	352.585000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	2	341.895000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	3	340.851000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	4	340.222000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	5	337.445000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	6	339.230000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	7	340.897000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	8	339.106000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	9	339.513000	ms	total	Queens	YkLua	awfy	1000	default					4
+4	10	340.849000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	1	347.028000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	2	330.978000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	3	334.444000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	4	338.568000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	5	334.025000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	6	336.151000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	7	335.160000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	8	335.628000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	9	334.713000	ms	total	Queens	YkLua	awfy	1000	default					4
+5	10	332.255000	ms	total	Queens	YkLua	awfy	1000	default					4
+# benchmark: 5={"name":"Mandelbrot","command":"Mandelbrot","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":500}
+# run_id: 5={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Mandelbrot 10  500","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"500","benchmark_id":5}
+1	1	68.537000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	2	61.608000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	3	61.765000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	4	62.125000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	5	62.092000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	6	61.643000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	7	61.476000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	8	62.173000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	9	62.329000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+1	10	62.339000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	1	70.683000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	2	64.327000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	3	64.741000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	4	64.679000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	5	64.469000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	6	63.806000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	7	64.414000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	8	64.664000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	9	64.325000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+2	10	63.955000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	1	68.371000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	2	61.454000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	3	61.636000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	4	61.992000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	5	61.919000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	6	61.390000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	7	62.174000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	8	62.079000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	9	61.930000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+3	10	61.488000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	1	68.958000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	2	61.642000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	3	62.325000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	4	62.036000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	5	61.350000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	6	61.308000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	7	61.488000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	8	61.321000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	9	62.018000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+4	10	61.286000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	1	68.796000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	2	62.066000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	3	61.543000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	4	62.069000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	5	62.399000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	6	61.249000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	7	61.297000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	8	61.337000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	9	61.293000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+5	10	62.375000	ms	total	Mandelbrot	YkLua	awfy	500	default					5
+# benchmark: 6={"name":"CD","command":"CD","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":250}
+# run_id: 6={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua CD 10  250","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"250","benchmark_id":6}
+1	1	2086.876000	ms	total	CD	YkLua	awfy	250	default					6
+1	2	1884.570000	ms	total	CD	YkLua	awfy	250	default					6
+1	3	1888.159000	ms	total	CD	YkLua	awfy	250	default					6
+1	4	1872.934000	ms	total	CD	YkLua	awfy	250	default					6
+1	5	1893.258000	ms	total	CD	YkLua	awfy	250	default					6
+1	6	1834.577000	ms	total	CD	YkLua	awfy	250	default					6
+1	7	1833.412000	ms	total	CD	YkLua	awfy	250	default					6
+1	8	1824.966000	ms	total	CD	YkLua	awfy	250	default					6
+1	9	1822.900000	ms	total	CD	YkLua	awfy	250	default					6
+1	10	1823.555000	ms	total	CD	YkLua	awfy	250	default					6
+2	1	1965.260000	ms	total	CD	YkLua	awfy	250	default					6
+2	2	1822.852000	ms	total	CD	YkLua	awfy	250	default					6
+2	3	1831.056000	ms	total	CD	YkLua	awfy	250	default					6
+2	4	1847.582000	ms	total	CD	YkLua	awfy	250	default					6
+2	5	1820.983000	ms	total	CD	YkLua	awfy	250	default					6
+2	6	1826.493000	ms	total	CD	YkLua	awfy	250	default					6
+2	7	1848.040000	ms	total	CD	YkLua	awfy	250	default					6
+2	8	1808.169000	ms	total	CD	YkLua	awfy	250	default					6
+2	9	1808.510000	ms	total	CD	YkLua	awfy	250	default					6
+2	10	1813.635000	ms	total	CD	YkLua	awfy	250	default					6
+3	1	2095.491000	ms	total	CD	YkLua	awfy	250	default					6
+3	2	1917.481000	ms	total	CD	YkLua	awfy	250	default					6
+3	3	1885.042000	ms	total	CD	YkLua	awfy	250	default					6
+3	4	1868.479000	ms	total	CD	YkLua	awfy	250	default					6
+3	5	1847.864000	ms	total	CD	YkLua	awfy	250	default					6
+3	6	1866.623000	ms	total	CD	YkLua	awfy	250	default					6
+3	7	1834.210000	ms	total	CD	YkLua	awfy	250	default					6
+3	8	1820.331000	ms	total	CD	YkLua	awfy	250	default					6
+3	9	1830.951000	ms	total	CD	YkLua	awfy	250	default					6
+3	10	1836.167000	ms	total	CD	YkLua	awfy	250	default					6
+4	1	2094.169000	ms	total	CD	YkLua	awfy	250	default					6
+4	2	1869.997000	ms	total	CD	YkLua	awfy	250	default					6
+4	3	1853.236000	ms	total	CD	YkLua	awfy	250	default					6
+4	4	1827.910000	ms	total	CD	YkLua	awfy	250	default					6
+4	5	1834.371000	ms	total	CD	YkLua	awfy	250	default					6
+4	6	1822.942000	ms	total	CD	YkLua	awfy	250	default					6
+4	7	1837.242000	ms	total	CD	YkLua	awfy	250	default					6
+4	8	1826.343000	ms	total	CD	YkLua	awfy	250	default					6
+4	9	1827.022000	ms	total	CD	YkLua	awfy	250	default					6
+4	10	1823.417000	ms	total	CD	YkLua	awfy	250	default					6
+5	1	2059.898000	ms	total	CD	YkLua	awfy	250	default					6
+5	2	1871.622000	ms	total	CD	YkLua	awfy	250	default					6
+5	3	1865.662000	ms	total	CD	YkLua	awfy	250	default					6
+5	4	1847.331000	ms	total	CD	YkLua	awfy	250	default					6
+5	5	1832.745000	ms	total	CD	YkLua	awfy	250	default					6
+5	6	1829.038000	ms	total	CD	YkLua	awfy	250	default					6
+5	7	1811.278000	ms	total	CD	YkLua	awfy	250	default					6
+5	8	1824.690000	ms	total	CD	YkLua	awfy	250	default					6
+5	9	1835.332000	ms	total	CD	YkLua	awfy	250	default					6
+5	10	1856.771000	ms	total	CD	YkLua	awfy	250	default					6
+# benchmark: 7={"name":"NBody","command":"NBody","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":250000}
+# run_id: 7={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua NBody 10  250000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"250000","benchmark_id":7}
+1	1	1019.835000	ms	total	NBody	Lua	awfy	250000	default					7
+1	2	1036.677000	ms	total	NBody	Lua	awfy	250000	default					7
+1	3	1042.907000	ms	total	NBody	Lua	awfy	250000	default					7
+1	4	1027.367000	ms	total	NBody	Lua	awfy	250000	default					7
+1	5	1040.798000	ms	total	NBody	Lua	awfy	250000	default					7
+1	6	1052.242000	ms	total	NBody	Lua	awfy	250000	default					7
+1	7	1044.782000	ms	total	NBody	Lua	awfy	250000	default					7
+1	8	1050.041000	ms	total	NBody	Lua	awfy	250000	default					7
+1	9	1048.351000	ms	total	NBody	Lua	awfy	250000	default					7
+1	10	1051.528000	ms	total	NBody	Lua	awfy	250000	default					7
+2	1	1026.984000	ms	total	NBody	Lua	awfy	250000	default					7
+2	2	1026.128000	ms	total	NBody	Lua	awfy	250000	default					7
+2	3	1027.979000	ms	total	NBody	Lua	awfy	250000	default					7
+2	4	1035.597000	ms	total	NBody	Lua	awfy	250000	default					7
+2	5	1044.169000	ms	total	NBody	Lua	awfy	250000	default					7
+2	6	1039.670000	ms	total	NBody	Lua	awfy	250000	default					7
+2	7	1036.905000	ms	total	NBody	Lua	awfy	250000	default					7
+2	8	1035.228000	ms	total	NBody	Lua	awfy	250000	default					7
+2	9	1037.872000	ms	total	NBody	Lua	awfy	250000	default					7
+2	10	1039.494000	ms	total	NBody	Lua	awfy	250000	default					7
+3	1	989.638000	ms	total	NBody	Lua	awfy	250000	default					7
+3	2	995.845000	ms	total	NBody	Lua	awfy	250000	default					7
+3	3	992.680000	ms	total	NBody	Lua	awfy	250000	default					7
+3	4	993.979000	ms	total	NBody	Lua	awfy	250000	default					7
+3	5	986.656000	ms	total	NBody	Lua	awfy	250000	default					7
+3	6	991.853000	ms	total	NBody	Lua	awfy	250000	default					7
+3	7	990.956000	ms	total	NBody	Lua	awfy	250000	default					7
+3	8	991.958000	ms	total	NBody	Lua	awfy	250000	default					7
+3	9	994.552000	ms	total	NBody	Lua	awfy	250000	default					7
+3	10	991.193000	ms	total	NBody	Lua	awfy	250000	default					7
+4	1	994.018000	ms	total	NBody	Lua	awfy	250000	default					7
+4	2	993.374000	ms	total	NBody	Lua	awfy	250000	default					7
+4	3	1001.673000	ms	total	NBody	Lua	awfy	250000	default					7
+4	4	993.268000	ms	total	NBody	Lua	awfy	250000	default					7
+4	5	999.007000	ms	total	NBody	Lua	awfy	250000	default					7
+4	6	993.165000	ms	total	NBody	Lua	awfy	250000	default					7
+4	7	995.977000	ms	total	NBody	Lua	awfy	250000	default					7
+4	8	994.905000	ms	total	NBody	Lua	awfy	250000	default					7
+4	9	990.412000	ms	total	NBody	Lua	awfy	250000	default					7
+4	10	986.372000	ms	total	NBody	Lua	awfy	250000	default					7
+5	1	1018.589000	ms	total	NBody	Lua	awfy	250000	default					7
+5	2	1023.539000	ms	total	NBody	Lua	awfy	250000	default					7
+5	3	1026.194000	ms	total	NBody	Lua	awfy	250000	default					7
+5	4	1027.251000	ms	total	NBody	Lua	awfy	250000	default					7
+5	5	1028.660000	ms	total	NBody	Lua	awfy	250000	default					7
+5	6	1025.536000	ms	total	NBody	Lua	awfy	250000	default					7
+5	7	1026.768000	ms	total	NBody	Lua	awfy	250000	default					7
+5	8	1026.341000	ms	total	NBody	Lua	awfy	250000	default					7
+5	9	1026.484000	ms	total	NBody	Lua	awfy	250000	default					7
+5	10	1029.553000	ms	total	NBody	Lua	awfy	250000	default					7
+# benchmark: 8={"name":"List","command":"List","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 8={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua List 10  1500","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1500","benchmark_id":8}
+1	1	793.988000	ms	total	List	Lua	awfy	1500	default					8
+1	2	794.265000	ms	total	List	Lua	awfy	1500	default					8
+1	3	793.064000	ms	total	List	Lua	awfy	1500	default					8
+1	4	792.148000	ms	total	List	Lua	awfy	1500	default					8
+1	5	791.991000	ms	total	List	Lua	awfy	1500	default					8
+1	6	792.110000	ms	total	List	Lua	awfy	1500	default					8
+1	7	790.105000	ms	total	List	Lua	awfy	1500	default					8
+1	8	792.550000	ms	total	List	Lua	awfy	1500	default					8
+1	9	796.561000	ms	total	List	Lua	awfy	1500	default					8
+1	10	792.247000	ms	total	List	Lua	awfy	1500	default					8
+2	1	789.277000	ms	total	List	Lua	awfy	1500	default					8
+2	2	793.144000	ms	total	List	Lua	awfy	1500	default					8
+2	3	797.803000	ms	total	List	Lua	awfy	1500	default					8
+2	4	795.227000	ms	total	List	Lua	awfy	1500	default					8
+2	5	798.308000	ms	total	List	Lua	awfy	1500	default					8
+2	6	801.216000	ms	total	List	Lua	awfy	1500	default					8
+2	7	801.448000	ms	total	List	Lua	awfy	1500	default					8
+2	8	794.896000	ms	total	List	Lua	awfy	1500	default					8
+2	9	793.663000	ms	total	List	Lua	awfy	1500	default					8
+2	10	795.792000	ms	total	List	Lua	awfy	1500	default					8
+3	1	802.392000	ms	total	List	Lua	awfy	1500	default					8
+3	2	803.843000	ms	total	List	Lua	awfy	1500	default					8
+3	3	804.435000	ms	total	List	Lua	awfy	1500	default					8
+3	4	801.885000	ms	total	List	Lua	awfy	1500	default					8
+3	5	800.640000	ms	total	List	Lua	awfy	1500	default					8
+3	6	800.877000	ms	total	List	Lua	awfy	1500	default					8
+3	7	797.985000	ms	total	List	Lua	awfy	1500	default					8
+3	8	795.414000	ms	total	List	Lua	awfy	1500	default					8
+3	9	794.279000	ms	total	List	Lua	awfy	1500	default					8
+3	10	798.202000	ms	total	List	Lua	awfy	1500	default					8
+4	1	863.188000	ms	total	List	Lua	awfy	1500	default					8
+4	2	866.397000	ms	total	List	Lua	awfy	1500	default					8
+4	3	864.353000	ms	total	List	Lua	awfy	1500	default					8
+4	4	859.661000	ms	total	List	Lua	awfy	1500	default					8
+4	5	865.968000	ms	total	List	Lua	awfy	1500	default					8
+4	6	866.859000	ms	total	List	Lua	awfy	1500	default					8
+4	7	867.481000	ms	total	List	Lua	awfy	1500	default					8
+4	8	862.678000	ms	total	List	Lua	awfy	1500	default					8
+4	9	865.191000	ms	total	List	Lua	awfy	1500	default					8
+4	10	868.671000	ms	total	List	Lua	awfy	1500	default					8
+5	1	843.069000	ms	total	List	Lua	awfy	1500	default					8
+5	2	841.388000	ms	total	List	Lua	awfy	1500	default					8
+5	3	838.898000	ms	total	List	Lua	awfy	1500	default					8
+5	4	843.415000	ms	total	List	Lua	awfy	1500	default					8
+5	5	843.994000	ms	total	List	Lua	awfy	1500	default					8
+5	6	844.894000	ms	total	List	Lua	awfy	1500	default					8
+5	7	842.194000	ms	total	List	Lua	awfy	1500	default					8
+5	8	841.475000	ms	total	List	Lua	awfy	1500	default					8
+5	9	843.998000	ms	total	List	Lua	awfy	1500	default					8
+5	10	843.211000	ms	total	List	Lua	awfy	1500	default					8
+# benchmark: 9={"name":"Mandelbrot","command":"Mandelbrot","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":500}
+# run_id: 9={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Mandelbrot 10  500","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"500","benchmark_id":9}
+1	1	377.566000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	2	382.602000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	3	386.907000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	4	382.703000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	5	384.730000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	6	384.116000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	7	385.616000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	8	381.492000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	9	376.756000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+1	10	378.907000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	1	360.288000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	2	363.727000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	3	386.980000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	4	380.256000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	5	355.658000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	6	356.819000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	7	359.017000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	8	354.140000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	9	357.617000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+2	10	355.797000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	1	361.757000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	2	368.722000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	3	368.744000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	4	368.307000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	5	366.162000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	6	367.945000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	7	366.496000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	8	366.880000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	9	369.009000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+3	10	363.695000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	1	363.408000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	2	364.568000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	3	369.941000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	4	370.726000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	5	369.278000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	6	363.107000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	7	368.741000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	8	365.336000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	9	371.798000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+4	10	371.858000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	1	363.270000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	2	363.188000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	3	367.209000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	4	371.525000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	5	368.059000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	6	365.173000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	7	366.837000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	8	362.434000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	9	368.777000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+5	10	367.762000	ms	total	Mandelbrot	Lua	awfy	500	default					9
+# benchmark: 10={"name":"DeltaBlue","command":"DeltaBlue","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":12000}
+# run_id: 10={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua DeltaBlue 10  12000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"12000","benchmark_id":10}
+1	1	794.124000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	2	688.711000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	3	694.387000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	4	696.713000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	5	666.539000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	6	675.212000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	7	691.309000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	8	675.842000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	9	689.022000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+1	10	711.825000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	1	776.764000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	2	671.373000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	3	672.345000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	4	652.996000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	5	639.090000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	6	642.744000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	7	633.669000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	8	638.870000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	9	648.224000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+2	10	632.606000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	1	807.561000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	2	693.277000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	3	679.989000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	4	680.096000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	5	677.751000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	6	668.334000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	7	680.998000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	8	677.398000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	9	696.202000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+3	10	686.335000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	1	780.600000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	2	657.057000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	3	668.704000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	4	663.358000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	5	658.707000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	6	643.933000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	7	647.330000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	8	653.264000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	9	654.660000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+4	10	654.826000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	1	808.742000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	2	701.580000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	3	678.762000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	4	691.851000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	5	685.589000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	6	697.988000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	7	688.010000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	8	681.827000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	9	690.157000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+5	10	689.362000	ms	total	DeltaBlue	YkLua	awfy	12000	default					10
+# benchmark: 11={"name":"Havlak","command":"Havlak","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 11={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Havlak 10  1500","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1500","benchmark_id":11}
+1	1	5770.060000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	2	5611.281000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	3	5624.583000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	4	6157.402000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	5	6559.803000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	6	6710.827000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	7	5345.053000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	8	6217.841000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	9	6894.131000	ms	total	Havlak	YkLua	awfy	1500	default					11
+1	10	5531.388000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	1	5870.917000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	2	7299.041000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	3	6046.019000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	4	6130.800000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	5	6645.416000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	6	6952.090000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	7	8019.463000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	8	7806.827000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	9	5153.887000	ms	total	Havlak	YkLua	awfy	1500	default					11
+2	10	5337.204000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	1	5636.285000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	2	6269.393000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	3	6257.281000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	4	6218.504000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	5	5244.203000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	6	5292.803000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	7	5467.731000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	8	5682.166000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	9	5485.774000	ms	total	Havlak	YkLua	awfy	1500	default					11
+3	10	5106.248000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	1	5914.117000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	2	6989.101000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	3	6595.805000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	4	6073.858000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	5	5694.376000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	6	6639.479000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	7	6977.919000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	8	6991.175000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	9	6567.560000	ms	total	Havlak	YkLua	awfy	1500	default					11
+4	10	5178.969000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	1	5690.032000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	2	7389.177000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	3	8217.353000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	4	6859.019000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	5	7787.392000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	6	7809.739000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	7	5678.466000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	8	6371.582000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	9	6476.793000	ms	total	Havlak	YkLua	awfy	1500	default					11
+5	10	7022.374000	ms	total	Havlak	YkLua	awfy	1500	default					11
+# benchmark: 12={"name":"Bounce","command":"Bounce","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 12={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Bounce 10  1500","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1500","benchmark_id":12}
+1	1	559.740000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	2	542.294000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	3	541.020000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	4	541.408000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	5	538.416000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	6	541.147000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	7	541.623000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	8	540.417000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	9	540.607000	ms	total	Bounce	YkLua	awfy	1500	default					12
+1	10	543.564000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	1	615.741000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	2	595.278000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	3	595.674000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	4	595.502000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	5	590.155000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	6	597.174000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	7	596.623000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	8	596.019000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	9	596.175000	ms	total	Bounce	YkLua	awfy	1500	default					12
+2	10	595.637000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	1	612.945000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	2	592.708000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	3	592.016000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	4	591.466000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	5	582.084000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	6	592.110000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	7	592.700000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	8	593.217000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	9	592.397000	ms	total	Bounce	YkLua	awfy	1500	default					12
+3	10	593.952000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	1	581.461000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	2	563.042000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	3	562.191000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	4	563.713000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	5	556.068000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	6	563.800000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	7	562.008000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	8	562.917000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	9	561.188000	ms	total	Bounce	YkLua	awfy	1500	default					12
+4	10	561.536000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	1	583.848000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	2	568.286000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	3	567.185000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	4	566.054000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	5	560.770000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	6	567.842000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	7	566.810000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	8	567.719000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	9	564.786000	ms	total	Bounce	YkLua	awfy	1500	default					12
+5	10	566.545000	ms	total	Bounce	YkLua	awfy	1500	default					12
+# benchmark: 13={"name":"Richards","command":"Richards","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":100}
+# run_id: 13={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Richards 10  100","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"100","benchmark_id":13}
+1	1	2369.079000	ms	total	Richards	YkLua	awfy	100	default					13
+1	2	2338.091000	ms	total	Richards	YkLua	awfy	100	default					13
+1	3	2338.088000	ms	total	Richards	YkLua	awfy	100	default					13
+1	4	2356.154000	ms	total	Richards	YkLua	awfy	100	default					13
+1	5	2341.579000	ms	total	Richards	YkLua	awfy	100	default					13
+1	6	2345.443000	ms	total	Richards	YkLua	awfy	100	default					13
+1	7	2350.061000	ms	total	Richards	YkLua	awfy	100	default					13
+1	8	2342.223000	ms	total	Richards	YkLua	awfy	100	default					13
+1	9	2349.278000	ms	total	Richards	YkLua	awfy	100	default					13
+1	10	2349.049000	ms	total	Richards	YkLua	awfy	100	default					13
+2	1	2504.831000	ms	total	Richards	YkLua	awfy	100	default					13
+2	2	2488.330000	ms	total	Richards	YkLua	awfy	100	default					13
+2	3	2490.121000	ms	total	Richards	YkLua	awfy	100	default					13
+2	4	2493.521000	ms	total	Richards	YkLua	awfy	100	default					13
+2	5	2495.343000	ms	total	Richards	YkLua	awfy	100	default					13
+2	6	2496.197000	ms	total	Richards	YkLua	awfy	100	default					13
+2	7	2494.780000	ms	total	Richards	YkLua	awfy	100	default					13
+2	8	2497.828000	ms	total	Richards	YkLua	awfy	100	default					13
+2	9	2494.058000	ms	total	Richards	YkLua	awfy	100	default					13
+2	10	2496.358000	ms	total	Richards	YkLua	awfy	100	default					13
+3	1	2455.884000	ms	total	Richards	YkLua	awfy	100	default					13
+3	2	2429.229000	ms	total	Richards	YkLua	awfy	100	default					13
+3	3	2429.768000	ms	total	Richards	YkLua	awfy	100	default					13
+3	4	2430.602000	ms	total	Richards	YkLua	awfy	100	default					13
+3	5	2437.037000	ms	total	Richards	YkLua	awfy	100	default					13
+3	6	2434.833000	ms	total	Richards	YkLua	awfy	100	default					13
+3	7	2432.157000	ms	total	Richards	YkLua	awfy	100	default					13
+3	8	2432.148000	ms	total	Richards	YkLua	awfy	100	default					13
+3	9	2434.589000	ms	total	Richards	YkLua	awfy	100	default					13
+3	10	2434.734000	ms	total	Richards	YkLua	awfy	100	default					13
+4	1	2546.218000	ms	total	Richards	YkLua	awfy	100	default					13
+4	2	2509.723000	ms	total	Richards	YkLua	awfy	100	default					13
+4	3	2507.933000	ms	total	Richards	YkLua	awfy	100	default					13
+4	4	2507.529000	ms	total	Richards	YkLua	awfy	100	default					13
+4	5	2524.546000	ms	total	Richards	YkLua	awfy	100	default					13
+4	6	2531.030000	ms	total	Richards	YkLua	awfy	100	default					13
+4	7	2535.309000	ms	total	Richards	YkLua	awfy	100	default					13
+4	8	2528.617000	ms	total	Richards	YkLua	awfy	100	default					13
+4	9	2530.846000	ms	total	Richards	YkLua	awfy	100	default					13
+4	10	2523.539000	ms	total	Richards	YkLua	awfy	100	default					13
+5	1	2538.692000	ms	total	Richards	YkLua	awfy	100	default					13
+5	2	2522.967000	ms	total	Richards	YkLua	awfy	100	default					13
+5	3	2528.291000	ms	total	Richards	YkLua	awfy	100	default					13
+5	4	2523.032000	ms	total	Richards	YkLua	awfy	100	default					13
+5	5	2526.174000	ms	total	Richards	YkLua	awfy	100	default					13
+5	6	2524.397000	ms	total	Richards	YkLua	awfy	100	default					13
+5	7	2526.856000	ms	total	Richards	YkLua	awfy	100	default					13
+5	8	2527.435000	ms	total	Richards	YkLua	awfy	100	default					13
+5	9	2526.246000	ms	total	Richards	YkLua	awfy	100	default					13
+5	10	2527.470000	ms	total	Richards	YkLua	awfy	100	default					13
+# benchmark: 14={"name":"Json","command":"Json","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":100}
+# run_id: 14={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Json 10  100","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"100","benchmark_id":14}
+1	1	702.607000	ms	total	Json	YkLua	awfy	100	default					14
+1	2	657.918000	ms	total	Json	YkLua	awfy	100	default					14
+1	3	654.217000	ms	total	Json	YkLua	awfy	100	default					14
+1	4	653.467000	ms	total	Json	YkLua	awfy	100	default					14
+1	5	654.339000	ms	total	Json	YkLua	awfy	100	default					14
+1	6	657.319000	ms	total	Json	YkLua	awfy	100	default					14
+1	7	654.073000	ms	total	Json	YkLua	awfy	100	default					14
+1	8	659.338000	ms	total	Json	YkLua	awfy	100	default					14
+1	9	654.605000	ms	total	Json	YkLua	awfy	100	default					14
+1	10	658.962000	ms	total	Json	YkLua	awfy	100	default					14
+2	1	716.407000	ms	total	Json	YkLua	awfy	100	default					14
+2	2	652.153000	ms	total	Json	YkLua	awfy	100	default					14
+2	3	646.561000	ms	total	Json	YkLua	awfy	100	default					14
+2	4	643.388000	ms	total	Json	YkLua	awfy	100	default					14
+2	5	641.513000	ms	total	Json	YkLua	awfy	100	default					14
+2	6	646.911000	ms	total	Json	YkLua	awfy	100	default					14
+2	7	645.378000	ms	total	Json	YkLua	awfy	100	default					14
+2	8	640.766000	ms	total	Json	YkLua	awfy	100	default					14
+2	9	640.162000	ms	total	Json	YkLua	awfy	100	default					14
+2	10	644.451000	ms	total	Json	YkLua	awfy	100	default					14
+3	1	702.372000	ms	total	Json	YkLua	awfy	100	default					14
+3	2	664.528000	ms	total	Json	YkLua	awfy	100	default					14
+3	3	664.981000	ms	total	Json	YkLua	awfy	100	default					14
+3	4	667.751000	ms	total	Json	YkLua	awfy	100	default					14
+3	5	663.674000	ms	total	Json	YkLua	awfy	100	default					14
+3	6	664.388000	ms	total	Json	YkLua	awfy	100	default					14
+3	7	663.477000	ms	total	Json	YkLua	awfy	100	default					14
+3	8	668.061000	ms	total	Json	YkLua	awfy	100	default					14
+3	9	666.383000	ms	total	Json	YkLua	awfy	100	default					14
+3	10	666.348000	ms	total	Json	YkLua	awfy	100	default					14
+4	1	695.839000	ms	total	Json	YkLua	awfy	100	default					14
+4	2	649.974000	ms	total	Json	YkLua	awfy	100	default					14
+4	3	647.142000	ms	total	Json	YkLua	awfy	100	default					14
+4	4	648.048000	ms	total	Json	YkLua	awfy	100	default					14
+4	5	644.245000	ms	total	Json	YkLua	awfy	100	default					14
+4	6	647.560000	ms	total	Json	YkLua	awfy	100	default					14
+4	7	643.014000	ms	total	Json	YkLua	awfy	100	default					14
+4	8	647.063000	ms	total	Json	YkLua	awfy	100	default					14
+4	9	644.182000	ms	total	Json	YkLua	awfy	100	default					14
+4	10	648.574000	ms	total	Json	YkLua	awfy	100	default					14
+5	1	710.104000	ms	total	Json	YkLua	awfy	100	default					14
+5	2	665.659000	ms	total	Json	YkLua	awfy	100	default					14
+5	3	668.996000	ms	total	Json	YkLua	awfy	100	default					14
+5	4	663.973000	ms	total	Json	YkLua	awfy	100	default					14
+5	5	660.834000	ms	total	Json	YkLua	awfy	100	default					14
+5	6	665.744000	ms	total	Json	YkLua	awfy	100	default					14
+5	7	664.358000	ms	total	Json	YkLua	awfy	100	default					14
+5	8	663.706000	ms	total	Json	YkLua	awfy	100	default					14
+5	9	664.959000	ms	total	Json	YkLua	awfy	100	default					14
+5	10	665.926000	ms	total	Json	YkLua	awfy	100	default					14
+# benchmark: 15={"name":"Queens","command":"Queens","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 15={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Queens 10  1000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1000","benchmark_id":15}
+1	1	695.921000	ms	total	Queens	Lua	awfy	1000	default					15
+1	2	695.578000	ms	total	Queens	Lua	awfy	1000	default					15
+1	3	692.736000	ms	total	Queens	Lua	awfy	1000	default					15
+1	4	696.989000	ms	total	Queens	Lua	awfy	1000	default					15
+1	5	696.893000	ms	total	Queens	Lua	awfy	1000	default					15
+1	6	704.674000	ms	total	Queens	Lua	awfy	1000	default					15
+1	7	699.186000	ms	total	Queens	Lua	awfy	1000	default					15
+1	8	699.190000	ms	total	Queens	Lua	awfy	1000	default					15
+1	9	699.132000	ms	total	Queens	Lua	awfy	1000	default					15
+1	10	700.467000	ms	total	Queens	Lua	awfy	1000	default					15
+2	1	692.679000	ms	total	Queens	Lua	awfy	1000	default					15
+2	2	695.203000	ms	total	Queens	Lua	awfy	1000	default					15
+2	3	694.623000	ms	total	Queens	Lua	awfy	1000	default					15
+2	4	693.543000	ms	total	Queens	Lua	awfy	1000	default					15
+2	5	692.390000	ms	total	Queens	Lua	awfy	1000	default					15
+2	6	692.161000	ms	total	Queens	Lua	awfy	1000	default					15
+2	7	690.669000	ms	total	Queens	Lua	awfy	1000	default					15
+2	8	691.637000	ms	total	Queens	Lua	awfy	1000	default					15
+2	9	689.591000	ms	total	Queens	Lua	awfy	1000	default					15
+2	10	692.641000	ms	total	Queens	Lua	awfy	1000	default					15
+3	1	691.603000	ms	total	Queens	Lua	awfy	1000	default					15
+3	2	693.973000	ms	total	Queens	Lua	awfy	1000	default					15
+3	3	691.704000	ms	total	Queens	Lua	awfy	1000	default					15
+3	4	692.240000	ms	total	Queens	Lua	awfy	1000	default					15
+3	5	690.023000	ms	total	Queens	Lua	awfy	1000	default					15
+3	6	692.657000	ms	total	Queens	Lua	awfy	1000	default					15
+3	7	692.541000	ms	total	Queens	Lua	awfy	1000	default					15
+3	8	694.523000	ms	total	Queens	Lua	awfy	1000	default					15
+3	9	695.446000	ms	total	Queens	Lua	awfy	1000	default					15
+3	10	689.751000	ms	total	Queens	Lua	awfy	1000	default					15
+4	1	683.248000	ms	total	Queens	Lua	awfy	1000	default					15
+4	2	690.579000	ms	total	Queens	Lua	awfy	1000	default					15
+4	3	688.736000	ms	total	Queens	Lua	awfy	1000	default					15
+4	4	690.979000	ms	total	Queens	Lua	awfy	1000	default					15
+4	5	683.692000	ms	total	Queens	Lua	awfy	1000	default					15
+4	6	689.258000	ms	total	Queens	Lua	awfy	1000	default					15
+4	7	686.180000	ms	total	Queens	Lua	awfy	1000	default					15
+4	8	689.155000	ms	total	Queens	Lua	awfy	1000	default					15
+4	9	685.688000	ms	total	Queens	Lua	awfy	1000	default					15
+4	10	686.389000	ms	total	Queens	Lua	awfy	1000	default					15
+5	1	682.794000	ms	total	Queens	Lua	awfy	1000	default					15
+5	2	689.130000	ms	total	Queens	Lua	awfy	1000	default					15
+5	3	686.370000	ms	total	Queens	Lua	awfy	1000	default					15
+5	4	688.505000	ms	total	Queens	Lua	awfy	1000	default					15
+5	5	690.408000	ms	total	Queens	Lua	awfy	1000	default					15
+5	6	685.635000	ms	total	Queens	Lua	awfy	1000	default					15
+5	7	683.297000	ms	total	Queens	Lua	awfy	1000	default					15
+5	8	679.665000	ms	total	Queens	Lua	awfy	1000	default					15
+5	9	684.121000	ms	total	Queens	Lua	awfy	1000	default					15
+5	10	680.833000	ms	total	Queens	Lua	awfy	1000	default					15
+# benchmark: 16={"name":"spectralnorm","command":"spectralnorm","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"cbgame","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 16={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  ../../awfy/Lua/harness.lua spectralnorm 10  1000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua","cores":"default","extraArgs":"1000","benchmark_id":16}
+1	1	2210.324000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	2	2241.468000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	3	2233.967000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	4	2220.211000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	5	2218.453000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	6	2273.467000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	7	2264.261000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	8	2259.148000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	9	2234.153000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+1	10	2232.728000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	1	2223.541000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	2	2181.807000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	3	2225.404000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	4	2177.608000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	5	2118.213000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	6	2159.401000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	7	2191.553000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	8	2145.285000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	9	2100.938000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+2	10	2169.444000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	1	2195.677000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	2	2180.389000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	3	2200.043000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	4	2207.387000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	5	2194.748000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	6	2229.870000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	7	2210.350000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	8	2200.817000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	9	2222.787000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+3	10	2191.945000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	1	2189.819000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	2	2188.732000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	3	2185.261000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	4	2193.288000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	5	2199.268000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	6	2179.593000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	7	2202.751000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	8	2195.567000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	9	2124.244000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+4	10	2163.742000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	1	2192.373000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	2	2178.630000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	3	2219.498000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	4	2174.546000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	5	2185.190000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	6	2187.087000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	7	2165.620000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	8	2174.167000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	9	2179.952000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+5	10	2193.198000	ms	total	spectralnorm	Lua	cbgame	1000	default					16
+# benchmark: 17={"name":"LuLPeg","command":"LuLPeg","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"realworld","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]}}
+# run_id: 17={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  ../../awfy/Lua/harness.lua LuLPeg 10","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua","cores":"default","benchmark_id":17}
+1	1	800.415000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	2	662.956000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	3	657.230000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	4	666.200000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	5	685.494000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	6	813.481000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	7	700.842000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	8	702.175000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	9	702.275000	ms	total	LuLPeg	YkLua	realworld		default					17
+1	10	695.348000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	1	775.672000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	2	649.164000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	3	645.798000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	4	642.735000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	5	643.063000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	6	752.099000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	7	672.466000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	8	676.038000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	9	674.303000	ms	total	LuLPeg	YkLua	realworld		default					17
+2	10	674.522000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	1	800.072000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	2	669.643000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	3	657.472000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	4	663.082000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	5	663.226000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	6	640.519000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	7	645.610000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	8	639.637000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	9	637.738000	ms	total	LuLPeg	YkLua	realworld		default					17
+3	10	637.399000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	1	790.695000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	2	666.970000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	3	662.416000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	4	669.574000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	5	666.622000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	6	789.398000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	7	691.780000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	8	690.807000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	9	690.980000	ms	total	LuLPeg	YkLua	realworld		default					17
+4	10	692.196000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	1	799.551000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	2	685.246000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	3	681.369000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	4	690.632000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	5	681.016000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	6	775.788000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	7	687.746000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	8	675.793000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	9	679.030000	ms	total	LuLPeg	YkLua	realworld		default					17
+5	10	681.966000	ms	total	LuLPeg	YkLua	realworld		default					17
+# benchmark: 18={"name":"Heightmap","command":"Heightmap","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"realworld","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":2000}
+# run_id: 18={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  ../../awfy/Lua/harness.lua Heightmap 10  2000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua","cores":"default","extraArgs":"2000","benchmark_id":18}
+1	1	438.422000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	2	416.522000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	3	417.653000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	4	410.844000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	5	412.164000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	6	413.321000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	7	417.015000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	8	409.699000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	9	410.428000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+1	10	411.116000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	1	435.754000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	2	428.166000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	3	430.789000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	4	409.461000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	5	411.250000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	6	414.479000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	7	416.845000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	8	410.531000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	9	407.198000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+2	10	410.485000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	1	462.240000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	2	443.722000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	3	444.377000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	4	436.161000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	5	439.309000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	6	441.021000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	7	446.214000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	8	449.422000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	9	436.629000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+3	10	447.632000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	1	438.047000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	2	419.457000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	3	420.891000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	4	423.537000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	5	423.442000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	6	427.645000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	7	430.542000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	8	422.375000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	9	412.720000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+4	10	424.034000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	1	455.379000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	2	432.002000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	3	435.480000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	4	427.311000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	5	431.661000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	6	431.255000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	7	436.140000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	8	428.195000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	9	427.804000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+5	10	426.297000	ms	total	Heightmap	YkLua	realworld	2000	default					18
+# benchmark: 19={"name":"BigLoop","command":"BigLoop","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"yk","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/yk/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000000000}
+# run_id: 19={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  ../../awfy/Lua/harness.lua BigLoop 10  1000000000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/yk/Lua","cores":"default","extraArgs":"1000000000","benchmark_id":19}
+1	1	4374.600000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	2	4369.860000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	3	4364.118000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	4	4373.212000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	5	4363.173000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	6	4372.312000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	7	4375.145000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	8	4370.886000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	9	4377.036000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+1	10	4388.129000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	1	4378.858000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	2	4370.557000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	3	4366.589000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	4	4382.981000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	5	4383.148000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	6	4369.047000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	7	4367.959000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	8	4362.693000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	9	4371.563000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+2	10	4360.916000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	1	4374.302000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	2	4376.937000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	3	4387.111000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	4	4380.738000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	5	4370.991000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	6	4362.923000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	7	4361.899000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	8	4376.588000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	9	4382.205000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+3	10	4385.983000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	1	4374.717000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	2	4376.924000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	3	4378.725000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	4	4375.588000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	5	4367.823000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	6	4358.855000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	7	4366.086000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	8	4367.429000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	9	4370.625000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+4	10	4375.988000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	1	4378.934000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	2	4376.999000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	3	4380.931000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	4	4385.422000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	5	4382.914000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	6	4390.363000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	7	4388.843000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	8	4386.202000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	9	4386.958000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+5	10	4379.104000	ms	total	BigLoop	Lua	yk	1000000000	default					19
+# benchmark: 20={"name":"List","command":"List","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 20={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua List 10  1500","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1500","benchmark_id":20}
+1	1	550.254000	ms	total	List	YkLua	awfy	1500	default					20
+1	2	541.116000	ms	total	List	YkLua	awfy	1500	default					20
+1	3	541.252000	ms	total	List	YkLua	awfy	1500	default					20
+1	4	540.163000	ms	total	List	YkLua	awfy	1500	default					20
+1	5	540.968000	ms	total	List	YkLua	awfy	1500	default					20
+1	6	537.731000	ms	total	List	YkLua	awfy	1500	default					20
+1	7	539.824000	ms	total	List	YkLua	awfy	1500	default					20
+1	8	537.971000	ms	total	List	YkLua	awfy	1500	default					20
+1	9	537.951000	ms	total	List	YkLua	awfy	1500	default					20
+1	10	538.023000	ms	total	List	YkLua	awfy	1500	default					20
+2	1	483.138000	ms	total	List	YkLua	awfy	1500	default					20
+2	2	471.329000	ms	total	List	YkLua	awfy	1500	default					20
+2	3	471.331000	ms	total	List	YkLua	awfy	1500	default					20
+2	4	472.986000	ms	total	List	YkLua	awfy	1500	default					20
+2	5	474.322000	ms	total	List	YkLua	awfy	1500	default					20
+2	6	474.513000	ms	total	List	YkLua	awfy	1500	default					20
+2	7	473.384000	ms	total	List	YkLua	awfy	1500	default					20
+2	8	474.048000	ms	total	List	YkLua	awfy	1500	default					20
+2	9	473.008000	ms	total	List	YkLua	awfy	1500	default					20
+2	10	474.279000	ms	total	List	YkLua	awfy	1500	default					20
+3	1	549.073000	ms	total	List	YkLua	awfy	1500	default					20
+3	2	540.885000	ms	total	List	YkLua	awfy	1500	default					20
+3	3	537.203000	ms	total	List	YkLua	awfy	1500	default					20
+3	4	534.722000	ms	total	List	YkLua	awfy	1500	default					20
+3	5	537.771000	ms	total	List	YkLua	awfy	1500	default					20
+3	6	539.261000	ms	total	List	YkLua	awfy	1500	default					20
+3	7	533.971000	ms	total	List	YkLua	awfy	1500	default					20
+3	8	536.683000	ms	total	List	YkLua	awfy	1500	default					20
+3	9	538.303000	ms	total	List	YkLua	awfy	1500	default					20
+3	10	536.911000	ms	total	List	YkLua	awfy	1500	default					20
+4	1	549.424000	ms	total	List	YkLua	awfy	1500	default					20
+4	2	540.011000	ms	total	List	YkLua	awfy	1500	default					20
+4	3	539.653000	ms	total	List	YkLua	awfy	1500	default					20
+4	4	533.780000	ms	total	List	YkLua	awfy	1500	default					20
+4	5	536.474000	ms	total	List	YkLua	awfy	1500	default					20
+4	6	537.465000	ms	total	List	YkLua	awfy	1500	default					20
+4	7	534.935000	ms	total	List	YkLua	awfy	1500	default					20
+4	8	538.392000	ms	total	List	YkLua	awfy	1500	default					20
+4	9	533.634000	ms	total	List	YkLua	awfy	1500	default					20
+4	10	534.254000	ms	total	List	YkLua	awfy	1500	default					20
+5	1	545.722000	ms	total	List	YkLua	awfy	1500	default					20
+5	2	535.947000	ms	total	List	YkLua	awfy	1500	default					20
+5	3	535.540000	ms	total	List	YkLua	awfy	1500	default					20
+5	4	536.897000	ms	total	List	YkLua	awfy	1500	default					20
+5	5	534.851000	ms	total	List	YkLua	awfy	1500	default					20
+5	6	533.811000	ms	total	List	YkLua	awfy	1500	default					20
+5	7	533.573000	ms	total	List	YkLua	awfy	1500	default					20
+5	8	532.441000	ms	total	List	YkLua	awfy	1500	default					20
+5	9	532.751000	ms	total	List	YkLua	awfy	1500	default					20
+5	10	534.357000	ms	total	List	YkLua	awfy	1500	default					20
+# benchmark: 21={"name":"NBody","command":"NBody","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":250000}
+# run_id: 21={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua NBody 10  250000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"250000","benchmark_id":21}
+1	1	344.784000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	2	330.674000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	3	332.893000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	4	332.516000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	5	329.568000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	6	331.215000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	7	331.190000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	8	332.987000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	9	332.060000	ms	total	NBody	YkLua	awfy	250000	default					21
+1	10	330.857000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	1	345.982000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	2	339.193000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	3	338.082000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	4	361.467000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	5	336.956000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	6	338.835000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	7	341.202000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	8	341.017000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	9	337.901000	ms	total	NBody	YkLua	awfy	250000	default					21
+2	10	340.576000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	1	347.494000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	2	337.883000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	3	335.893000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	4	338.294000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	5	338.512000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	6	335.252000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	7	334.533000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	8	337.183000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	9	334.789000	ms	total	NBody	YkLua	awfy	250000	default					21
+3	10	336.988000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	1	347.134000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	2	336.631000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	3	338.052000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	4	334.456000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	5	333.558000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	6	336.068000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	7	336.117000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	8	333.119000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	9	338.029000	ms	total	NBody	YkLua	awfy	250000	default					21
+4	10	339.017000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	1	389.250000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	2	377.706000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	3	376.161000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	4	374.114000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	5	372.951000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	6	376.309000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	7	377.242000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	8	376.127000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	9	374.715000	ms	total	NBody	YkLua	awfy	250000	default					21
+5	10	376.122000	ms	total	NBody	YkLua	awfy	250000	default					21
+# benchmark: 22={"name":"Heightmap","command":"Heightmap","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"realworld","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":2000}
+# run_id: 22={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  ../../awfy/Lua/harness.lua Heightmap 10  2000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua","cores":"default","extraArgs":"2000","benchmark_id":22}
+1	1	1385.343000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	2	1397.091000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	3	1393.187000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	4	1389.458000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	5	1406.559000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	6	1397.747000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	7	1391.542000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	8	1390.510000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	9	1386.301000	ms	total	Heightmap	Lua	realworld	2000	default					22
+1	10	1394.139000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	1	1387.975000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	2	1383.792000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	3	1382.132000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	4	1387.350000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	5	1391.603000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	6	1399.044000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	7	1400.282000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	8	1383.805000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	9	1380.938000	ms	total	Heightmap	Lua	realworld	2000	default					22
+2	10	1394.765000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	1	1389.430000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	2	1392.425000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	3	1389.601000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	4	1379.402000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	5	1386.915000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	6	1389.745000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	7	1402.034000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	8	1385.328000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	9	1375.107000	ms	total	Heightmap	Lua	realworld	2000	default					22
+3	10	1395.594000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	1	1380.427000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	2	1369.399000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	3	1388.066000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	4	1379.872000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	5	1375.423000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	6	1392.364000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	7	1394.243000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	8	1404.850000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	9	1397.389000	ms	total	Heightmap	Lua	realworld	2000	default					22
+4	10	1381.345000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	1	1387.240000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	2	1402.851000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	3	1398.006000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	4	1389.199000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	5	1401.178000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	6	1370.390000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	7	1397.197000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	8	1400.308000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	9	1396.430000	ms	total	Heightmap	Lua	realworld	2000	default					22
+5	10	1379.768000	ms	total	Heightmap	Lua	realworld	2000	default					22
+# benchmark: 23={"name":"Sieve","command":"Sieve","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":3000}
+# run_id: 23={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Sieve 10  3000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"3000","benchmark_id":23}
+1	1	238.606000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	2	232.080000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	3	234.062000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	4	233.294000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	5	235.245000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	6	234.106000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	7	233.187000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	8	235.534000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	9	233.684000	ms	total	Sieve	YkLua	awfy	3000	default					23
+1	10	234.986000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	1	237.734000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	2	233.957000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	3	235.045000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	4	235.410000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	5	234.463000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	6	232.890000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	7	230.930000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	8	233.060000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	9	234.263000	ms	total	Sieve	YkLua	awfy	3000	default					23
+2	10	232.351000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	1	236.497000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	2	234.153000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	3	232.655000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	4	233.074000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	5	232.634000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	6	233.474000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	7	234.927000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	8	233.789000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	9	232.890000	ms	total	Sieve	YkLua	awfy	3000	default					23
+3	10	234.178000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	1	235.969000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	2	231.001000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	3	228.598000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	4	231.985000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	5	233.599000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	6	233.557000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	7	233.778000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	8	233.936000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	9	232.964000	ms	total	Sieve	YkLua	awfy	3000	default					23
+4	10	232.979000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	1	240.931000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	2	234.223000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	3	234.683000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	4	235.250000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	5	233.633000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	6	232.672000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	7	234.892000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	8	234.070000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	9	235.491000	ms	total	Sieve	YkLua	awfy	3000	default					23
+5	10	235.539000	ms	total	Sieve	YkLua	awfy	3000	default					23
+# benchmark: 24={"name":"LuLPeg","command":"LuLPeg","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"realworld","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]}}
+# run_id: 24={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  ../../awfy/Lua/harness.lua LuLPeg 10","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua","cores":"default","benchmark_id":24}
+1	1	1379.898000	ms	total	LuLPeg	Lua	realworld		default					24
+1	2	1408.887000	ms	total	LuLPeg	Lua	realworld		default					24
+1	3	1410.297000	ms	total	LuLPeg	Lua	realworld		default					24
+1	4	1406.690000	ms	total	LuLPeg	Lua	realworld		default					24
+1	5	1392.371000	ms	total	LuLPeg	Lua	realworld		default					24
+1	6	1370.435000	ms	total	LuLPeg	Lua	realworld		default					24
+1	7	1359.744000	ms	total	LuLPeg	Lua	realworld		default					24
+1	8	1361.458000	ms	total	LuLPeg	Lua	realworld		default					24
+1	9	1364.549000	ms	total	LuLPeg	Lua	realworld		default					24
+1	10	1358.791000	ms	total	LuLPeg	Lua	realworld		default					24
+2	1	1388.740000	ms	total	LuLPeg	Lua	realworld		default					24
+2	2	1401.900000	ms	total	LuLPeg	Lua	realworld		default					24
+2	3	1373.175000	ms	total	LuLPeg	Lua	realworld		default					24
+2	4	1361.704000	ms	total	LuLPeg	Lua	realworld		default					24
+2	5	1357.372000	ms	total	LuLPeg	Lua	realworld		default					24
+2	6	1359.971000	ms	total	LuLPeg	Lua	realworld		default					24
+2	7	1357.419000	ms	total	LuLPeg	Lua	realworld		default					24
+2	8	1361.385000	ms	total	LuLPeg	Lua	realworld		default					24
+2	9	1360.879000	ms	total	LuLPeg	Lua	realworld		default					24
+2	10	1361.467000	ms	total	LuLPeg	Lua	realworld		default					24
+3	1	1386.537000	ms	total	LuLPeg	Lua	realworld		default					24
+3	2	1401.717000	ms	total	LuLPeg	Lua	realworld		default					24
+3	3	1402.993000	ms	total	LuLPeg	Lua	realworld		default					24
+3	4	1397.509000	ms	total	LuLPeg	Lua	realworld		default					24
+3	5	1398.983000	ms	total	LuLPeg	Lua	realworld		default					24
+3	6	1400.532000	ms	total	LuLPeg	Lua	realworld		default					24
+3	7	1392.928000	ms	total	LuLPeg	Lua	realworld		default					24
+3	8	1403.286000	ms	total	LuLPeg	Lua	realworld		default					24
+3	9	1399.896000	ms	total	LuLPeg	Lua	realworld		default					24
+3	10	1405.084000	ms	total	LuLPeg	Lua	realworld		default					24
+4	1	1375.517000	ms	total	LuLPeg	Lua	realworld		default					24
+4	2	1378.145000	ms	total	LuLPeg	Lua	realworld		default					24
+4	3	1388.432000	ms	total	LuLPeg	Lua	realworld		default					24
+4	4	1396.002000	ms	total	LuLPeg	Lua	realworld		default					24
+4	5	1375.033000	ms	total	LuLPeg	Lua	realworld		default					24
+4	6	1366.597000	ms	total	LuLPeg	Lua	realworld		default					24
+4	7	1357.401000	ms	total	LuLPeg	Lua	realworld		default					24
+4	8	1358.806000	ms	total	LuLPeg	Lua	realworld		default					24
+4	9	1357.269000	ms	total	LuLPeg	Lua	realworld		default					24
+4	10	1354.551000	ms	total	LuLPeg	Lua	realworld		default					24
+5	1	1385.137000	ms	total	LuLPeg	Lua	realworld		default					24
+5	2	1396.274000	ms	total	LuLPeg	Lua	realworld		default					24
+5	3	1361.640000	ms	total	LuLPeg	Lua	realworld		default					24
+5	4	1369.019000	ms	total	LuLPeg	Lua	realworld		default					24
+5	5	1356.528000	ms	total	LuLPeg	Lua	realworld		default					24
+5	6	1345.636000	ms	total	LuLPeg	Lua	realworld		default					24
+5	7	1359.982000	ms	total	LuLPeg	Lua	realworld		default					24
+5	8	1355.390000	ms	total	LuLPeg	Lua	realworld		default					24
+5	9	1356.015000	ms	total	LuLPeg	Lua	realworld		default					24
+5	10	1357.203000	ms	total	LuLPeg	Lua	realworld		default					24
+# benchmark: 25={"name":"Json","command":"Json","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":100}
+# run_id: 25={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Json 10  100","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"100","benchmark_id":25}
+1	1	1128.375000	ms	total	Json	Lua	awfy	100	default					25
+1	2	1125.780000	ms	total	Json	Lua	awfy	100	default					25
+1	3	1127.683000	ms	total	Json	Lua	awfy	100	default					25
+1	4	1129.617000	ms	total	Json	Lua	awfy	100	default					25
+1	5	1122.073000	ms	total	Json	Lua	awfy	100	default					25
+1	6	1122.733000	ms	total	Json	Lua	awfy	100	default					25
+1	7	1120.307000	ms	total	Json	Lua	awfy	100	default					25
+1	8	1109.770000	ms	total	Json	Lua	awfy	100	default					25
+1	9	1103.411000	ms	total	Json	Lua	awfy	100	default					25
+1	10	1109.228000	ms	total	Json	Lua	awfy	100	default					25
+2	1	1090.673000	ms	total	Json	Lua	awfy	100	default					25
+2	2	1098.652000	ms	total	Json	Lua	awfy	100	default					25
+2	3	1093.607000	ms	total	Json	Lua	awfy	100	default					25
+2	4	1096.030000	ms	total	Json	Lua	awfy	100	default					25
+2	5	1092.189000	ms	total	Json	Lua	awfy	100	default					25
+2	6	1096.277000	ms	total	Json	Lua	awfy	100	default					25
+2	7	1097.827000	ms	total	Json	Lua	awfy	100	default					25
+2	8	1086.294000	ms	total	Json	Lua	awfy	100	default					25
+2	9	1082.049000	ms	total	Json	Lua	awfy	100	default					25
+2	10	1079.612000	ms	total	Json	Lua	awfy	100	default					25
+3	1	1064.345000	ms	total	Json	Lua	awfy	100	default					25
+3	2	1077.768000	ms	total	Json	Lua	awfy	100	default					25
+3	3	1071.739000	ms	total	Json	Lua	awfy	100	default					25
+3	4	1067.931000	ms	total	Json	Lua	awfy	100	default					25
+3	5	1064.239000	ms	total	Json	Lua	awfy	100	default					25
+3	6	1063.611000	ms	total	Json	Lua	awfy	100	default					25
+3	7	1067.170000	ms	total	Json	Lua	awfy	100	default					25
+3	8	1060.481000	ms	total	Json	Lua	awfy	100	default					25
+3	9	1056.863000	ms	total	Json	Lua	awfy	100	default					25
+3	10	1059.150000	ms	total	Json	Lua	awfy	100	default					25
+4	1	1088.345000	ms	total	Json	Lua	awfy	100	default					25
+4	2	1090.270000	ms	total	Json	Lua	awfy	100	default					25
+4	3	1097.406000	ms	total	Json	Lua	awfy	100	default					25
+4	4	1087.751000	ms	total	Json	Lua	awfy	100	default					25
+4	5	1084.750000	ms	total	Json	Lua	awfy	100	default					25
+4	6	1088.175000	ms	total	Json	Lua	awfy	100	default					25
+4	7	1091.806000	ms	total	Json	Lua	awfy	100	default					25
+4	8	1078.839000	ms	total	Json	Lua	awfy	100	default					25
+4	9	1078.226000	ms	total	Json	Lua	awfy	100	default					25
+4	10	1075.930000	ms	total	Json	Lua	awfy	100	default					25
+5	1	1097.848000	ms	total	Json	Lua	awfy	100	default					25
+5	2	1109.238000	ms	total	Json	Lua	awfy	100	default					25
+5	3	1103.675000	ms	total	Json	Lua	awfy	100	default					25
+5	4	1102.253000	ms	total	Json	Lua	awfy	100	default					25
+5	5	1100.147000	ms	total	Json	Lua	awfy	100	default					25
+5	6	1101.171000	ms	total	Json	Lua	awfy	100	default					25
+5	7	1109.955000	ms	total	Json	Lua	awfy	100	default					25
+5	8	1094.399000	ms	total	Json	Lua	awfy	100	default					25
+5	9	1095.282000	ms	total	Json	Lua	awfy	100	default					25
+5	10	1094.879000	ms	total	Json	Lua	awfy	100	default					25
+# benchmark: 26={"name":"Permute","command":"Permute","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 26={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Permute 10  1000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1000","benchmark_id":26}
+1	1	579.335000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	2	563.870000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	3	567.020000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	4	566.095000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	5	563.784000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	6	568.443000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	7	566.913000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	8	563.927000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	9	564.972000	ms	total	Permute	YkLua	awfy	1000	default					26
+1	10	566.347000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	1	499.650000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	2	484.473000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	3	484.137000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	4	484.343000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	5	482.649000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	6	484.943000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	7	483.866000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	8	482.612000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	9	481.829000	ms	total	Permute	YkLua	awfy	1000	default					26
+2	10	483.481000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	1	522.548000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	2	507.976000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	3	512.390000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	4	511.660000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	5	510.940000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	6	511.235000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	7	509.958000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	8	511.757000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	9	513.458000	ms	total	Permute	YkLua	awfy	1000	default					26
+3	10	510.651000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	1	525.443000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	2	508.564000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	3	507.146000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	4	510.538000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	5	506.638000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	6	511.488000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	7	506.481000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	8	507.025000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	9	510.334000	ms	total	Permute	YkLua	awfy	1000	default					26
+4	10	508.408000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	1	469.894000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	2	452.556000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	3	459.533000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	4	453.943000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	5	456.477000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	6	456.170000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	7	452.999000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	8	459.170000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	9	455.593000	ms	total	Permute	YkLua	awfy	1000	default					26
+5	10	454.992000	ms	total	Permute	YkLua	awfy	1000	default					26
+# benchmark: 27={"name":"spectralnorm","command":"spectralnorm","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"cbgame","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 27={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  ../../awfy/Lua/harness.lua spectralnorm 10  1000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua","cores":"default","extraArgs":"1000","benchmark_id":27}
+1	1	617.843000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	2	610.192000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	3	608.619000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	4	606.451000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	5	605.866000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	6	608.727000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	7	605.761000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	8	608.097000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	9	612.331000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+1	10	605.757000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	1	616.388000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	2	607.572000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	3	610.502000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	4	611.679000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	5	609.733000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	6	609.790000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	7	607.356000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	8	607.718000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	9	606.378000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+2	10	610.024000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	1	618.255000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	2	610.117000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	3	612.017000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	4	606.191000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	5	609.266000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	6	608.629000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	7	607.806000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	8	606.155000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	9	605.450000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+3	10	607.104000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	1	616.972000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	2	609.110000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	3	608.491000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	4	609.290000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	5	609.941000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	6	610.720000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	7	613.301000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	8	613.294000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	9	610.325000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+4	10	608.603000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	1	620.093000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	2	607.934000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	3	608.494000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	4	606.362000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	5	608.818000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	6	608.086000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	7	607.997000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	8	606.561000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	9	609.592000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+5	10	609.070000	ms	total	spectralnorm	YkLua	cbgame	1000	default					27
+# benchmark: 28={"name":"knucleotide","command":"knucleotide","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"cbgame","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]}}
+# run_id: 28={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  ../../awfy/Lua/harness.lua knucleotide 10","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua","cores":"default","benchmark_id":28}
+1	1	1479.346000	ms	total	knucleotide	Lua	cbgame		default					28
+1	2	1451.558000	ms	total	knucleotide	Lua	cbgame		default					28
+1	3	1461.455000	ms	total	knucleotide	Lua	cbgame		default					28
+1	4	1465.672000	ms	total	knucleotide	Lua	cbgame		default					28
+1	5	1459.746000	ms	total	knucleotide	Lua	cbgame		default					28
+1	6	1455.319000	ms	total	knucleotide	Lua	cbgame		default					28
+1	7	1456.670000	ms	total	knucleotide	Lua	cbgame		default					28
+1	8	1464.413000	ms	total	knucleotide	Lua	cbgame		default					28
+1	9	1463.476000	ms	total	knucleotide	Lua	cbgame		default					28
+1	10	1452.156000	ms	total	knucleotide	Lua	cbgame		default					28
+2	1	1481.215000	ms	total	knucleotide	Lua	cbgame		default					28
+2	2	1489.149000	ms	total	knucleotide	Lua	cbgame		default					28
+2	3	1486.906000	ms	total	knucleotide	Lua	cbgame		default					28
+2	4	1484.474000	ms	total	knucleotide	Lua	cbgame		default					28
+2	5	1493.006000	ms	total	knucleotide	Lua	cbgame		default					28
+2	6	1483.970000	ms	total	knucleotide	Lua	cbgame		default					28
+2	7	1477.441000	ms	total	knucleotide	Lua	cbgame		default					28
+2	8	1475.463000	ms	total	knucleotide	Lua	cbgame		default					28
+2	9	1481.866000	ms	total	knucleotide	Lua	cbgame		default					28
+2	10	1477.700000	ms	total	knucleotide	Lua	cbgame		default					28
+3	1	1477.653000	ms	total	knucleotide	Lua	cbgame		default					28
+3	2	1459.054000	ms	total	knucleotide	Lua	cbgame		default					28
+3	3	1470.760000	ms	total	knucleotide	Lua	cbgame		default					28
+3	4	1464.136000	ms	total	knucleotide	Lua	cbgame		default					28
+3	5	1470.583000	ms	total	knucleotide	Lua	cbgame		default					28
+3	6	1463.494000	ms	total	knucleotide	Lua	cbgame		default					28
+3	7	1467.719000	ms	total	knucleotide	Lua	cbgame		default					28
+3	8	1458.002000	ms	total	knucleotide	Lua	cbgame		default					28
+3	9	1463.960000	ms	total	knucleotide	Lua	cbgame		default					28
+3	10	1465.495000	ms	total	knucleotide	Lua	cbgame		default					28
+4	1	1483.347000	ms	total	knucleotide	Lua	cbgame		default					28
+4	2	1471.242000	ms	total	knucleotide	Lua	cbgame		default					28
+4	3	1467.605000	ms	total	knucleotide	Lua	cbgame		default					28
+4	4	1470.578000	ms	total	knucleotide	Lua	cbgame		default					28
+4	5	1474.815000	ms	total	knucleotide	Lua	cbgame		default					28
+4	6	1472.318000	ms	total	knucleotide	Lua	cbgame		default					28
+4	7	1459.491000	ms	total	knucleotide	Lua	cbgame		default					28
+4	8	1455.150000	ms	total	knucleotide	Lua	cbgame		default					28
+4	9	1454.554000	ms	total	knucleotide	Lua	cbgame		default					28
+4	10	1453.880000	ms	total	knucleotide	Lua	cbgame		default					28
+5	1	1471.754000	ms	total	knucleotide	Lua	cbgame		default					28
+5	2	1463.978000	ms	total	knucleotide	Lua	cbgame		default					28
+5	3	1469.896000	ms	total	knucleotide	Lua	cbgame		default					28
+5	4	1463.403000	ms	total	knucleotide	Lua	cbgame		default					28
+5	5	1457.719000	ms	total	knucleotide	Lua	cbgame		default					28
+5	6	1455.510000	ms	total	knucleotide	Lua	cbgame		default					28
+5	7	1453.987000	ms	total	knucleotide	Lua	cbgame		default					28
+5	8	1450.114000	ms	total	knucleotide	Lua	cbgame		default					28
+5	9	1447.074000	ms	total	knucleotide	Lua	cbgame		default					28
+5	10	1453.372000	ms	total	knucleotide	Lua	cbgame		default					28
+# benchmark: 29={"name":"fannkuchredux","command":"fannkuchredux","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"cbgame","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":10}
+# run_id: 29={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  ../../awfy/Lua/harness.lua fannkuchredux 10  10","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua","cores":"default","extraArgs":"10","benchmark_id":29}
+1	1	1884.842000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	2	1882.570000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	3	1885.115000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	4	1884.103000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	5	1884.964000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	6	1879.487000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	7	1879.032000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	8	1883.764000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	9	1885.614000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+1	10	1884.795000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	1	1889.523000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	2	1888.221000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	3	1888.309000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	4	1883.082000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	5	1884.310000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	6	1887.124000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	7	1883.595000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	8	1881.832000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	9	1887.374000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+2	10	1885.089000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	1	1891.975000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	2	1887.316000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	3	1892.722000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	4	1891.616000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	5	1884.671000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	6	1885.539000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	7	1887.010000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	8	1890.210000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	9	1887.358000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+3	10	1882.442000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	1	1894.845000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	2	1892.019000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	3	1889.040000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	4	1893.984000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	5	1892.062000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	6	1893.080000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	7	1887.975000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	8	1887.739000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	9	1890.751000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+4	10	1886.870000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	1	1900.471000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	2	1899.762000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	3	1895.800000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	4	1900.447000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	5	1897.237000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	6	1912.317000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	7	1901.660000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	8	1903.185000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	9	1898.281000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+5	10	1908.273000	ms	total	fannkuchredux	Lua	cbgame	10	default					29
+# benchmark: 30={"name":"binarytrees","command":"binarytrees","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"cbgame","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":15}
+# run_id: 30={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  ../../awfy/Lua/harness.lua binarytrees 10  15","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua","cores":"default","extraArgs":"15","benchmark_id":30}
+1	1	610.111000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	2	619.480000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	3	630.700000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	4	626.713000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	5	626.901000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	6	652.832000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	7	606.569000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	8	604.100000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	9	659.618000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+1	10	649.233000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	1	617.998000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	2	618.885000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	3	636.381000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	4	629.227000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	5	618.660000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	6	648.324000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	7	593.999000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	8	598.192000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	9	646.796000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+2	10	659.445000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	1	607.007000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	2	611.692000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	3	617.098000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	4	630.302000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	5	611.627000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	6	647.981000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	7	594.552000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	8	592.939000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	9	642.405000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+3	10	646.280000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	1	755.466000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	2	629.255000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	3	625.548000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	4	624.686000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	5	640.274000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	6	659.114000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	7	593.663000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	8	590.736000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	9	649.217000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+4	10	661.665000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	1	605.660000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	2	618.725000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	3	619.046000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	4	624.989000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	5	647.657000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	6	644.184000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	7	583.572000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	8	597.303000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	9	626.109000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+5	10	636.225000	ms	total	binarytrees	YkLua	cbgame	15	default					30
+# benchmark: 31={"name":"HashIds","command":"HashIds","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"realworld","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":6000}
+# run_id: 31={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  ../../awfy/Lua/harness.lua HashIds 10  6000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua","cores":"default","extraArgs":"6000","benchmark_id":31}
+1	1	977.489000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	2	980.250000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	3	980.490000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	4	977.772000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	5	982.405000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	6	977.869000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	7	980.478000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	8	979.680000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	9	976.376000	ms	total	HashIds	Lua	realworld	6000	default					31
+1	10	979.428000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	1	969.523000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	2	966.199000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	3	971.240000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	4	962.822000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	5	968.745000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	6	970.894000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	7	972.211000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	8	972.282000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	9	971.220000	ms	total	HashIds	Lua	realworld	6000	default					31
+2	10	970.433000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	1	992.796000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	2	978.084000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	3	977.745000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	4	976.737000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	5	978.196000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	6	976.180000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	7	984.047000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	8	982.010000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	9	989.982000	ms	total	HashIds	Lua	realworld	6000	default					31
+3	10	984.879000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	1	969.441000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	2	964.603000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	3	972.208000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	4	970.939000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	5	972.067000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	6	970.449000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	7	969.263000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	8	969.104000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	9	967.836000	ms	total	HashIds	Lua	realworld	6000	default					31
+4	10	971.999000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	1	1011.736000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	2	1005.773000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	3	995.075000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	4	1001.811000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	5	1000.988000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	6	1008.065000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	7	1012.722000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	8	1011.388000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	9	1003.573000	ms	total	HashIds	Lua	realworld	6000	default					31
+5	10	1008.466000	ms	total	HashIds	Lua	realworld	6000	default					31
+# benchmark: 32={"name":"Towers","command":"Towers","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":600}
+# run_id: 32={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Towers 10  600","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"600","benchmark_id":32}
+1	1	562.720000	ms	total	Towers	YkLua	awfy	600	default					32
+1	2	534.695000	ms	total	Towers	YkLua	awfy	600	default					32
+1	3	536.238000	ms	total	Towers	YkLua	awfy	600	default					32
+1	4	538.433000	ms	total	Towers	YkLua	awfy	600	default					32
+1	5	537.059000	ms	total	Towers	YkLua	awfy	600	default					32
+1	6	535.810000	ms	total	Towers	YkLua	awfy	600	default					32
+1	7	536.034000	ms	total	Towers	YkLua	awfy	600	default					32
+1	8	536.293000	ms	total	Towers	YkLua	awfy	600	default					32
+1	9	537.483000	ms	total	Towers	YkLua	awfy	600	default					32
+1	10	539.465000	ms	total	Towers	YkLua	awfy	600	default					32
+2	1	554.778000	ms	total	Towers	YkLua	awfy	600	default					32
+2	2	528.167000	ms	total	Towers	YkLua	awfy	600	default					32
+2	3	530.153000	ms	total	Towers	YkLua	awfy	600	default					32
+2	4	530.144000	ms	total	Towers	YkLua	awfy	600	default					32
+2	5	529.130000	ms	total	Towers	YkLua	awfy	600	default					32
+2	6	530.840000	ms	total	Towers	YkLua	awfy	600	default					32
+2	7	528.957000	ms	total	Towers	YkLua	awfy	600	default					32
+2	8	529.164000	ms	total	Towers	YkLua	awfy	600	default					32
+2	9	531.370000	ms	total	Towers	YkLua	awfy	600	default					32
+2	10	531.677000	ms	total	Towers	YkLua	awfy	600	default					32
+3	1	568.415000	ms	total	Towers	YkLua	awfy	600	default					32
+3	2	543.739000	ms	total	Towers	YkLua	awfy	600	default					32
+3	3	545.943000	ms	total	Towers	YkLua	awfy	600	default					32
+3	4	548.537000	ms	total	Towers	YkLua	awfy	600	default					32
+3	5	547.134000	ms	total	Towers	YkLua	awfy	600	default					32
+3	6	539.480000	ms	total	Towers	YkLua	awfy	600	default					32
+3	7	542.531000	ms	total	Towers	YkLua	awfy	600	default					32
+3	8	543.136000	ms	total	Towers	YkLua	awfy	600	default					32
+3	9	538.486000	ms	total	Towers	YkLua	awfy	600	default					32
+3	10	541.337000	ms	total	Towers	YkLua	awfy	600	default					32
+4	1	534.366000	ms	total	Towers	YkLua	awfy	600	default					32
+4	2	509.301000	ms	total	Towers	YkLua	awfy	600	default					32
+4	3	509.401000	ms	total	Towers	YkLua	awfy	600	default					32
+4	4	507.367000	ms	total	Towers	YkLua	awfy	600	default					32
+4	5	508.332000	ms	total	Towers	YkLua	awfy	600	default					32
+4	6	509.573000	ms	total	Towers	YkLua	awfy	600	default					32
+4	7	510.715000	ms	total	Towers	YkLua	awfy	600	default					32
+4	8	511.823000	ms	total	Towers	YkLua	awfy	600	default					32
+4	9	511.808000	ms	total	Towers	YkLua	awfy	600	default					32
+4	10	507.543000	ms	total	Towers	YkLua	awfy	600	default					32
+5	1	557.199000	ms	total	Towers	YkLua	awfy	600	default					32
+5	2	531.188000	ms	total	Towers	YkLua	awfy	600	default					32
+5	3	530.824000	ms	total	Towers	YkLua	awfy	600	default					32
+5	4	530.285000	ms	total	Towers	YkLua	awfy	600	default					32
+5	5	532.578000	ms	total	Towers	YkLua	awfy	600	default					32
+5	6	526.472000	ms	total	Towers	YkLua	awfy	600	default					32
+5	7	523.006000	ms	total	Towers	YkLua	awfy	600	default					32
+5	8	525.436000	ms	total	Towers	YkLua	awfy	600	default					32
+5	9	528.075000	ms	total	Towers	YkLua	awfy	600	default					32
+5	10	522.224000	ms	total	Towers	YkLua	awfy	600	default					32
+# benchmark: 33={"name":"Bounce","command":"Bounce","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 33={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Bounce 10  1500","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1500","benchmark_id":33}
+1	1	1168.004000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	2	1169.645000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	3	1165.453000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	4	1170.085000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	5	1164.184000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	6	1159.577000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	7	1169.641000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	8	1159.560000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	9	1163.940000	ms	total	Bounce	Lua	awfy	1500	default					33
+1	10	1167.236000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	1	1103.810000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	2	1101.292000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	3	1110.354000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	4	1101.149000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	5	1108.234000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	6	1107.554000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	7	1102.057000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	8	1107.345000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	9	1115.744000	ms	total	Bounce	Lua	awfy	1500	default					33
+2	10	1116.255000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	1	1148.804000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	2	1150.051000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	3	1144.925000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	4	1144.401000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	5	1141.459000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	6	1141.799000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	7	1146.401000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	8	1143.558000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	9	1143.571000	ms	total	Bounce	Lua	awfy	1500	default					33
+3	10	1145.582000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	1	1133.663000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	2	1132.600000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	3	1129.726000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	4	1133.007000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	5	1129.245000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	6	1131.411000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	7	1132.479000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	8	1135.691000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	9	1136.431000	ms	total	Bounce	Lua	awfy	1500	default					33
+4	10	1124.977000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	1	1142.897000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	2	1140.801000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	3	1146.451000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	4	1145.205000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	5	1144.745000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	6	1143.430000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	7	1141.531000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	8	1144.879000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	9	1146.049000	ms	total	Bounce	Lua	awfy	1500	default					33
+5	10	1135.546000	ms	total	Bounce	Lua	awfy	1500	default					33
+# benchmark: 34={"name":"HashIds","command":"HashIds","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"realworld","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":6000}
+# run_id: 34={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  ../../awfy/Lua/harness.lua HashIds 10  6000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/realworld/Lua","cores":"default","extraArgs":"6000","benchmark_id":34}
+1	1	731.655000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	2	714.847000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	3	717.514000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	4	715.974000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	5	718.033000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	6	717.384000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	7	716.704000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	8	713.943000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	9	714.686000	ms	total	HashIds	YkLua	realworld	6000	default					34
+1	10	712.058000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	1	757.520000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	2	741.545000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	3	739.889000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	4	743.250000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	5	741.333000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	6	744.784000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	7	744.842000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	8	743.168000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	9	749.138000	ms	total	HashIds	YkLua	realworld	6000	default					34
+2	10	746.516000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	1	739.488000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	2	724.037000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	3	726.467000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	4	725.216000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	5	723.058000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	6	727.260000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	7	728.257000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	8	725.330000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	9	726.732000	ms	total	HashIds	YkLua	realworld	6000	default					34
+3	10	725.968000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	1	731.073000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	2	719.433000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	3	715.662000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	4	719.627000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	5	717.169000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	6	717.541000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	7	716.852000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	8	716.254000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	9	714.563000	ms	total	HashIds	YkLua	realworld	6000	default					34
+4	10	716.857000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	1	729.757000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	2	711.792000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	3	714.313000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	4	714.298000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	5	716.463000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	6	714.782000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	7	715.513000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	8	713.873000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	9	714.511000	ms	total	HashIds	YkLua	realworld	6000	default					34
+5	10	717.292000	ms	total	HashIds	YkLua	realworld	6000	default					34
+# benchmark: 35={"name":"knucleotide","command":"knucleotide","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"cbgame","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]}}
+# run_id: 35={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  ../../awfy/Lua/harness.lua knucleotide 10","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua","cores":"default","benchmark_id":35}
+1	1	953.765000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	2	935.048000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	3	918.746000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	4	921.191000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	5	914.870000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	6	921.470000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	7	920.246000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	8	925.517000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	9	917.595000	ms	total	knucleotide	YkLua	cbgame		default					35
+1	10	913.632000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	1	962.357000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	2	937.187000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	3	941.076000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	4	914.087000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	5	915.302000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	6	912.570000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	7	910.918000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	8	911.554000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	9	912.663000	ms	total	knucleotide	YkLua	cbgame		default					35
+2	10	916.316000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	1	960.936000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	2	932.248000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	3	933.729000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	4	929.996000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	5	911.991000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	6	911.571000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	7	916.628000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	8	912.447000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	9	913.906000	ms	total	knucleotide	YkLua	cbgame		default					35
+3	10	912.799000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	1	941.581000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	2	932.444000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	3	925.302000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	4	930.710000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	5	932.508000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	6	912.111000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	7	913.474000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	8	911.561000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	9	907.066000	ms	total	knucleotide	YkLua	cbgame		default					35
+4	10	916.413000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	1	962.783000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	2	934.415000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	3	935.715000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	4	932.899000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	5	937.575000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	6	933.626000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	7	927.055000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	8	913.681000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	9	909.985000	ms	total	knucleotide	YkLua	cbgame		default					35
+5	10	911.686000	ms	total	knucleotide	YkLua	cbgame		default					35
+# benchmark: 36={"name":"fannkuchredux","command":"fannkuchredux","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"cbgame","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":10}
+# run_id: 36={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  ../../awfy/Lua/harness.lua fannkuchredux 10  10","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua","cores":"default","extraArgs":"10","benchmark_id":36}
+1	1	760.142000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	2	751.702000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	3	749.879000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	4	745.712000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	5	752.404000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	6	747.431000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	7	748.952000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	8	750.319000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	9	749.083000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+1	10	748.922000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	1	747.681000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	2	736.103000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	3	734.805000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	4	747.914000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	5	738.341000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	6	735.527000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	7	735.158000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	8	738.472000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	9	737.621000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+2	10	731.048000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	1	758.259000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	2	746.852000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	3	750.769000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	4	749.726000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	5	747.548000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	6	751.714000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	7	745.668000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	8	747.345000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	9	747.153000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+3	10	758.847000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	1	749.131000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	2	736.541000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	3	737.555000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	4	736.258000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	5	740.804000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	6	737.892000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	7	737.128000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	8	740.889000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	9	737.887000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+4	10	736.693000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	1	748.112000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	2	739.853000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	3	738.680000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	4	738.030000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	5	737.373000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	6	738.126000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	7	737.859000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	8	736.095000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	9	738.349000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+5	10	737.233000	ms	total	fannkuchredux	YkLua	cbgame	10	default					36
+# benchmark: 37={"name":"Sieve","command":"Sieve","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":3000}
+# run_id: 37={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Sieve 10  3000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"3000","benchmark_id":37}
+1	1	753.364000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	2	752.215000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	3	748.814000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	4	735.977000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	5	736.710000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	6	743.031000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	7	745.173000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	8	738.126000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	9	765.340000	ms	total	Sieve	Lua	awfy	3000	default					37
+1	10	746.485000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	1	761.956000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	2	760.473000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	3	757.355000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	4	747.308000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	5	742.938000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	6	749.407000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	7	752.831000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	8	738.010000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	9	741.885000	ms	total	Sieve	Lua	awfy	3000	default					37
+2	10	771.238000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	1	740.100000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	2	746.379000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	3	774.562000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	4	746.027000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	5	737.152000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	6	735.199000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	7	733.511000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	8	739.965000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	9	749.219000	ms	total	Sieve	Lua	awfy	3000	default					37
+3	10	769.838000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	1	756.690000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	2	758.915000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	3	766.023000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	4	758.211000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	5	755.533000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	6	757.082000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	7	758.983000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	8	770.735000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	9	769.361000	ms	total	Sieve	Lua	awfy	3000	default					37
+4	10	755.758000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	1	759.518000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	2	754.891000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	3	752.348000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	4	764.059000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	5	750.970000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	6	768.076000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	7	783.574000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	8	746.051000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	9	757.551000	ms	total	Sieve	Lua	awfy	3000	default					37
+5	10	747.353000	ms	total	Sieve	Lua	awfy	3000	default					37
+# benchmark: 38={"name":"binarytrees","command":"binarytrees","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{"LUA_PATH":"?.lua;../../awfy/Lua/?.lua"}},"suite":{"name":"cbgame","command":" ../../awfy/Lua/harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":15}
+# run_id: 38={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  ../../awfy/Lua/harness.lua binarytrees 10  15","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/cbgame/Lua","cores":"default","extraArgs":"15","benchmark_id":38}
+1	1	863.708000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	2	837.021000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	3	891.744000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	4	933.057000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	5	914.363000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	6	897.743000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	7	921.731000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	8	930.413000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	9	912.388000	ms	total	binarytrees	Lua	cbgame	15	default					38
+1	10	892.144000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	1	860.468000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	2	830.689000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	3	892.527000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	4	921.486000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	5	915.013000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	6	924.392000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	7	933.655000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	8	932.615000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	9	920.736000	ms	total	binarytrees	Lua	cbgame	15	default					38
+2	10	900.594000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	1	866.480000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	2	835.235000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	3	896.426000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	4	924.593000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	5	916.969000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	6	913.346000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	7	955.384000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	8	952.090000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	9	926.789000	ms	total	binarytrees	Lua	cbgame	15	default					38
+3	10	904.890000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	1	844.330000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	2	813.769000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	3	887.619000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	4	909.724000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	5	902.638000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	6	899.762000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	7	924.216000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	8	960.297000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	9	926.061000	ms	total	binarytrees	Lua	cbgame	15	default					38
+4	10	900.132000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	1	867.793000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	2	833.485000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	3	900.989000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	4	927.286000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	5	915.721000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	6	911.901000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	7	940.123000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	8	946.670000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	9	931.003000	ms	total	binarytrees	Lua	cbgame	15	default					38
+5	10	931.478000	ms	total	binarytrees	Lua	cbgame	15	default					38
+# benchmark: 39={"name":"Richards","command":"Richards","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":100}
+# run_id: 39={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Richards 10  100","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"100","benchmark_id":39}
+1	1	4299.326000	ms	total	Richards	Lua	awfy	100	default					39
+1	2	4293.836000	ms	total	Richards	Lua	awfy	100	default					39
+1	3	4281.261000	ms	total	Richards	Lua	awfy	100	default					39
+1	4	4286.943000	ms	total	Richards	Lua	awfy	100	default					39
+1	5	4279.064000	ms	total	Richards	Lua	awfy	100	default					39
+1	6	4284.894000	ms	total	Richards	Lua	awfy	100	default					39
+1	7	4281.019000	ms	total	Richards	Lua	awfy	100	default					39
+1	8	4281.210000	ms	total	Richards	Lua	awfy	100	default					39
+1	9	4292.036000	ms	total	Richards	Lua	awfy	100	default					39
+1	10	4282.039000	ms	total	Richards	Lua	awfy	100	default					39
+2	1	4111.506000	ms	total	Richards	Lua	awfy	100	default					39
+2	2	4101.197000	ms	total	Richards	Lua	awfy	100	default					39
+2	3	4102.050000	ms	total	Richards	Lua	awfy	100	default					39
+2	4	4089.139000	ms	total	Richards	Lua	awfy	100	default					39
+2	5	4088.619000	ms	total	Richards	Lua	awfy	100	default					39
+2	6	4081.682000	ms	total	Richards	Lua	awfy	100	default					39
+2	7	4089.749000	ms	total	Richards	Lua	awfy	100	default					39
+2	8	4085.181000	ms	total	Richards	Lua	awfy	100	default					39
+2	9	4080.476000	ms	total	Richards	Lua	awfy	100	default					39
+2	10	4080.061000	ms	total	Richards	Lua	awfy	100	default					39
+3	1	4208.207000	ms	total	Richards	Lua	awfy	100	default					39
+3	2	4206.347000	ms	total	Richards	Lua	awfy	100	default					39
+3	3	4211.441000	ms	total	Richards	Lua	awfy	100	default					39
+3	4	4210.472000	ms	total	Richards	Lua	awfy	100	default					39
+3	5	4208.729000	ms	total	Richards	Lua	awfy	100	default					39
+3	6	4210.990000	ms	total	Richards	Lua	awfy	100	default					39
+3	7	4204.436000	ms	total	Richards	Lua	awfy	100	default					39
+3	8	4205.795000	ms	total	Richards	Lua	awfy	100	default					39
+3	9	4203.637000	ms	total	Richards	Lua	awfy	100	default					39
+3	10	4216.431000	ms	total	Richards	Lua	awfy	100	default					39
+4	1	4234.644000	ms	total	Richards	Lua	awfy	100	default					39
+4	2	4236.701000	ms	total	Richards	Lua	awfy	100	default					39
+4	3	4233.643000	ms	total	Richards	Lua	awfy	100	default					39
+4	4	4226.114000	ms	total	Richards	Lua	awfy	100	default					39
+4	5	4224.296000	ms	total	Richards	Lua	awfy	100	default					39
+4	6	4236.572000	ms	total	Richards	Lua	awfy	100	default					39
+4	7	4231.879000	ms	total	Richards	Lua	awfy	100	default					39
+4	8	4222.869000	ms	total	Richards	Lua	awfy	100	default					39
+4	9	4231.658000	ms	total	Richards	Lua	awfy	100	default					39
+4	10	4227.368000	ms	total	Richards	Lua	awfy	100	default					39
+5	1	4251.045000	ms	total	Richards	Lua	awfy	100	default					39
+5	2	4272.078000	ms	total	Richards	Lua	awfy	100	default					39
+5	3	4243.259000	ms	total	Richards	Lua	awfy	100	default					39
+5	4	4234.384000	ms	total	Richards	Lua	awfy	100	default					39
+5	5	4230.173000	ms	total	Richards	Lua	awfy	100	default					39
+5	6	4221.794000	ms	total	Richards	Lua	awfy	100	default					39
+5	7	4221.793000	ms	total	Richards	Lua	awfy	100	default					39
+5	8	4222.143000	ms	total	Richards	Lua	awfy	100	default					39
+5	9	4236.460000	ms	total	Richards	Lua	awfy	100	default					39
+5	10	4230.984000	ms	total	Richards	Lua	awfy	100	default					39
+# benchmark: 40={"name":"Permute","command":"Permute","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 40={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua Permute 10  1000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1000","benchmark_id":40}
+1	1	1138.101000	ms	total	Permute	Lua	awfy	1000	default					40
+1	2	1141.736000	ms	total	Permute	Lua	awfy	1000	default					40
+1	3	1143.282000	ms	total	Permute	Lua	awfy	1000	default					40
+1	4	1138.356000	ms	total	Permute	Lua	awfy	1000	default					40
+1	5	1142.723000	ms	total	Permute	Lua	awfy	1000	default					40
+1	6	1137.121000	ms	total	Permute	Lua	awfy	1000	default					40
+1	7	1137.830000	ms	total	Permute	Lua	awfy	1000	default					40
+1	8	1136.037000	ms	total	Permute	Lua	awfy	1000	default					40
+1	9	1141.280000	ms	total	Permute	Lua	awfy	1000	default					40
+1	10	1144.932000	ms	total	Permute	Lua	awfy	1000	default					40
+2	1	1039.886000	ms	total	Permute	Lua	awfy	1000	default					40
+2	2	1048.977000	ms	total	Permute	Lua	awfy	1000	default					40
+2	3	1053.535000	ms	total	Permute	Lua	awfy	1000	default					40
+2	4	1055.229000	ms	total	Permute	Lua	awfy	1000	default					40
+2	5	1057.833000	ms	total	Permute	Lua	awfy	1000	default					40
+2	6	1055.397000	ms	total	Permute	Lua	awfy	1000	default					40
+2	7	1039.304000	ms	total	Permute	Lua	awfy	1000	default					40
+2	8	1044.661000	ms	total	Permute	Lua	awfy	1000	default					40
+2	9	1046.568000	ms	total	Permute	Lua	awfy	1000	default					40
+2	10	1057.093000	ms	total	Permute	Lua	awfy	1000	default					40
+3	1	1030.671000	ms	total	Permute	Lua	awfy	1000	default					40
+3	2	1035.023000	ms	total	Permute	Lua	awfy	1000	default					40
+3	3	1035.142000	ms	total	Permute	Lua	awfy	1000	default					40
+3	4	1039.193000	ms	total	Permute	Lua	awfy	1000	default					40
+3	5	1037.605000	ms	total	Permute	Lua	awfy	1000	default					40
+3	6	1034.933000	ms	total	Permute	Lua	awfy	1000	default					40
+3	7	1038.871000	ms	total	Permute	Lua	awfy	1000	default					40
+3	8	1040.299000	ms	total	Permute	Lua	awfy	1000	default					40
+3	9	1044.873000	ms	total	Permute	Lua	awfy	1000	default					40
+3	10	1045.339000	ms	total	Permute	Lua	awfy	1000	default					40
+4	1	1117.498000	ms	total	Permute	Lua	awfy	1000	default					40
+4	2	1119.483000	ms	total	Permute	Lua	awfy	1000	default					40
+4	3	1128.000000	ms	total	Permute	Lua	awfy	1000	default					40
+4	4	1123.047000	ms	total	Permute	Lua	awfy	1000	default					40
+4	5	1124.310000	ms	total	Permute	Lua	awfy	1000	default					40
+4	6	1123.067000	ms	total	Permute	Lua	awfy	1000	default					40
+4	7	1121.447000	ms	total	Permute	Lua	awfy	1000	default					40
+4	8	1117.280000	ms	total	Permute	Lua	awfy	1000	default					40
+4	9	1125.260000	ms	total	Permute	Lua	awfy	1000	default					40
+4	10	1121.016000	ms	total	Permute	Lua	awfy	1000	default					40
+5	1	1105.091000	ms	total	Permute	Lua	awfy	1000	default					40
+5	2	1106.481000	ms	total	Permute	Lua	awfy	1000	default					40
+5	3	1105.978000	ms	total	Permute	Lua	awfy	1000	default					40
+5	4	1107.969000	ms	total	Permute	Lua	awfy	1000	default					40
+5	5	1105.273000	ms	total	Permute	Lua	awfy	1000	default					40
+5	6	1108.279000	ms	total	Permute	Lua	awfy	1000	default					40
+5	7	1121.679000	ms	total	Permute	Lua	awfy	1000	default					40
+5	8	1122.944000	ms	total	Permute	Lua	awfy	1000	default					40
+5	9	1119.453000	ms	total	Permute	Lua	awfy	1000	default					40
+5	10	1119.874000	ms	total	Permute	Lua	awfy	1000	default					40
+# benchmark: 41={"name":"CD","command":"CD","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":250}
+# run_id: 41={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua CD 10  250","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"250","benchmark_id":41}
+1	1	2611.284000	ms	total	CD	Lua	awfy	250	default					41
+1	2	2592.566000	ms	total	CD	Lua	awfy	250	default					41
+1	3	2617.384000	ms	total	CD	Lua	awfy	250	default					41
+1	4	2622.917000	ms	total	CD	Lua	awfy	250	default					41
+1	5	2620.598000	ms	total	CD	Lua	awfy	250	default					41
+1	6	2620.303000	ms	total	CD	Lua	awfy	250	default					41
+1	7	2618.148000	ms	total	CD	Lua	awfy	250	default					41
+1	8	2618.899000	ms	total	CD	Lua	awfy	250	default					41
+1	9	2622.084000	ms	total	CD	Lua	awfy	250	default					41
+1	10	2621.796000	ms	total	CD	Lua	awfy	250	default					41
+2	1	2640.269000	ms	total	CD	Lua	awfy	250	default					41
+2	2	2660.607000	ms	total	CD	Lua	awfy	250	default					41
+2	3	2620.822000	ms	total	CD	Lua	awfy	250	default					41
+2	4	2620.501000	ms	total	CD	Lua	awfy	250	default					41
+2	5	2612.873000	ms	total	CD	Lua	awfy	250	default					41
+2	6	2616.364000	ms	total	CD	Lua	awfy	250	default					41
+2	7	2617.308000	ms	total	CD	Lua	awfy	250	default					41
+2	8	2614.783000	ms	total	CD	Lua	awfy	250	default					41
+2	9	2614.836000	ms	total	CD	Lua	awfy	250	default					41
+2	10	2618.029000	ms	total	CD	Lua	awfy	250	default					41
+3	1	2635.388000	ms	total	CD	Lua	awfy	250	default					41
+3	2	2663.540000	ms	total	CD	Lua	awfy	250	default					41
+3	3	2658.479000	ms	total	CD	Lua	awfy	250	default					41
+3	4	2666.116000	ms	total	CD	Lua	awfy	250	default					41
+3	5	2659.701000	ms	total	CD	Lua	awfy	250	default					41
+3	6	2660.295000	ms	total	CD	Lua	awfy	250	default					41
+3	7	2626.960000	ms	total	CD	Lua	awfy	250	default					41
+3	8	2660.446000	ms	total	CD	Lua	awfy	250	default					41
+3	9	2648.379000	ms	total	CD	Lua	awfy	250	default					41
+3	10	2642.028000	ms	total	CD	Lua	awfy	250	default					41
+4	1	2623.579000	ms	total	CD	Lua	awfy	250	default					41
+4	2	2644.512000	ms	total	CD	Lua	awfy	250	default					41
+4	3	2647.992000	ms	total	CD	Lua	awfy	250	default					41
+4	4	2633.269000	ms	total	CD	Lua	awfy	250	default					41
+4	5	2631.249000	ms	total	CD	Lua	awfy	250	default					41
+4	6	2635.203000	ms	total	CD	Lua	awfy	250	default					41
+4	7	2622.543000	ms	total	CD	Lua	awfy	250	default					41
+4	8	2609.184000	ms	total	CD	Lua	awfy	250	default					41
+4	9	2611.902000	ms	total	CD	Lua	awfy	250	default					41
+4	10	2612.510000	ms	total	CD	Lua	awfy	250	default					41
+5	1	2600.392000	ms	total	CD	Lua	awfy	250	default					41
+5	2	2622.297000	ms	total	CD	Lua	awfy	250	default					41
+5	3	2631.514000	ms	total	CD	Lua	awfy	250	default					41
+5	4	2602.231000	ms	total	CD	Lua	awfy	250	default					41
+5	5	2598.303000	ms	total	CD	Lua	awfy	250	default					41
+5	6	2601.216000	ms	total	CD	Lua	awfy	250	default					41
+5	7	2596.340000	ms	total	CD	Lua	awfy	250	default					41
+5	8	2598.412000	ms	total	CD	Lua	awfy	250	default					41
+5	9	2598.288000	ms	total	CD	Lua	awfy	250	default					41
+5	10	2603.985000	ms	total	CD	Lua	awfy	250	default					41
+# benchmark: 42={"name":"Storage","command":"Storage","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"YkLua","executable":"yklua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 42={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/yklua/src/yklua  harness.lua Storage 10  1000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"1000","benchmark_id":42}
+1	1	1633.023000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	2	1659.961000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	3	1692.778000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	4	1695.244000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	5	1692.529000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	6	1693.639000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	7	1699.105000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	8	1700.652000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	9	1700.875000	ms	total	Storage	YkLua	awfy	1000	default					42
+1	10	1692.482000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	1	1625.236000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	2	1641.997000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	3	1670.622000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	4	1688.978000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	5	1696.610000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	6	1683.496000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	7	1687.681000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	8	1686.762000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	9	1693.019000	ms	total	Storage	YkLua	awfy	1000	default					42
+2	10	1686.581000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	1	1627.205000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	2	1655.179000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	3	1671.887000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	4	1684.041000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	5	1684.116000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	6	1684.583000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	7	1689.534000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	8	1686.891000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	9	1683.371000	ms	total	Storage	YkLua	awfy	1000	default					42
+3	10	1684.619000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	1	1606.356000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	2	1645.306000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	3	1695.955000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	4	1701.553000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	5	1702.680000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	6	1704.201000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	7	1702.412000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	8	1699.605000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	9	1706.424000	ms	total	Storage	YkLua	awfy	1000	default					42
+4	10	1697.578000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	1	1630.447000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	2	1651.307000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	3	1690.899000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	4	1696.383000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	5	1697.947000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	6	1695.496000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	7	1696.515000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	8	1697.696000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	9	1696.382000	ms	total	Storage	YkLua	awfy	1000	default					42
+5	10	1692.445000	ms	total	Storage	YkLua	awfy	1000	default					42
+# benchmark: 43={"name":"DeltaBlue","command":"DeltaBlue","runDetails":{"invocations":5,"iterations":10,"minIterationTime":200,"maxInvocationTime":600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"awfy","command":" harness.lua %(benchmark)s %(iterations)s ","executor":{"name":"Lua","executable":"lua","action":"benchmark","runDetails":{"invocations":1,"iterations":1,"minIterationTime":50,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"path":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src"},"location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua"},"variables":{"input_sizes":[""],"cores":["default"],"variable_values":[""],"tags":[null]},"extra_args":12000}
+# run_id: 43={"cmdline":"/home/ykbench/yk-benchmarks/runs/20261118_112457/lua/src/lua  harness.lua DeltaBlue 10  12000","location":"/home/ykbench/yk-benchmarks/runs/20261118_112457/suites/awfy/Lua","cores":"default","extraArgs":"12000","benchmark_id":43}
+1	1	776.136000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	2	826.355000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	3	815.073000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	4	827.014000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	5	818.184000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	6	857.395000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	7	792.578000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	8	761.612000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	9	802.820000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+1	10	879.634000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	1	786.770000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	2	830.775000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	3	819.190000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	4	797.869000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	5	866.132000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	6	867.503000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	7	863.795000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	8	763.925000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	9	806.986000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+2	10	865.744000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	1	790.834000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	2	823.554000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	3	812.774000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	4	803.878000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	5	821.914000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	6	844.002000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	7	808.478000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	8	742.681000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	9	769.640000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+3	10	854.143000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	1	774.389000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	2	835.204000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	3	827.355000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	4	815.553000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	5	826.001000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	6	869.150000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	7	838.956000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	8	761.390000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	9	778.268000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+4	10	865.831000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	1	766.605000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	2	818.567000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	3	809.885000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	4	798.247000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	5	809.424000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	6	850.674000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	7	825.894000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	8	751.600000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	9	794.541000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
+5	10	867.080000	ms	total	DeltaBlue	Lua	awfy	12000	default					43
